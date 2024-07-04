@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <Navigation />
+   <div>
+      <NavigationLayout />
       <NuxtPage />
-  </div>
+   </div>
 </template>
 <script setup lang="ts">
-import Navigation from "~/components/Navigation.vue";
+import NavigationLayout from "~/components/NavigationLayout.vue"
 </script>
