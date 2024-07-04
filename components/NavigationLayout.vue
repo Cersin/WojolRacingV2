@@ -4,8 +4,8 @@
    <nav class="flex flex-row h-16 items-center bg-black text-white navigation">
       <NuxtLink
          to="/"
-         active-class="text-black  bg-yellow-400"
-         class="flex items-center gap-10 h-full px-8"
+         active-class="text-black  bg-primary"
+         class="flex items-center gap-10 h-full px-8 hover:bg-primary"
       >
          <img
             alt="WRL"
@@ -18,26 +18,26 @@
 
       <ul class="flex text-base h-full">
          <NuxtLink
-            class="flex items-center px-16 h-full hover:bg-yellow-400"
-            active-class="text-black bg-yellow-400"
+            class="flex items-center px-16 h-full hover:bg-primary"
+            active-class="text-black bg-primary"
             to="/a"
             >Formula 1</NuxtLink
          >
          <NuxtLink
-            class="flex items-center px-16 h-full hover:bg-yellow-400"
-            active-class="text-black bg-yellow-400"
+            class="flex items-center px-16 h-full hover:bg-primary"
+            active-class="text-black bg-primary"
             to="/b"
             >Assetto Corsa</NuxtLink
          >
          <NuxtLink
-            class="flex items-center px-16 h-full hover:bg-yellow-400"
-            active-class="text-black bg-yellow-400"
+            class="flex items-center px-16 h-full hover:bg-primary"
+            active-class="text-black bg-primary"
             to="/c"
             >Aplikacja</NuxtLink
          >
          <NuxtLink
-            class="flex items-center px-16 h-full hover:bg-yellow-400"
-            active-class="text-black bg-yellow-400"
+            class="flex items-center px-16 h-full hover:bg-primary"
+            active-class="text-black bg-primary"
             to="/d"
             >Serwery</NuxtLink
          >
@@ -46,7 +46,7 @@
       <div class="text-3xl flex-grow flex justify-end">
          <button
             type="button"
-            class="text-white m-8 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            class="text-white m-8 bg-secondary hover:bg-secondary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none"
          >
             Zaloguj
          </button>
