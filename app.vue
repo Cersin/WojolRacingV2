@@ -1,10 +1,39 @@
 <template>
-   <div class="bg-primary">
+   <div class="flex flex-col h-full">
       <NavigationLayout />
-      <NuxtPage />
+      <NuxtPage class="flex-grow" />
    </div>
 </template>
 
 <script setup lang="ts">
 import NavigationLayout from "~/components/NavigationLayout.vue"
 </script>
+
+<style>
+.box {
+   display: flex;
+   flex-flow: column;
+   height: 100%;
+}
+
+.box .row {
+   border: 1px dotted grey;
+}
+
+.box .row.header {
+   flex: 0 1 auto;
+   /* The above is shorthand for:
+   flex-grow: 0,
+   flex-shrink: 1,
+   flex-basis: auto
+   */
+}
+
+.box .row.content {
+   flex: 1 1 auto;
+}
+
+.box .row.footer {
+   flex: 0 1 40px;
+}
+</style>

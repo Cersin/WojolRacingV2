@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+html, body {
+    #__nuxt {
+        @apply h-full;
+    }
+
     font-family: 'M PLUS 1', sans-serif;
+    height: 100%;
+    margin: 0;
+}
+
+.chakra-petch {
+    font-family: "Chakra Petch", sans-serif;
 }
