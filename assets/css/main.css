@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 html, body {
+    /*max-width: 1400px;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    background-color: #ffeb00;
+
     #__nuxt {
         @apply h-full;
     }
