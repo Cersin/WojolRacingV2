@@ -21,6 +21,7 @@ export default defineNuxtConfig({
       "@nuxt/eslint",
       "vue3-carousel-nuxt",
       "@nuxt/icon",
+      "nuxt-facebook-chat",
    ],
    css: ["~/assets/css/main.css"],
    postcss: {
