@@ -2,7 +2,7 @@
 
 <template>
    <nav
-      class="flex flex-row h-16 items-center bg-black text-white navigation text-nowrap overflow-hidden"
+      class="flex flex-row min-h-16 h-16 items-center bg-black text-white navigation text-nowrap overflow-hidden"
    >
       <NuxtLink
          to="/"
@@ -32,7 +32,7 @@
          <NuxtLink
             class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border "
-            to="/s"
+            to="/formula"
             >Formula 1</NuxtLink
          >
          <NuxtLink

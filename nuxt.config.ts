@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
    devtools: { enabled: true },
+   colorMode: {
+      preference: "dark",
+   },
    runtimeConfig: {
       public: {
          api_url: "http://localhost:3000/",
@@ -8,7 +11,6 @@ export default defineNuxtConfig({
    },
    compatibilityDate: "2024-07-03",
    modules: [
-      "@nuxtjs/tailwindcss",
       [
          "@nuxtjs/google-fonts",
          {
@@ -20,13 +22,12 @@ export default defineNuxtConfig({
       ],
       "@nuxt/eslint",
       "vue3-carousel-nuxt",
-      "@nuxt/icon",
       "nuxt-facebook-chat",
+      "@nuxt/ui",
    ],
    css: ["~/assets/css/main.css"],
    postcss: {
       plugins: {
-         tailwindcss: {},
          autoprefixer: {},
       },
    },
