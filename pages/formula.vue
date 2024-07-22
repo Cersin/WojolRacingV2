@@ -8,6 +8,9 @@ import TopPlayersFetch from "~/components/formula1/TopPlayersFetch.vue"
 import Results from "~/components/formula1/results.vue"
 import TopConstructorsFetch from "~/components/formula1/TopConstructorsFetch.vue"
 import AggregateResultsTable from "~/components/formula1/AggregateResultsTable.vue"
+import ClassificationTable from "~/components/formula1/ClassificationTable.vue"
+import ConstructorsTable from "~/components/formula1/ConstructorsTable.vue"
+import StatisticsTable from "~/components/formula1/StatisticsTable.vue"
 
 const tabs = [
    {
@@ -139,6 +142,30 @@ const split = ref(null)
 
                <div v-if="index === 1 && selected">
                   <AggregateResultsTable
+                     v-if="season && split"
+                     :season="season"
+                     :split="split"
+                  />
+               </div>
+
+               <div v-if="index === 2 && selected">
+                  <ClassificationTable
+                     v-if="season && split"
+                     :season="season"
+                     :split="split"
+                  />
+               </div>
+
+               <div v-if="index === 3 && selected">
+                  <ConstructorsTable
+                     v-if="season && split"
+                     :season="season"
+                     :split="split"
+                  />
+               </div>
+
+               <div v-if="index === 4 && selected">
+                  <StatisticsTable
                      v-if="season && split"
                      :season="season"
                      :split="split"

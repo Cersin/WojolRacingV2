@@ -51,16 +51,16 @@ const columns = [
       label: "POS",
    },
    {
+      key: "playerDetails.name",
+      label: "Driver",
+   },
+   {
       key: "logo",
       label: "Logo",
    },
    {
       key: "team",
       label: "Team",
-   },
-   {
-      key: "playerDetails.name",
-      label: "Driver",
    },
    {
       key: "grid",

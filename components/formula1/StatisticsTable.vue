@@ -1,5 +1,5 @@
 <script setup>
-import { computed, toRefs } from "vue"
+import { toRefs } from "vue"
 import teams from "~/data/teams.js"
 import baseTableUI from "~/styles/baseTableUI.js"
 
@@ -19,29 +19,15 @@ const props = defineProps({
 const { season, split } = toRefs(props)
 
 const { data, status } = useLazyFetch(
-   `${config.public.api_url}api/race/detailsPoints`,
+   `${config.public.api_url}api/race/playerStatistics`,
    {
       server: false,
       query: {
          split: split,
          season: season,
       },
-      onResponse: (e) => {
-         if (e.response.ok) {
-            const responseData = e.response._data?.data
-            const races = responseData
-               .map((e) => e.races)
-               .flat()
-               .map((e) => e.track)
-            tracks.value = races.filter(
-               (item, pos) => races.indexOf(item) === pos,
-            )
-         }
-      },
    },
 )
-
-const tracks = ref([])
 
 const columns = [
    {
@@ -60,32 +46,72 @@ const columns = [
       key: "team",
       label: "Team",
    },
+   {
+      key: "firstPlaces",
+      label: "Wins",
+   },
+   {
+      key: "podiums",
+      label: "Podiums",
+   },
+   {
+      key: "top10",
+      label: "Top 10",
+   },
+   {
+      key: "avgPosition",
+      label: "Avg Pos",
+   },
+   {
+      key: "top1Grid",
+      label: "Top 1 Grid",
+   },
+   {
+      key: "top3Grid",
+      label: "Top 3 Grid",
+   },
+   {
+      key: "top10Grid",
+      label: "Top 10 Grid",
+   },
+   {
+      key: "avgStartGrid",
+      label: "Avg Grid",
+   },
+   {
+      key: "fastestLaps",
+      label: "FL",
+   },
+   {
+      key: "races",
+      label: "Races",
+   },
+   {
+      key: "gain",
+      label: "Race Gain",
+   },
+   {
+      key: "avgPits",
+      label: "Avg Pits",
+   },
+   {
+      key: "percentageFinished",
+      label: "Finished",
+   },
+   {
+      key: "DNFs",
+      label: "DNFs",
+   },
+   {
+      key: "points",
+      label: "PTS",
+   },
 ]
-
-const computedColumns = computed(() => {
-   return [
-      ...columns,
-      ...tracks.value.map((el) => {
-         return {
-            key: el,
-            label: el,
-         }
-      }),
-      {
-         key: "points",
-         label: "PTS",
-      },
-   ]
-})
-
-const templateKeys = computed(() => {
-   return tracks.value.map((el) => `${el}-data`)
-})
 </script>
 
 <template>
    <UTable
-      :columns="computedColumns"
+      :columns="columns"
       :rows="data?.data"
       :loading="status === 'pending' || status === 'idle'"
       :ui="baseTableUI"
@@ -102,17 +128,8 @@ const templateKeys = computed(() => {
          <img v-else class="w-8 h-8" :src="teams.Rezerwa.img" alt="Alt Image" />
       </template>
 
-      <template
-         v-for="(track, index) in templateKeys"
-         :key="index"
-         #[track]="e"
-      >
-         <span>
-            {{
-               e.row.races?.find((el) => e.column.key === el.track)?.points ||
-               "DNS"
-            }}
-         </span>
+      <template #percentageFinished-data="{ row }">
+         {{ (row?.percentageFinished * 100).toFixed(0) }}%
       </template>
    </UTable>
 </template>
