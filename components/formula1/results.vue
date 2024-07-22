@@ -67,10 +67,6 @@ const columns = [
       label: "Grid",
    },
    {
-      key: "grid",
-      label: "Grid",
-   },
-   {
       key: "pitStops",
       label: "Stops",
    },

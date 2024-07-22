@@ -7,7 +7,7 @@ const { data, status } = useLazyFetch(`${config.public.api_url}api/splits`, {
       if (e.response.ok) {
          const data = e.response._data?.data
          if (data?.length) {
-            splitModel.value = data[data.length - 1].split
+            splitModel.value = data[0].split
          }
       }
    },

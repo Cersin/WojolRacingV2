@@ -7,6 +7,7 @@ import BestCardFetch from "~/components/formula1/BestCardFetch.vue"
 import TopPlayersFetch from "~/components/formula1/TopPlayersFetch.vue"
 import Results from "~/components/formula1/results.vue"
 import TopConstructorsFetch from "~/components/formula1/TopConstructorsFetch.vue"
+import AggregateResultsTable from "~/components/formula1/AggregateResultsTable.vue"
 
 const tabs = [
    {
@@ -120,7 +121,7 @@ const split = ref(null)
             },
          }"
       >
-         <template #item="{ item }">
+         <template #item="{ index, selected }">
             <UCard
                :ui="{
                   base: '',
@@ -128,7 +129,7 @@ const split = ref(null)
                   ring: 'dark:ring-gray-600',
                }"
             >
-               <div v-if="item.label === 'Wyniki'">
+               <div v-if="index === 0 && selected">
                   <Results
                      v-if="season && split"
                      :season="season"
@@ -136,7 +137,13 @@ const split = ref(null)
                   />
                </div>
 
-               <div v-if="item.label === 'Wyniki zbiorcze'">zbiorcze</div>
+               <div v-if="index === 1 && selected">
+                  <AggregateResultsTable
+                     v-if="season && split"
+                     :season="season"
+                     :split="split"
+                  />
+               </div>
             </UCard>
          </template>
       </UTabs>
