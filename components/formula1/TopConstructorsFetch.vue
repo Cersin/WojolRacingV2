@@ -18,7 +18,7 @@ const props = defineProps({
 const { season, split } = toRefs(props)
 
 const { data, status } = await useLazyFetch(
-   `${config.public.api_url}api/race/playerPoints`,
+   `${config.public.api_url}api/race/constructorPoints`,
    {
       server: false,
       query: {
@@ -48,12 +48,12 @@ const { data, status } = await useLazyFetch(
          >
             <div class="flex items-center justify-around">
                <div class="w-2/4">
-                  {{ data.data[index].player.name }}
+                  {{ data.data[index]._id }}
                </div>
                <img
-                  v-if="!!teams[data.data[index].team]"
+                  v-if="!!teams[data.data[index]._id]"
                   class="w-8 h-8"
-                  :src="teams[data.data[index].team].img"
+                  :src="teams[data.data[index]._id].img"
                   alt="Team image"
                />
                <img

@@ -3,11 +3,19 @@ const config = useRuntimeConfig()
 
 const { data, status } = useLazyFetch(`${config.public.api_url}api/splits`, {
    server: false,
+   onResponse: (e) => {
+      if (e.response.ok) {
+         const data = e.response._data?.data
+         if (data?.length) {
+            splitModel.value = data[data.length - 1].split
+         }
+      }
+   },
 })
 
 const splitModel = defineModel("split", {
    type: [String, Number],
-   required: true,
+   default: null,
 })
 </script>
 
@@ -20,12 +28,13 @@ const splitModel = defineModel("split", {
       option-attribute="split"
       value-attribute="split"
       :loading="status === 'pending' || status === 'idle'"
-      variant=""
       color="black"
       size="md"
       class="bg-primary text-black rounded min-w-24 z-50"
    >
-      <template #label>Split: {{ splitModel }}</template>
+      <template #label>
+         <span class="text-black">Split: {{ splitModel }}</span>
+      </template>
    </USelectMenu>
 </template>
 

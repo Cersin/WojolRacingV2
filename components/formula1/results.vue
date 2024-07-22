@@ -7,12 +7,12 @@ const config = useRuntimeConfig()
 
 const props = defineProps({
    season: {
-      type: [Number, String],
-      required: true,
+      type: [Number, String, null],
+      default: null,
    },
    split: {
-      type: [Number, String],
-      required: true,
+      type: [Number, String, null],
+      default: null,
    },
 })
 

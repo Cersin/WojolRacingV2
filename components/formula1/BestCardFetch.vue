@@ -26,7 +26,7 @@ const getFirstPlayer = computed(() => {
 
       <PlayerCard
          v-else-if="status === 'success'"
-         class="rounded-xl"
+         class="rounded-xl overflow-hidden"
          :card="getFirstPlayer"
          with-redirection
       />

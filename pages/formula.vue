@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import Results from "~/components/formula1/results.vue"
 import PartnersCarousel from "~/components/partners/PartnersCarousel.vue"
 import BaseSocials from "~/components/layout/BaseSocials.vue"
 import SeasonSelect from "~/components/formula1/SeasonSelect.vue"
 import SplitSelect from "~/components/formula1/SplitSelect.vue"
 import BestCardFetch from "~/components/formula1/BestCardFetch.vue"
 import TopPlayersFetch from "~/components/formula1/TopPlayersFetch.vue"
+import Results from "~/components/formula1/results.vue"
+import TopConstructorsFetch from "~/components/formula1/TopConstructorsFetch.vue"
 
 const tabs = [
    {
@@ -31,8 +32,8 @@ const tabs = [
    },
 ]
 
-const season = ref(1)
-const split = ref(1)
+const season = ref(null)
+const split = ref(null)
 </script>
 
 <template>
@@ -60,13 +61,21 @@ const split = ref(1)
          <div
             class="hidden lg:flex col-span-1 row-span-2 col-start-1 justify-center border-gray-600 border-2 rounded-xl"
          >
-            <TopPlayersFetch :split="split" :season="season" />
+            <TopPlayersFetch
+               v-if="season && split"
+               :split="split"
+               :season="season"
+            />
          </div>
 
          <div
             class="hidden lg:block col-span-1 row-span-2 col-start-2 border-gray-600 border-2 rounded-xl"
          >
-            test2
+            <TopConstructorsFetch
+               v-if="season && split"
+               :split="split"
+               :season="season"
+            />
          </div>
 
          <div
@@ -83,7 +92,7 @@ const split = ref(1)
                ring: 'dark:ring-gray-600',
             }"
          >
-            <BaseSocials class="flex justify-evenly bg" icon-size="2rem" />
+            <BaseSocials class="flex justify-evenly" icon-size="2rem" />
          </UCard>
       </div>
 
@@ -120,22 +129,17 @@ const split = ref(1)
                }"
             >
                <div v-if="item.label === 'Wyniki'">
-                  <Results :season="season" :split="split" />
+                  <Results
+                     v-if="season && split"
+                     :season="season"
+                     :split="split"
+                  />
                </div>
 
                <div v-if="item.label === 'Wyniki zbiorcze'">zbiorcze</div>
             </UCard>
          </template>
       </UTabs>
-      <!--      <div class="flex flex-wrap gap-x-4 gap-y-4">-->
-      <!--         <BaseToggleButton>Wyniki</BaseToggleButton>-->
-      <!--         <BaseToggleButton>Wyniki zbiorcze</BaseToggleButton>-->
-      <!--         <BaseToggleButton>Klasyfikacja generalna</BaseToggleButton>-->
-      <!--         <BaseToggleButton>Klasyfikacja zespołowa</BaseToggleButton>-->
-      <!--         <BaseToggleButton>Statystyki</BaseToggleButton>-->
-      <!--         <BaseToggleButton>Regulamin</BaseToggleButton>-->
-      <!--         <BaseToggleButton>Informacje F1</BaseToggleButton>-->
-      <!--      </div>-->
    </div>
 </template>
 
