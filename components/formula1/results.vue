@@ -1,29 +1,38 @@
 <script setup>
-import { computed } from "vue"
+import { computed, toRefs } from "vue"
 import teams from "~/data/teams.js"
+import baseTableUI from "~/styles/baseTableUI.js"
 
 const config = useRuntimeConfig()
 
-const { status, data } = useLazyFetch(`${config.public.api_url}api/race`, {
+const props = defineProps({
+   season: {
+      type: [Number, String],
+      required: true,
+   },
+   split: {
+      type: [Number, String],
+      required: true,
+   },
+})
+
+const { season, split } = toRefs(props)
+
+const { status } = useLazyFetch(`${config.public.api_url}api/race`, {
    server: false,
    query: {
-      split: 1,
-      season: 3,
+      split: split,
+      season: season,
    },
    onResponse: (e) => {
-      console.log("eee")
-
-      console.log(e)
       if (e.response.ok) {
          const data = e.response._data?.data
          tracks.value = data?.tracks
          selectedTrack.value = data?.tracks[0]
          races.value = data?.races
-         console.log(e.response._data)
-         // const tracks =
       }
    },
-}) // pending idle success error
+})
 
 const tracks = ref([])
 const races = ref([])
@@ -109,7 +118,7 @@ const columns = [
                sm: 'px-2.5 py-1.5',
                md: 'px-3 py-2',
                lg: 'px-3.5 py-2.5',
-               xl: 'px-1',
+               xl: '',
             },
          }"
       />
@@ -118,14 +127,7 @@ const columns = [
          :columns="columns"
          :rows="results?.results"
          :loading="status === 'pending' || status === 'idle'"
-         :ui="{
-            th: {
-               color: 'text-gray-400',
-            },
-            td: {
-               color: 'text-white',
-            },
-         }"
+         :ui="baseTableUI"
       >
          <template #logo-data="e">
             <img

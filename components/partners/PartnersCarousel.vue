@@ -81,10 +81,22 @@ const partners: Array<PartnerModel> = [
       asset: simfun,
    },
 ]
+
+defineProps({
+   itemsToShow: {
+      type: Number,
+      default: 5,
+   },
+})
 </script>
 
 <template>
-   <Carousel :items-to-show="5" :wrap-around="true" :autoplay="3000" circular>
+   <Carousel
+      :items-to-show="itemsToShow"
+      :wrap-around="true"
+      :autoplay="3000"
+      circular
+   >
       <Slide v-for="el in partners" :key="el">
          <a class="cursor-pointer" :href="el.url">
             <img

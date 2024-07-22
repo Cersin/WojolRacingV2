@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import Results from "~/components/formula1/results.vue"
+import PartnersCarousel from "~/components/partners/PartnersCarousel.vue"
+import BaseSocials from "~/components/layout/BaseSocials.vue"
+import SeasonSelect from "~/components/formula1/SeasonSelect.vue"
+import SplitSelect from "~/components/formula1/SplitSelect.vue"
+
 const tabs = [
    {
       label: "Wyniki",
@@ -23,15 +28,74 @@ const tabs = [
       label: "Informacje F1",
    },
 ]
+
+const season = ref(1)
+const split = ref(1)
 </script>
 
 <template>
    <div class="bg-black p-8 overflow-scroll">
-      <!--      <div class="grid grid-cols-8">-->
-      <!--         <BaseCard class="text-white col-span-4"> test </BaseCard>-->
-      <!--         <BaseCard class="text-white"> test </BaseCard>-->
-      <!--         <BaseCard class="text-white"> test </BaseCard>-->
-      <!--      </div>-->
+      <div class="grid grid-cols-5 mb-4 gap-y-4 gap-x-2">
+         <div class="text-3xl text-nowrap col-span-1">Formuła 1</div>
+         <div
+            class="col-span-4 md:col-span-4 lg:col-span-2 justify-end flex gap-4"
+         >
+            <SeasonSelect v-model:season="season" />
+            <SplitSelect v-model:split="split" />
+         </div>
+
+         <UCard
+            class="hidden lg:block col-span-2 row-span-2"
+            :ui="{
+               base: '',
+               background: 'dark:bg-black',
+               ring: 'dark:ring-gray-600',
+            }"
+         >
+            <PartnersCarousel :items-to-show="3" />
+         </UCard>
+
+         <UCard
+            class="hidden lg:block col-span-1 row-span-2 col-start-1"
+            :ui="{
+               base: '',
+               background: 'dark:bg-black',
+               ring: 'dark:ring-gray-600',
+            }"
+            >test3</UCard
+         >
+
+         <UCard
+            class="hidden lg:block col-span-1 row-span-2 col-start-2"
+            :ui="{
+               base: '',
+               background: 'dark:bg-black',
+               ring: 'dark:ring-gray-600',
+            }"
+            >test3</UCard
+         >
+
+         <UCard
+            class="hidden lg:block col-span-1 row-span-2 col-start-3"
+            :ui="{
+               base: '',
+               background: 'dark:bg-black',
+               ring: 'dark:ring-gray-600',
+            }"
+            >test3</UCard
+         >
+
+         <UCard
+            class="hidden lg:block col-span-2 row-start-3 col-start-4"
+            :ui="{
+               base: '',
+               background: 'dark:bg-black',
+               ring: 'dark:ring-gray-600',
+            }"
+         >
+            <BaseSocials class="flex justify-evenly bg" icon-size="2rem" />
+         </UCard>
+      </div>
 
       <UTabs
          :items="tabs"
@@ -66,7 +130,7 @@ const tabs = [
                }"
             >
                <div v-if="item.label === 'Wyniki'">
-                  <Results />
+                  <Results :season="season" :split="split" />
                </div>
 
                <div v-if="item.label === 'Wyniki zbiorcze'">zbiorcze</div>
