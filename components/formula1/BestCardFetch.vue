@@ -6,6 +6,9 @@ const config = useRuntimeConfig()
 
 const { data, status } = await useLazyFetch(
    `${config.public.api_url}api/race/playerCard`,
+   {
+      server: false,
+   },
 )
 
 const getFirstPlayer = computed(() => {
@@ -14,10 +17,10 @@ const getFirstPlayer = computed(() => {
 </script>
 
 <template>
-   <div class="w-full border-gray-600 border-2 rounded-xl flex items-center">
+   <div class="w-full flex items-center h-full">
       <UProgress
          v-if="status === 'pending' || status === 'idle'"
-         class="p-4"
+         class="p-4 min-h-12"
          animation="carousel"
       />
 

@@ -5,6 +5,7 @@ import BaseSocials from "~/components/layout/BaseSocials.vue"
 import SeasonSelect from "~/components/formula1/SeasonSelect.vue"
 import SplitSelect from "~/components/formula1/SplitSelect.vue"
 import BestCardFetch from "~/components/formula1/BestCardFetch.vue"
+import TopPlayersFetch from "~/components/formula1/TopPlayersFetch.vue"
 
 const tabs = [
    {
@@ -57,30 +58,22 @@ const split = ref(1)
          </UCard>
 
          <div
-            class="hidden lg:flex col-span-1 row-span-2 col-start-1 justify-center"
+            class="hidden lg:flex col-span-1 row-span-2 col-start-1 justify-center border-gray-600 border-2 rounded-xl"
+         >
+            <TopPlayersFetch :split="split" :season="season" />
+         </div>
+
+         <div
+            class="hidden lg:block col-span-1 row-span-2 col-start-2 border-gray-600 border-2 rounded-xl"
+         >
+            test2
+         </div>
+
+         <div
+            class="hidden lg:block col-span-1 row-span-2 col-start-3 border-gray-600 border-2 rounded-xl"
          >
             <BestCardFetch />
          </div>
-
-         <UCard
-            class="hidden lg:block col-span-1 row-span-2 col-start-2"
-            :ui="{
-               base: '',
-               background: 'dark:bg-black',
-               ring: 'dark:ring-gray-600',
-            }"
-            >test3</UCard
-         >
-
-         <UCard
-            class="hidden lg:block col-span-1 row-span-2 col-start-3"
-            :ui="{
-               base: '',
-               background: 'dark:bg-black',
-               ring: 'dark:ring-gray-600',
-            }"
-            >test3</UCard
-         >
 
          <UCard
             class="hidden lg:block col-span-2 row-start-3 col-start-4"
