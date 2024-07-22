@@ -1,4 +1,44 @@
-<script lang="ts" setup></script>
+<script setup>
+const links = [
+   {
+      label: "Strona Główna",
+      to: "/",
+      click: () => {
+         isOpenSlider.value = false
+      },
+   },
+   {
+      label: "Formula 1",
+      to: "/formula",
+      click: () => {
+         isOpenSlider.value = false
+      },
+   },
+   {
+      label: "Assetto Corsa",
+      to: "/b",
+      click: () => {
+         isOpenSlider.value = false
+      },
+   },
+   {
+      label: "Aplikacja",
+      to: "/Aplikacja",
+      click: () => {
+         isOpenSlider.value = false
+      },
+   },
+   {
+      label: "Serwery",
+      to: "/Serwery",
+      click: () => {
+         isOpenSlider.value = false
+      },
+   },
+]
+
+const isOpenSlider = ref(false)
+</script>
 
 <template>
    <nav
@@ -64,11 +104,37 @@
          </button>
       </div>
 
-      <Icon
-         class="cursor-pointer mr-8 hover:bg-secondary lg:hidden"
-         name="ic:baseline-menu"
-         size="2em"
-      />
+      <div class="lg:hidden">
+         <Icon
+            class="cursor-pointer mr-8 hover:text-secondary rounded-md"
+            name="ic:baseline-menu"
+            size="2em"
+            @click="isOpenSlider = !isOpenSlider"
+         />
+      </div>
+
+      <USlideover
+         v-model="isOpenSlider"
+         :ui="{
+            width: 'w-24 max-w-56',
+            height: 'h-48 max-h-48',
+         }"
+      >
+         <UVerticalNavigation :links="links">
+            <template #default="{ link }">
+               <span class="group-hover:text-primary relative">{{
+                  link.label
+               }}</span>
+            </template>
+         </UVerticalNavigation>
+
+         <button
+            type="button"
+            class="text-white m-8 bg-secondary hover:bg-secondary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-5 py-2.5 focus:outline-none"
+         >
+            Zaloguj
+         </button>
+      </USlideover>
    </nav>
 </template>
 
