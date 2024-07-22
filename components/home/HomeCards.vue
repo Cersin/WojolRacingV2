@@ -51,7 +51,7 @@ defineProps({
             v-if="bestCard"
             :card="bestCard"
             with-redirection
-            class="h-3/4 overflow-hidden"
+            class="h-3/4 overflow-hidden rounded-2xl"
          />
       </div>
    </div>

@@ -25,7 +25,7 @@ const calculateOverall = computed(() => {
 
 <template>
    <div
-      class="bg-black w-full h-full rounded-2xl text-white flex justify-between text-base"
+      class="bg-black w-full h-full text-white flex justify-between text-base"
    >
       <div class="p-4 flex flex-col flex-1">
          <div class="flex gap-4 uppercase">
@@ -33,9 +33,9 @@ const calculateOverall = computed(() => {
             {{ card.player.name }}
          </div>
 
-         <div class="flex h-full items-start justify-between gap-2">
+         <div class="flex h-full items-start gap-8">
             <div
-               class="flex flex-col flex-wrap gap-x-4 w-full"
+               class="flex flex-col flex-wrap gap-x-4"
                style="font-size: 0.8em"
             >
                <div v-if="card?.experience" class="font-thin flex gap-2">
@@ -56,7 +56,7 @@ const calculateOverall = computed(() => {
                </div>
             </div>
 
-            <div class="flex h-full justify-end">
+            <div class="flex h-max justify-start max-w-20">
                <img
                   v-if="card?.player?.photo"
                   :src="`${config.public.api_url}players/${card.player.photo}`"

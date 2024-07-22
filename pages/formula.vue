@@ -4,6 +4,7 @@ import PartnersCarousel from "~/components/partners/PartnersCarousel.vue"
 import BaseSocials from "~/components/layout/BaseSocials.vue"
 import SeasonSelect from "~/components/formula1/SeasonSelect.vue"
 import SplitSelect from "~/components/formula1/SplitSelect.vue"
+import BestCardFetch from "~/components/formula1/BestCardFetch.vue"
 
 const tabs = [
    {
@@ -55,15 +56,11 @@ const split = ref(1)
             <PartnersCarousel :items-to-show="3" />
          </UCard>
 
-         <UCard
-            class="hidden lg:block col-span-1 row-span-2 col-start-1"
-            :ui="{
-               base: '',
-               background: 'dark:bg-black',
-               ring: 'dark:ring-gray-600',
-            }"
-            >test3</UCard
+         <div
+            class="hidden lg:flex col-span-1 row-span-2 col-start-1 justify-center"
          >
+            <BestCardFetch />
+         </div>
 
          <UCard
             class="hidden lg:block col-span-1 row-span-2 col-start-2"
