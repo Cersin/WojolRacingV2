@@ -23,7 +23,7 @@ const links = [
    },
    {
       label: "Aplikacja",
-      to: "/Aplikacja",
+      to: "/application",
       click: () => {
          isOpenSlider.value = false
       },
@@ -84,7 +84,7 @@ const isOpenSlider = ref(false)
          <NuxtLink
             class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
-            to="/e"
+            to="/application"
             >Aplikacja</NuxtLink
          >
          <NuxtLink
