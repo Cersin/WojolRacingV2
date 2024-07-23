@@ -3,7 +3,7 @@ import DottedCircle from "~/components/layout/DottedCircle.vue"
 </script>
 
 <template>
-   <div class="bg-black p-8 lg:p-16 h-full relative overflow-hidden">
+   <div class="bg-black p-8 lg:p-16 h-full relative overflow-x-hidden">
       <DottedCircle top="5%" left="5%" size="40px" />
       <DottedCircle top="70%" left="90%" size="250px" />
 
