@@ -11,6 +11,7 @@ import AggregateResultsTable from "~/components/formula1/AggregateResultsTable.v
 import ClassificationTable from "~/components/formula1/ClassificationTable.vue"
 import ConstructorsTable from "~/components/formula1/ConstructorsTable.vue"
 import StatisticsTable from "~/components/formula1/StatisticsTable.vue"
+import BaseButton from "~/components/buttons/BaseButton.vue"
 
 const tabs = [
    {
@@ -38,6 +39,26 @@ const tabs = [
 
 const season = ref(null)
 const split = ref(null)
+
+const selectedValue = ref(0)
+
+const selected = computed({
+   get() {
+      return selectedValue.value
+   },
+   set(newValue) {
+      if (newValue === 5) {
+         redirectToRegulations()
+      }
+   },
+})
+
+function redirectToRegulations() {
+   window.open(
+      "https://docs.google.com/document/d/1_NE1XHR4qYqmKbd3vgc3wFdUUTMEbDvwlSghkJ_F7ks/edit?pli=1#heading=h.onj0kpvgjcq4",
+      "_blank",
+   )
+}
 </script>
 
 <template>
@@ -101,6 +122,7 @@ const split = ref(null)
       </div>
 
       <UTabs
+         v-model="selected"
          :items="tabs"
          orientation="vertical"
          :ui="{
@@ -170,6 +192,12 @@ const split = ref(null)
                      :season="season"
                      :split="split"
                   />
+               </div>
+
+               <div v-if="index === 5 && selected">
+                  <BaseButton @click="redirectToRegulations"
+                     >Idź do regulaminu</BaseButton
+                  >
                </div>
             </UCard>
          </template>
