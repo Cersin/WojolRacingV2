@@ -14,7 +14,7 @@ import DottedCircle from "~/components/layout/DottedCircle.vue"
             >
                #WRL_APP
             </div>
-            <div>Teraz jeszcze łatwiej możesz być na bieżąco</div>
+            <div>Teraz jeszcze łatwiej możesz być na bieżąco!</div>
          </div>
 
          <img

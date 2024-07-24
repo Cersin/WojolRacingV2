@@ -28,7 +28,10 @@ const calculateOverall = computed(() => {
       class="bg-black w-full h-full text-white flex justify-between text-base"
    >
       <div class="p-4 flex flex-col flex-1">
-         <div class="flex gap-4 uppercase">
+         <div
+            class="flex gap-2 md:gap-4 uppercase text-nowrap items-center"
+            style="font-size: 12px"
+         >
             <span class="text-primary text-2xl">{{ calculateOverall }}</span>
             {{ card.player.name }}
          </div>
@@ -56,7 +59,7 @@ const calculateOverall = computed(() => {
                </div>
             </div>
 
-            <div class="flex h-max justify-start max-w-20">
+            <div class="flex h-full justify-start max-w-20">
                <img
                   v-if="card?.player?.photo"
                   :src="`${config.public.api_url}players/${card.player.photo}`"
@@ -69,8 +72,9 @@ const calculateOverall = computed(() => {
 
       <div
          v-if="withRedirection"
-         class="bg-secondary p-4 text-nowrap rounded-r-xl flex items-center cursor-pointer hover:brightness-125"
+         class="bg-secondary p-0 md:p-4 text-nowrap rounded-r-xl flex items-center cursor-pointer hover:brightness-125"
          style="font-size: 0.8rem"
+         @click="$router.push('/formula/cards')"
       >
          <span style="writing-mode: vertical-lr" class="rotate-180"
             >Karty kierowców</span

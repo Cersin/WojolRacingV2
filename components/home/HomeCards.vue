@@ -47,6 +47,7 @@ defineProps({
                <Icon name="ic:baseline-arrow-forward" size="1.5em" />
             </div>
          </button>
+
          <PlayerCard
             v-if="bestCard"
             :card="bestCard"
