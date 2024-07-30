@@ -2,6 +2,8 @@
    <div class="flex flex-col h-full">
       <NavigationLayout />
       <NuxtPage class="flex-grow" />
+
+      <UNotifications />
    </div>
 </template>
 

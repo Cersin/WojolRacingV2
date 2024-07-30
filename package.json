@@ -15,9 +15,11 @@
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/ui": "^2.17.0",
     "@nuxtjs/google-fonts": "^3.2.0",
+    "emailjs-com": "^3.2.0",
     "nuxt": "^3.12.3",
     "vue": "latest",
-    "vue3-carousel-nuxt": "^1.1.2"
+    "vue3-carousel-nuxt": "^1.1.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.3.13",

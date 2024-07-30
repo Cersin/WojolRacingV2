@@ -7,6 +7,9 @@ export default defineNuxtConfig({
    runtimeConfig: {
       public: {
          api_url: "http://localhost:3000/",
+         EMAIL_USER_ID: process.env.EMAIL_USER_ID,
+         EMAIL_SERVICE_ID: process.env.EMAIL_SERVICE_ID,
+         EMAIL_TEMPLATE_ID: process.env.EMAIL_TEMPLATE_ID,
       },
    },
    compatibilityDate: "2024-07-03",
