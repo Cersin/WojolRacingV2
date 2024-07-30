@@ -55,7 +55,7 @@ const selected = computed({
 
 function redirectToRegulations() {
    window.open(
-      "https://docs.google.com/document/d/1_NE1XHR4qYqmKbd3vgc3wFdUUTMEbDvwlSghkJ_F7ks/edit?pli=1#heading=h.onj0kpvgjcq4",
+      "https://docs.google.com/document/d/1EOiXieRk4-xqEArTcrFm4Of0NYT7CYe6y4LATEvvXlM/edit?usp=sharing",
       "_blank",
    )
 }
