@@ -63,10 +63,10 @@ function redirectToRegulations() {
 
 <template>
    <div class="bg-black p-8 overflow-scroll">
-      <div class="grid grid-cols-5 mb-4 gap-y-4 gap-x-2">
+      <div class="grid sm:grid-cols-5 mb-4 gap-y-4 gap-x-2">
          <div class="text-3xl text-nowrap col-span-1">Formuła 1</div>
          <div
-            class="col-span-4 md:col-span-4 lg:col-span-2 justify-end flex gap-4"
+            class="col-span-4 md:col-span-4 lg:col-span-2 justify-start sm:justify-end flex gap-4"
          >
             <SeasonSelect v-model:season="season" />
             <SplitSelect v-model:split="split" />
