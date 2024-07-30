@@ -4,6 +4,7 @@
       <NuxtPage class="flex-grow" />
 
       <UNotifications />
+      <UModals />
    </div>
 </template>
 

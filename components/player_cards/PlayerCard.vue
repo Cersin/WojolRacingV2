@@ -29,7 +29,7 @@ const calculateOverall = computed(() => {
    >
       <div class="p-4 flex flex-col flex-1">
          <div
-            class="flex gap-2 md:gap-4 uppercase text-nowrap items-center"
+            class="flex gap-2 md:gap-4 uppercase items-center"
             style="font-size: 12px"
          >
             <span class="text-primary text-2xl">{{ calculateOverall }}</span>
@@ -66,13 +66,19 @@ const calculateOverall = computed(() => {
                   alt="PlayerImage"
                   class="object-cover"
                />
+               <img
+                  v-else
+                  src="~/assets/photos/person_white.png"
+                  alt="PlayerImage"
+                  class="object-cover p-4"
+               />
             </div>
          </div>
       </div>
 
       <div
          v-if="withRedirection"
-         class="bg-secondary p-0 md:p-4 text-nowrap rounded-r-xl flex items-center cursor-pointer hover:brightness-125"
+         class="bg-secondary p-2 md:p-4 text-nowrap rounded-r-xl flex items-center cursor-pointer hover:brightness-125"
          style="font-size: 0.8rem"
          @click="$router.push('/formula/cards')"
       >

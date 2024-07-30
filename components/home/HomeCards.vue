@@ -16,20 +16,21 @@ defineProps({
 <template>
    <div class="grid grid-cols-8 w-full p-8 gap-8">
       <HomeCard
-         class="h-48 lg:h-96 col-span-4 lg:col-span-5"
+         class="h-48 lg:h-96 col-span-8 sm:col-span-5"
          shadow
          description="Formula 1"
          :img-src="f1_wrl"
+         @click="$router.push('/formula')"
       />
 
       <HomeCard
-         class="h-48 lg:h-96 col-span-4 lg:col-span-3"
+         class="h-48 lg:h-96 col-span-4 sm:col-span-3"
          description="Endurance"
          :img-src="ac_wrl_1"
       />
 
       <HomeCard
-         class="h-56 lg:h-60 col-span-4 lg:col-span-5"
+         class="h-48 sm:h-56 col-span-4 lg:col-span-5"
          description="Assetto Corsa"
          :img-src="ac_wrl_2"
       />
@@ -37,7 +38,9 @@ defineProps({
       <!--      <HomeCard class="h-48 lg:h-48 bg-green-300">-->
       <!--         <PlayerCard />-->
       <!--      </HomeCard>-->
-      <div class="h-56 lg:h-60 flex flex-col gap-4 col-span-4 lg:col-span-3">
+      <div
+         class="h-56 lg:h-60 flex flex-col gap-4 col-span-8 sm:col-span-4 lg:col-span-3"
+      >
          <button
             type="button"
             class="bg-black bg-opacity-70 h-1/4 w-full p-4 rounded-2xl text-white font-light hover:bg-secondary"

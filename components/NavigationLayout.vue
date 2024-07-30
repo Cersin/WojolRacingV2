@@ -63,6 +63,7 @@ const isOpenSlider = ref(false)
             alt="WRL"
             class="object-contain h-12"
             src="~/assets/LOGO_WRL.png"
+            @click="$router.push('/')"
          />
 
          <div class="text-base font-bold">WOJOL RACING</div>
