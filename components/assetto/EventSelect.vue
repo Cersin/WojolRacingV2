@@ -1,0 +1,33 @@
+<script setup>
+const events = [
+   'GT300 Cup',
+   'Drive Squad Super S Cup',
+]
+
+const eventModel = defineModel("event", {
+   type: [String, Number],
+   default: null,
+})
+
+onMounted(() => {
+   eventModel.value = events[0]
+})
+</script>
+
+<template>
+   <USelectMenu
+      v-model="eventModel"
+      :options="events"
+      searchable
+      placeholder="Event"
+      color="black"
+      size="md"
+      class="bg-primary text-black rounded min-w-24 z-50"
+   >
+      <template #label>
+         <span class="text-black">Event: {{ eventModel }}</span>
+      </template>
+   </USelectMenu>
+</template>
+
+<style scoped></style>

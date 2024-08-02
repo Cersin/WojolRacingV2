@@ -4,6 +4,15 @@ export default defineNuxtConfig({
    colorMode: {
       preference: "dark",
    },
+   app: {
+      head: {
+         charset: 'utf-8',
+         title: 'Wojol Racing',
+         viewport: 'width=device-width, initial-scale=1',
+      },
+      pageTransition: { name: 'page', mode: 'out-in' },
+   },
+
    runtimeConfig: {
       public: {
          api_url: "http://localhost:3000/",

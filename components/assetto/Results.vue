@@ -1,28 +1,22 @@
 <script setup>
 import { computed, toRefs } from "vue"
-import teams from "~/data/teams.js"
 import baseTableUI from "~/styles/baseTableUI.js"
 
 const config = useRuntimeConfig()
 
 const props = defineProps({
-   season: {
-      type: [Number, String, null],
-      default: null,
-   },
-   split: {
-      type: [Number, String, null],
+   event: {
+      type: String,
       default: null,
    },
 })
 
-const { season, split } = toRefs(props)
+const { event } = toRefs(props)
 
-const { status } = useLazyFetch(`${config.public.api_url}api/race`, {
+const { status } = useLazyFetch(`${config.public.api_url}api/assetto-race`, {
    server: false,
    query: {
-      split: split,
-      season: season,
+      season: event,
    },
    onResponse: (e) => {
       if (e.response.ok) {
@@ -55,20 +49,12 @@ const columns = [
       label: "Driver",
    },
    {
-      key: "logo",
-      label: "Logo",
-   },
-   {
-      key: "team",
+      key: "playerDetails.team",
       label: "Team",
    },
    {
       key: "grid",
       label: "Grid",
-   },
-   {
-      key: "pitStops",
-      label: "Stops",
    },
    {
       key: "bestLap",
@@ -129,35 +115,20 @@ const columns = [
          :loading="status === 'pending' || status === 'idle'"
          :ui="baseTableUI"
       >
-         <template #logo-data="e">
-            <img
-               v-if="!!teams[e.row.team]"
-               class="w-8 h-8"
-               :src="teams[e.row.team].img"
-               alt="Team image"
-            />
-            <img
-               v-else
-               class="w-8 h-8"
-               :src="teams.Rezerwa.img"
-               alt="Alt Image"
-            />
-         </template>
-
          <template #dnf-data="{ row }">
-               <Icon
-                  v-if="row.dnf"
-                  style="color: green"
-                  size="24"
-                  name="material-symbols:check-rounded"
-               />
+              <Icon
+                 v-if="row.dnf"
+                 style="color: green"
+                 size="24"
+                 name="material-symbols:check-rounded"
+              />
 
-               <Icon
-                  v-else
-                  size="24"
-                  style="color: red"
-                  name="material-symbols:close"
-               />
+              <Icon
+                 v-else
+                 size="24"
+                 style="color: red"
+                 name="material-symbols:close"
+              />
          </template>
       </UTable>
    </div>
