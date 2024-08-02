@@ -27,12 +27,14 @@ defineProps({
          class="h-48 lg:h-96 col-span-4 sm:col-span-3"
          description="Endurance"
          :img-src="ac_wrl_1"
+         @click="$router.push('/endurance')"
       />
 
       <HomeCard
          class="h-48 sm:h-56 col-span-4 lg:col-span-5"
          description="Assetto Corsa"
          :img-src="ac_wrl_2"
+         @click="$router.push('/assetto')"
       />
 
       <!--      <HomeCard class="h-48 lg:h-48 bg-green-300">-->
@@ -44,10 +46,11 @@ defineProps({
          <button
             type="button"
             class="bg-black bg-opacity-70 h-1/4 w-full p-4 rounded-2xl text-white font-light hover:bg-secondary"
+            @click="$router.push('/news')"
          >
             <div class="justify-center text-center flex">
                Aktualności
-               <Icon name="ic:baseline-arrow-forward" size="1.5em" />
+               <Icon  name="ic:baseline-arrow-forward" size="1.5em" />
             </div>
          </button>
 

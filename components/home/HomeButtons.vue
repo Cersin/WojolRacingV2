@@ -8,7 +8,8 @@ import BaseButton from "~/components/buttons/BaseButton.vue"
          >Kontakt</BaseButton
       >
 
-      <BaseButton type="outline">
+      <BaseButton type="outline" @click="$router.push('/about')"
+      >
          <div class="flex items-center gap-1 text-nowrap">
             O nas <Icon name="ic:baseline-arrow-forward" size="1em" />
          </div>
