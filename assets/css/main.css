@@ -19,3 +19,28 @@ html, body {
 .chakra-petch {
     font-family: "Chakra Petch", sans-serif;
 }
+
+@layer utilities {
+    .cut_left--end {
+        position: relative;
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+
+    }
+
+    .cut_left--start {
+        position: relative;
+        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+
+    }
+
+    .cut_right--end {
+        position: relative;
+        clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+
+    }
+
+    .cut_right--start {
+        position: relative;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+    }
+}
