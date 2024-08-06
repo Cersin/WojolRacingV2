@@ -26,7 +26,7 @@ const getClass = computed(() => {
 
 <template>
    <button
-      class="z-50"
+      class="z-40"
       v-bind="$attrs"
       type="button"
       :class="getClass"

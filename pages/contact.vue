@@ -5,6 +5,10 @@ import emailjs from "emailjs-com"
 const config = useRuntimeConfig()
 const toast = useToast()
 
+definePageMeta({
+   name: "Kontakt",
+})
+
 const schema = z.object({
    name: z.string({ message: "Pole wymagane" }),
    email: z

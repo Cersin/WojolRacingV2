@@ -30,7 +30,7 @@ const splitModel = defineModel("split", {
       :loading="status === 'pending' || status === 'idle'"
       color="black"
       size="md"
-      class="bg-primary text-black rounded min-w-24 z-50"
+      class="bg-primary text-black rounded min-w-24 z-40"
    >
       <template #label>
          <span class="text-black">Split: {{ splitModel }}</span>

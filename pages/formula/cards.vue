@@ -4,6 +4,10 @@ import BaseButton from "~/components/buttons/BaseButton.vue"
 import HowWeCalculateDialog from "~/components/cards/HowWeCalculateDialog.vue"
 import WhyCantSeeCardDialog from "~/components/cards/WhyCantSeeCardDialog.vue"
 
+definePageMeta({
+   name: "Karty kierowców",
+})
+
 const config = useRuntimeConfig()
 const modal = useModal()
 

@@ -3,7 +3,7 @@ import BaseButton from "~/components/buttons/BaseButton.vue"
 </script>
 
 <template>
-   <div class="flex flex-col lg:flex-row gap-4 mt-8">
+   <div class="flex flex-col lg:flex-row gap-4 mt-4">
       <BaseButton type="black" @click="$router.push('/contact')"
          >Kontakt</BaseButton
       >

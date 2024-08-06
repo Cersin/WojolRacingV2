@@ -1,5 +1,7 @@
-<script setup lang="ts">
-
+<script setup>
+definePageMeta({
+   name: "O nas",
+})
 </script>
 
 <template>

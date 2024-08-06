@@ -1,43 +1,13 @@
 <script setup>
-const links = [
-   {
-      label: "Strona Główna",
-      to: "/",
-      click: () => {
-         isOpenSlider.value = false
-      },
-   },
-   {
-      label: "Formula 1",
-      to: "/formula",
-      click: () => {
-         isOpenSlider.value = false
-      },
-   },
-   {
-      label: "Assetto Corsa",
-      to: "/assetto",
-      click: () => {
-         isOpenSlider.value = false
-      },
-   },
-   {
-      label: "Aplikacja",
-      to: "/application",
-      click: () => {
-         isOpenSlider.value = false
-      },
-   },
-   {
-      label: "Serwery",
-      to: "/servers",
-      click: () => {
-         isOpenSlider.value = false
-      },
-   },
-]
+import VerticalNavigation from "~/components/navigation/VerticalNavigation.vue"
+
+const router = useRouter()
 
 const isOpenSlider = ref(false)
+
+function checkIfCustomVisible(name) {
+   return name === "Endurance" || name === "Kontakt" || name === "Aktualności" || name === "Karty kierowców" || name === "O nas";
+}
 </script>
 
 <template>
@@ -94,12 +64,49 @@ const isOpenSlider = ref(false)
             to="/servers"
             >Serwery</NuxtLink
          >
+
+         <UPopover
+            :class="{
+               'bg-primary': checkIfCustomVisible(
+                  router.currentRoute.value.name,
+               ),
+            }"
+            class="z-50 flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
+            mode="hover"
+         >
+            <NuxtLink
+               :to="
+                  checkIfCustomVisible(router.currentRoute.value.name)
+                     ? router.currentRoute.value.path
+                     : undefined
+               "
+               active-class=" text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
+               class="flex gap-2 items-center"
+            >
+               {{
+                  checkIfCustomVisible(router.currentRoute.value.name)
+                     ? router.currentRoute.value.name
+                     : "Menu"
+               }}
+               <UIcon
+                  name="i-heroicons-chevron-down-20-solid"
+                  style="font-size: 1.5em"
+               />
+            </NuxtLink>
+
+            <template #panel>
+               <div class="p-4">
+                  <VerticalNavigation additional />
+               </div>
+            </template>
+         </UPopover>
       </ul>
 
       <div class="text-3xl flex-grow flex justify-end">
          <button
             type="button"
             class="text-white m-8 bg-secondary hover:bg-secondary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none hidden lg:block"
+            @click="$router.push('/authentication/login')"
          >
             Zaloguj
          </button>
@@ -116,23 +123,21 @@ const isOpenSlider = ref(false)
 
       <USlideover
          v-model="isOpenSlider"
+         class="lg:hidden"
          :ui="{
             width: 'w-24 max-w-56',
             height: 'h-48 max-h-48',
          }"
       >
-         <UVerticalNavigation :links="links">
-            <template #default="{ link }">
-               <span class="group-hover:text-primary relative">{{
-                  link.label
-               }}</span>
-            </template>
-         </UVerticalNavigation>
+         <VerticalNavigation @close="isOpenSlider = false" />
 
          <button
             type="button"
             class="text-white m-8 bg-secondary hover:bg-secondary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-5 py-2.5 focus:outline-none"
-         >
+            @click="() => {
+               isOpenSlider = false
+               $router.push('/authentication/login')
+            }"         >
             Zaloguj
          </button>
       </USlideover>

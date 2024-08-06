@@ -1,8 +1,5 @@
 <script setup>
-const events = [
-   'GT300 Cup',
-   'Drive Squad Super S Cup',
-]
+const events = ["GT300 Cup", "Drive Squad Super S Cup"]
 
 const eventModel = defineModel("event", {
    type: [String, Number],
@@ -22,7 +19,7 @@ onMounted(() => {
       placeholder="Event"
       color="black"
       size="md"
-      class="bg-primary text-black rounded min-w-24 z-50"
+      class="bg-primary text-black rounded min-w-24 z-40"
    >
       <template #label>
          <span class="text-black">Event: {{ eventModel }}</span>
