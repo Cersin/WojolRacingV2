@@ -10,7 +10,7 @@ import DottedCircle from "~/components/layout/DottedCircle.vue"
 const config = useRuntimeConfig()
 const { data } = await useFetch(`${config.public.api_url}api/race/playerCard`)
 
-const getFirstPlayer = computed(() => {
+const getRandomPlayer = computed(() => {
    return data.value?.data[0]
 })
 </script>
@@ -31,7 +31,7 @@ const getFirstPlayer = computed(() => {
             <DesktopHeader class="p-16" />
          </div>
 
-         <HomeCards :best-card="getFirstPlayer" class="max-w-[800px]" />
+         <HomeCards :best-card="getRandomPlayer" class="max-w-[800px]" />
       </div>
 
       <HomePartners class="z-50" />

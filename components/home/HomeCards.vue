@@ -37,9 +37,6 @@ defineProps({
          @click="$router.push('/assetto')"
       />
 
-      <!--      <HomeCard class="h-48 lg:h-48 bg-green-300">-->
-      <!--         <PlayerCard />-->
-      <!--      </HomeCard>-->
       <div
          class="h-56 lg:h-60 flex flex-col gap-4 col-span-8 sm:col-span-4 lg:col-span-3"
       >
@@ -50,7 +47,7 @@ defineProps({
          >
             <div class="justify-center text-center flex">
                Aktualności
-               <Icon  name="ic:baseline-arrow-forward" size="1.5em" />
+               <Icon name="ic:baseline-arrow-forward" size="1.5em" />
             </div>
          </button>
 
