@@ -31,7 +31,7 @@ const getRandomPlayer = computed(() => {
             <DesktopHeader class="p-16" />
          </div>
 
-         <HomeCards :best-card="getRandomPlayer" class="max-w-[800px]" />
+         <HomeCards :best-card="getRandomPlayer" class="max-w-[800px] z-50" />
       </div>
 
       <HomePartners class="z-50" />

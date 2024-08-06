@@ -6,19 +6,33 @@ import tilt from "~/assets/partners/tilt.png"
 import plakatartlab from "~/assets/partners/plakatartlab.png"
 import drive_squad from "~/assets/partners/drive_squad.png"
 import racetracks from "~/assets/partners/racetracks_biale.png"
-import frontszymon from "~/assets/partners/frontszymon_niebieskie.png"
+import frontszymon from "~/assets/partners/front_szymon.png"
 import irtrack from "~/assets/partners/irtrack.png"
 import difficult from "~/assets/partners/difficult_small.png"
 import simracing from "~/assets/partners/simracing_centre.png"
 import p1 from "~/assets/partners/p1_logo_white.png"
 import sim_masters from "~/assets/partners/sim_masters.png"
 import simfun from "~/assets/partners/simfun_biale_transparent.png"
+import go_racing from "~/assets/partners/go_racing.png"
+import f_one from "~/assets/partners/F-ONE.png"
+import kja from "~/assets/partners/kja.png"
+import pe_biale from "~/assets/partners/pe_biale.png"
 
 const partners: Array<PartnerModel> = [
    {
       url: "https://aw-anotherway.pl/",
-      white: false,
+      white: true,
       asset: anotherway,
+   },
+   {
+      url: "https://www.f-one.com.pl/",
+      white: true,
+      asset: f_one,
+   },
+   {
+      url: "https://go-racing.pl/",
+      white: true,
+      asset: go_racing,
    },
    {
       url: "https://cammusracing.com/",
@@ -29,6 +43,16 @@ const partners: Array<PartnerModel> = [
       url: "https://tilt.pl/",
       white: true,
       asset: tilt,
+   },
+   {
+      url: "https://www.facebook.com/ProjectEndurancePL/",
+      white: true,
+      asset: pe_biale,
+   },
+   {
+      url: "https://www.instagram.com/kjkdesignn/?igsh=MTltMTFkMGR0MXNubQ%3D%3D",
+      white: true,
+      asset: kja,
    },
    {
       url: "https://www.plakartlab.pl/",

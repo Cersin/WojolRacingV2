@@ -60,22 +60,20 @@ async function onSubmit() {
 
       <div class="flex flex-col-reverse md:flex-row gap-8 mt-8">
          <div class="flex flex-col gap-8 flex-gro">
-            <div class="text-4xl">Let’s connect</div>
+            <div class="text-4xl">Kontakt</div>
             <div class="text-base">
-               Lorem ipsum dolor sit amet consectetur. Cum odio vitae ornare
-               faucibus commodo.
+               Skontaktuj się z nami za pomocą formularza.
             </div>
 
             <div class="text-4xl">Współpraca</div>
             <div class="text-base">
-               Lorem ipsum dolor sit amet consectetur. Cum odio vitae ornare
-               faucibus commodo.
+               Jesteśmy otwarci na wszelkie współprace!
+               Zapraszamy do kontaktu!
             </div>
 
             <div class="text-4xl">Masz pytanie?</div>
             <div class="text-base">
-               Lorem ipsum dolor sit amet consectetur. Cum odio vitae ornare
-               faucibus commodo.
+               Opcjonalnie możesz napisać do nas na wojolracing@gmail.com
             </div>
          </div>
 
