@@ -199,6 +199,33 @@ function redirectToRegulations() {
                      >Idź do regulaminu</BaseButton
                   >
                </div>
+
+               <div v-if="index === 6 && selected">
+                  <div class="p-4">
+                     <p>
+                        Organizujemy zawodowy na najnowszej grze F1 od
+                        Codemasters. Wszystkie wyścigi są transmitowane na żywo
+                        na naszym kanale Twitch, później powtórki trafiają na
+                        YouTube.
+                     </p>
+                     <br />
+                     <p>
+                        Terminarz: <br />
+                        Split 1 - Czwartek 19:30 <br />
+                        Split 2 - Środa 19:30
+                     </p>
+                     <br />
+                     <p>
+                        Asysty dozwolone:<br />
+                        Linia wyścigowa: Dobrowolnie<br />
+                        Skrzynia biegów: Dobrowolnie<br />
+                        ABS: Dobrowolnie<br />
+                        Kontrola trakcji: Średnia<br />
+                        Wspomaganie w boksach: Wyłączone<br />
+                        Automatyczny DRS i ERS: Wyłączone
+                     </p>
+                  </div>
+               </div>
             </UCard>
          </template>
       </UTabs>

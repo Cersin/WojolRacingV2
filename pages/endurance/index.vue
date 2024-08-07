@@ -99,7 +99,7 @@ const participations = [
       <div
          class="flex flex-col gap-4 md:flex-row justify-between items-start md:items-center mb-8"
       >
-         <div class="font-light opacity-30 max-w-80">
+         <div class="font-light opacity-50 max-w-80">
             Udziały Wojol Racing w wyścigach długodystansowych
          </div>
 

@@ -17,11 +17,12 @@ const tabs = [
    {
       label: "Statystyki",
    },
+   {
+      label: "Informacje AC",
+   },
 ]
 
-const season = ref(null)
 const event = ref(null)
-const split = ref(null)
 
 const selectedValue = ref(0)
 
@@ -69,18 +70,15 @@ function redirectToRegulations() {
          <div
             class="hidden lg:flex col-span-2 row-span-2 col-start-1 justify-center border-gray-600 border-2 rounded-xl"
          >
-            <AssettoTopPlayersFetch
-               v-if="event"
-               :event="event"
-            />
+            <AssettoTopPlayersFetch v-if="event" :event="event" />
          </div>
 
-<!--         <div-->
-<!--            class="hidden lg:block col-span-1 row-span-2 col-start-2 border-gray-600 border-2 rounded-xl"-->
-<!--         >-->
-<!--            <AssettoTopConstructorsFetch v-if="event" :event="event"/>-->
+         <!--         <div-->
+         <!--            class="hidden lg:block col-span-1 row-span-2 col-start-2 border-gray-600 border-2 rounded-xl"-->
+         <!--         >-->
+         <!--            <AssettoTopConstructorsFetch v-if="event" :event="event"/>-->
 
-<!--         </div>-->
+         <!--         </div>-->
 
          <UCard
             class="hidden lg:block col-span-3 row-start-3 col-start-3"
@@ -140,10 +138,25 @@ function redirectToRegulations() {
                </div>
 
                <div v-if="index === 3 && selected">
-                  <AssettoStatisticsTable
-                     v-if="event"
-                     :event="event"
-                  />
+                  <AssettoStatisticsTable v-if="event" :event="event" />
+               </div>
+
+               <div v-if="index === 4 && selected">
+                  <div class="p-4">
+                     <p>
+                        Organizujemy zawodowy w grze Assetto Corsa
+                        obejmujące:<br />
+                     </p>
+
+                     <ul class="list-disc">
+                        <li>Pełne sezony</li>
+                        <li>Eventy TimeAttack</li>
+                        <li>Eventy wyścigowe</li>
+                        <li>Wyścigi Endurance</li>
+                     </ul>
+                     <br />
+                     <p>Aktualne rozgrywki znajdziesz na naszym discordzie!</p>
+                  </div>
                </div>
             </UCard>
          </template>
