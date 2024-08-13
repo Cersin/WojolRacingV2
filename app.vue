@@ -10,23 +10,10 @@
 
 <script setup>
 import NavigationLayout from "~/components/NavigationLayout.vue"
-import { useAuthComposable } from "~/composable/auth-composable.js"
-import { useFetch } from "#app"
-const headers = useRequestHeaders(['cookie'])
+import { useAuthComposable } from "~/composables/auth-composable.js"
 
-const config = useRuntimeConfig()
-
-const {authState} = useAuthComposable();
-
-const { data } = await useFetch(`${config.public.api_url}api/users/verify`, {
-   headers
-})
-
-// const {data} = await useFetch(`${config.public.api_url}api/users/verify`, {
-//    baseURL: config.API_BASE_URL,
-// });
-// authState.logged = data.value?.logged;
-// authState.role = data.value?.role;
+const { auth } = useAuthComposable()
+auth()
 </script>
 
 <style>
@@ -39,7 +26,6 @@ const { data } = await useFetch(`${config.public.api_url}api/users/verify`, {
    opacity: 0;
    filter: blur(1rem);
 }
-
 
 .box {
    display: flex;
