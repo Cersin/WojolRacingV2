@@ -1,9 +1,9 @@
 import { defineNuxtRouteMiddleware, navigateTo } from "nuxt/app"
 import { useAuthComposable } from "~/composables/auth-composable.js"
 
-const { authState, auth } = useAuthComposable()
-
 export default defineNuxtRouteMiddleware(async (to, from) => {
+   const { authState, auth } = useAuthComposable()
+
    if (!authState.logged) {
       const { role, logged } = await auth();
 

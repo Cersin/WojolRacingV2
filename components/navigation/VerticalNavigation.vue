@@ -1,4 +1,8 @@
 <script setup>
+import { useAuthComposable } from "~/composables/auth-composable.js"
+
+const { authState } = useAuthComposable()
+
 const links = [
    {
       label: "Strona Główna",
@@ -80,6 +84,15 @@ const links = [
          emit('close')
       },
    },
+   {
+      label: "Panel admina",
+      to: "/admin",
+      role: ['admin'],
+      additional: true,
+      click: () => {
+         emit('close')
+      },
+   },
 ]
 
 const props = defineProps({
@@ -92,7 +105,8 @@ const props = defineProps({
 const emit = defineEmits(['close'])
 
 const computedLinks = computed(() => {
-   if(props.additional) return links.filter((link) => link.additional)
+   const role = authState.role
+   if(props.additional) return links.filter((link) => link.additional && !!link?.role ? link.role.includes(role) : true)
    return links
 })
 </script>

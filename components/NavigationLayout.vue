@@ -1,7 +1,9 @@
 <script setup>
 import VerticalNavigation from "~/components/navigation/VerticalNavigation.vue"
+import { useAuthComposable } from "~/composables/auth-composable.js"
 
 const router = useRouter()
+const { authState }  = useAuthComposable()
 
 const isOpenSlider = ref(false)
 
@@ -65,6 +67,7 @@ function checkIfCustomVisible(name) {
             >Serwery</NuxtLink
          >
 
+
          <UPopover
             :class="{
                'bg-primary': checkIfCustomVisible(
@@ -100,10 +103,20 @@ function checkIfCustomVisible(name) {
                </div>
             </template>
          </UPopover>
+
+
+         <NuxtLink
+            v-if="authState.role === 'admin'"
+            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
+            active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border "
+            to="/admin"
+         >Panel admina</NuxtLink
+         >
       </ul>
 
-      <div class="text-3xl flex-grow flex justify-end">
+      <div  class="text-3xl flex-grow flex justify-end">
          <button
+            v-if="!authState.logged"
             type="button"
             class="text-white m-8 bg-secondary hover:bg-secondary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none hidden lg:block"
             @click="$router.push('/authentication/login')"
@@ -132,6 +145,7 @@ function checkIfCustomVisible(name) {
          <VerticalNavigation @close="isOpenSlider = false" />
 
          <button
+            v-if="!authState.logged"
             type="button"
             class="text-white m-8 bg-secondary hover:bg-secondary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-5 py-2.5 focus:outline-none"
             @click="() => {
