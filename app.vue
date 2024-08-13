@@ -8,8 +8,25 @@
    </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import NavigationLayout from "~/components/NavigationLayout.vue"
+import { useAuthComposable } from "~/composable/auth-composable.js"
+import { useFetch } from "#app"
+const headers = useRequestHeaders(['cookie'])
+
+const config = useRuntimeConfig()
+
+const {authState} = useAuthComposable();
+
+const { data } = await useFetch(`${config.public.api_url}api/users/verify`, {
+   headers
+})
+
+// const {data} = await useFetch(`${config.public.api_url}api/users/verify`, {
+//    baseURL: config.API_BASE_URL,
+// });
+// authState.logged = data.value?.logged;
+// authState.role = data.value?.role;
 </script>
 
 <style>

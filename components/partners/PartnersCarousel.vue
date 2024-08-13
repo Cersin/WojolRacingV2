@@ -126,7 +126,7 @@ defineProps({
             <img
                :src="el.asset"
                alt="logo"
-               class="px-2 lg:px-6 py-2"
+               class="px-2 lg:px-6 py-2 object-fill "
                :style="
                   !el.white ? 'background-color: rgba(255, 255, 255, 0.2)' : ''
                "

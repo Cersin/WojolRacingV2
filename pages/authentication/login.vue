@@ -1,13 +1,55 @@
 <script setup lang="ts">
+import { z } from 'zod'
+import type { FormSubmitEvent } from '#ui/types'
+import { useAuthComposable } from "~/composable/auth-composable"
 
+const { login } = useAuthComposable()
+// const passwordValidation = new RegExp(
+//    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+// );
+
+const schema = z.object({
+   username: z.string(),
+   password: z
+      .string()
+      .min(1, { message: 'Minimum  1 litera' }),
+})
+
+type Schema = z.output<typeof schema>
+
+const state = reactive({
+   email: undefined,
+   password: undefined
+})
+
+async function onSubmit (event: FormSubmitEvent<Schema>) {
+   // Do something with data
+   await login({
+      username: event.data.username,
+      password: event.data.password,
+   })
+   console.log(event.data)
+}
 </script>
 
 <template>
-<div>
-   Funkcjonalność dostępna wkrótcę.
-</div>
+   <div class="flex flex-col  justify-center items-center">
+      <div class="m-12">
+         Funkcjonalność dostępna wkrótce
+      </div>
+
+      <UForm :schema="schema" :state="state" class="space-y-4 min-w-60" @submit="onSubmit">
+         <UFormGroup label="Nazwa użytkownika" name="username">
+            <UInput v-model="state.username" autocomplete="username" />
+         </UFormGroup>
+
+         <UFormGroup label="Password" name="password">
+            <UInput v-model="state.password" type="password" autocomplete="current-password" />
+         </UFormGroup>
+
+         <UButton type="submit">
+            Submit
+         </UButton>
+      </UForm>
+   </div>
 </template>
-
-<style scoped>
-
-</style>
