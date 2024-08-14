@@ -5,10 +5,10 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
    const { authState, auth } = useAuthComposable()
 
    if (!authState.logged) {
-      const { role, logged } = await auth();
+      const { role, logged } = await auth()
 
-      if (!logged || role !== 'admin') {
-         return navigateTo('/')
+      if (!logged || role !== "admin") {
+         return navigateTo("/")
       }
    }
 })
