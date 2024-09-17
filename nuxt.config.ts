@@ -36,6 +36,7 @@ export default defineNuxtConfig({
       "vue3-carousel-nuxt",
       "nuxt-facebook-chat",
       "@nuxt/ui",
+      "@vueuse/nuxt",
    ],
    css: ["~/assets/css/main.css"],
    postcss: {

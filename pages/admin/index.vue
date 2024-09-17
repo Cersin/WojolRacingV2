@@ -1,15 +1,12 @@
 <script setup>
-   definePageMeta({
-      middleware: 'admin-middleware',
-   })
+definePageMeta({
+   middleware: "admin-middleware",
+   layout: "admin",
+})
 </script>
 
 <template>
-<div>
-   Panel admina
-</div>
+   <div>test</div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

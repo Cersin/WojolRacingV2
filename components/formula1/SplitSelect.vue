@@ -1,12 +1,19 @@
 <script setup>
 const config = useRuntimeConfig()
 
+const props = defineProps({
+   autoSelect: {
+      type: Boolean,
+      default: true,
+   },
+})
+
 const { data, status } = useLazyFetch(`${config.public.api_url}api/splits`, {
    server: false,
    onResponse: (e) => {
       if (e.response.ok) {
          const data = e.response._data?.data
-         if (data?.length) {
+         if (data?.length && props.autoSelect) {
             splitModel.value = data[0].split
          }
       }

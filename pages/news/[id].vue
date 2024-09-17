@@ -2,23 +2,28 @@
 import sol_nord from "~/assets/endurance/sol_nord.jpg"
 
 const route = useRoute()
+const config = useRuntimeConfig()
+
+const { data } = await useFetch(`${config.public.api_url}api/articles/${route.params.id}`)
 </script>
 
    <template>
       <div class="bg-black">
          <div class="p-5 mx-auto sm:p-10 md:p-16 bg-black dark:text-gray-800">
             <div class="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
-               <img :src="sol_nord" alt="" class="w-full h-60 sm:h-96 bg-black object-cover">
+               <img :src="`${config.public.api_url}articles/${data?.data?.mainPhoto}`" crossorigin="use-credentials" alt="" class="w-full h-60 sm:h-96 bg-black object-cover">
                <div class="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-primary">
                   <div class="space-y-2">
-                     <span class="text-xs dark:text-gray-600">January 21, 2021</span>
-                     <a rel="noopener noreferrer" href="#" class="inline-block text-2xl font-semibold sm:text-3xl">The Best Activewear from the Nordstrom Anniversary Sale</a>
+                     <div class="text-xs dark:text-gray-600">January 21, 2021</div>
+                     <a rel="noopener noreferrer" href="#" class="inline-block text-2xl font-semibold sm:text-3xl">{{ data?.data?.title }}</a>
                      <p class="text-xs dark:text-gray-600">By
-                        <a rel="noopener noreferrer" href="#" class="text-xs hover:underline">Leroy Jenkins</a>
+                        <a rel="noopener noreferrer" href="#" class="text-xs hover:underline">{{ data?.data?.author }}</a>
                      </p>
                   </div>
                   <div class="dark:text-gray-800">
-                     <p>Insert the actual text content here...</p>
+                     <client-only>
+                        <p v-html="data?.data?.content"/>
+                     </client-only>
                   </div>
                </div>
             </div>

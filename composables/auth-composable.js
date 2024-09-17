@@ -35,7 +35,6 @@ export const useAuthComposable = () => {
          successNotification()
 
          navigateTo("/")
-         ;("/")
       } catch (e) {
         console.error(e)
 
@@ -45,18 +44,18 @@ export const useAuthComposable = () => {
 
    const auth = async () => {
       try {
-         const { data } = await useFetch(
-            `${config.public.api_url}api/users/verify`,
-            {
-               headers,
-            },
-         )
+         const data = await $fetch(`api/users/verify`, {
+            credentials: "include",
+            baseURL: config.public.api_url,
 
-         authState.logged = !!data.value?.logged
-         authState.role = data.value?.role
+            headers,
+         })
+
+         authState.logged = !!data?.logged
+         authState.role = data?.role
          return {
-            logged: data.value?.logged,
-            role: data.value?.role,
+            logged: data?.logged,
+            role: data?.role,
          }
       } catch (e) {
          return false;
