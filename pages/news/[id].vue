@@ -1,36 +1,66 @@
 <script setup>
-import sol_nord from "~/assets/endurance/sol_nord.jpg"
+import { pl } from "date-fns/locale"
 
 const route = useRoute()
 const config = useRuntimeConfig()
 
-const { data } = await useFetch(`${config.public.api_url}api/articles/${route.params.id}`)
+const datefns = useNuxtApp().$datefns
+
+const { data } = await useFetch(
+   `${config.public.api_url}api/articles/${route.params.id}`,
+)
 </script>
 
-   <template>
-      <div class="bg-black">
-         <div class="p-5 mx-auto sm:p-10 md:p-16 bg-black dark:text-gray-800">
-            <div class="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
-               <img :src="`${config.public.api_url}articles/${data?.data?.mainPhoto}`" crossorigin="use-credentials" alt="" class="w-full h-60 sm:h-96 bg-black object-cover">
-               <div class="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-primary">
-                  <div class="space-y-2">
-                     <div class="text-xs dark:text-gray-600">January 21, 2021</div>
-                     <a rel="noopener noreferrer" href="#" class="inline-block text-2xl font-semibold sm:text-3xl">{{ data?.data?.title }}</a>
-                     <p class="text-xs dark:text-gray-600">By
-                        <a rel="noopener noreferrer" href="#" class="text-xs hover:underline">{{ data?.data?.author }}</a>
-                     </p>
+<template>
+   <div class="bg-black">
+      <div class="p-5 mx-auto sm:p-10 md:p-16 bg-black dark:text-gray-800">
+         <div class="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
+            <img
+               :src="`${config.public.api_url}articles/${data?.data?.mainPhoto}`"
+               alt=""
+               class="w-full h-60 sm:h-96 bg-black object-cover"
+               crossorigin="use-credentials"
+            />
+            <div
+               class="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-primary"
+            >
+               <div class="space-y-2">
+                  <div class="text-xs dark:text-gray-600">
+                     {{
+                        datefns.format(
+                           new Date(data?.data?.createdAt),
+                           "d MMMM yyyy",
+                           {
+                              locale: pl,
+                           },
+                        )
+                     }}
                   </div>
-                  <div class="dark:text-gray-800">
-                     <client-only>
-                        <p v-html="data?.data?.content"/>
-                     </client-only>
-                  </div>
+                  <a
+                     class="inline-block text-2xl font-semibold sm:text-3xl"
+                     href="#"
+                     rel="noopener noreferrer"
+                     >{{ data?.data?.title }}</a
+                  >
+                  <p class="text-xs dark:text-gray-600">
+                     By
+                     <a
+                        class="text-xs hover:underline"
+                        href="#"
+                        rel="noopener noreferrer"
+                        >{{ data?.data?.author }}</a
+                     >
+                  </p>
+               </div>
+               <div class="dark:text-gray-800">
+                  <client-only>
+                     <p v-html="data?.data?.content" />
+                  </client-only>
                </div>
             </div>
          </div>
       </div>
-   </template>
+   </div>
+</template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

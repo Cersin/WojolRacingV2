@@ -18,6 +18,7 @@
     "@vueup/vue-quill": "^1.2.0",
     "@vueuse/core": "^10.11.1",
     "@vueuse/nuxt": "^10.11.1",
+    "date-fns": "^4.1.0",
     "emailjs-com": "^3.2.0",
     "nuxt": "^3.12.3",
     "vue": "latest",
