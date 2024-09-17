@@ -5,7 +5,6 @@ definePageMeta({
 })
 
 const config = useRuntimeConfig()
-const modal = useModal()
 
 const columns = [
    {

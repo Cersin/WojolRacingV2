@@ -1,13 +1,16 @@
 <script setup>
 import { z } from 'zod'
 
+const Editor = defineAsyncComponent(() => import('~/components/inputs/QuillEditor.vue'))
+
    const model = defineModel({
       type: Object,
       default: () => {},
    })
 
+const emit = defineEmits(['send'])
 
-const MAX_FILE_SIZE = 3000000;
+const MAX_FILE_SIZE = 3072000;
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
 
 const schema = z.object({
@@ -24,7 +27,9 @@ const schema = z.object({
       message: 'Pole wymagane',
    }),
    mainPhoto: z.any()
-      .refine((file) => file?.size <= MAX_FILE_SIZE, `Maksymalna wielkość pliku: 3MB.`)
+      .refine((file) =>
+          file?.size < MAX_FILE_SIZE, `Maksymalna wielkość pliku: 3MB.`
+      )
       .refine(
          (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
          "Only .jpg, .jpeg, .png and .webp formats are supported."
@@ -32,19 +37,18 @@ const schema = z.object({
 })
 
 async function onSubmit (event) {
-   // Do something with data
-   console.log(event.data)
+   emit('send', event.data)
 }
 
 function getFileObject(e) {
-   model.value.photo = e[0]
+   model.value.mainPhoto = e[0]
 }
 </script>
 
 <template>
    <UForm :schema="schema" :state="model" @submit="onSubmit">
-      <UFormGroup label="Nazwa artykułu" name="name">
-         <UInput v-model="model.name" />
+      <UFormGroup label="Nazwa artykułu" name="title">
+         <UInput v-model="model.title" />
       </UFormGroup>
 
       <UFormGroup label="Kategoria" name="category">
@@ -56,7 +60,13 @@ function getFileObject(e) {
       </UFormGroup>
 
       <UFormGroup label="Główne zdjęcie" name="mainPhoto">
-         <UInput v-model="model.mainPhoto" type="file" accept="image/*" @change="getFileObject" />
+         <UInput v-model="model.photo" type="file" accept="image/*" @change="getFileObject" />
+      </UFormGroup>
+
+      <UFormGroup label="Treść" name="content">
+      <client-only>
+         <Editor v-model="model.content" />
+      </client-only>
       </UFormGroup>
 
       <UButton class="mt-4" type="submit">
