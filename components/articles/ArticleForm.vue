@@ -3,6 +3,13 @@ import { z } from 'zod'
 
 const Editor = defineAsyncComponent(() => import('~/components/inputs/QuillEditor.vue'))
 
+defineProps({
+   edit: {
+      type: Boolean,
+      default: false,
+   }
+})
+
    const model = defineModel({
       type: Object,
       default: () => {},
@@ -13,7 +20,7 @@ const emit = defineEmits(['send'])
 const MAX_FILE_SIZE = 3072000;
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
 
-const schema = z.object({
+const schemaNew = z.object({
    title: z.string({
       message: 'Pole wymagane',
    }),
@@ -33,7 +40,30 @@ const schema = z.object({
       .refine(
          (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
          "Only .jpg, .jpeg, .png and .webp formats are supported."
-      ),
+      )
+})
+
+const schemaEdit = z.object({
+   title: z.string({
+      message: 'Pole wymagane',
+   }),
+   category: z.string({
+      message: 'Pole wymagane',
+   }),
+   content: z.string({
+      message: 'Pole wymagane',
+   }),
+   author: z.string({
+      message: 'Pole wymagane',
+   }),
+   mainPhoto: z.any()
+      .refine((file) =>
+         file?.size < MAX_FILE_SIZE, `Maksymalna wielkość pliku: 3MB.`
+      )
+      .refine(
+         (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
+         "Only .jpg, .jpeg, .png and .webp formats are supported."
+      ).optional()
 })
 
 async function onSubmit (event) {
@@ -46,7 +76,7 @@ function getFileObject(e) {
 </script>
 
 <template>
-   <UForm :schema="schema" :state="model" @submit="onSubmit">
+   <UForm :schema="edit ? schemaEdit : schemaNew" :state="model" @submit="onSubmit">
       <UFormGroup label="Nazwa artykułu" name="title">
          <UInput v-model="model.title" />
       </UFormGroup>
@@ -70,7 +100,7 @@ function getFileObject(e) {
       </UFormGroup>
 
       <UButton class="mt-4" type="submit">
-         Dodaj
+         {{ edit ? 'Edytuj' : 'Dodaj' }}
       </UButton>
    </UForm>
 </template>

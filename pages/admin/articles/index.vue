@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import PlayerModal from "~/components/admin/formula1/modals/PlayerModal.vue"
+
 definePageMeta({
    middleware: "admin-middleware",
    layout: "admin",
@@ -22,6 +24,10 @@ const columns = [
    {
       key: "author",
       label: "Autor",
+   },
+   {
+      key: "actions",
+      label: "Akcje",
    },
 ]
 
@@ -72,6 +78,17 @@ const { status, data, refresh } = useLazyFetch(
                alt="mainPhoto"
                crossorigin="use-credentials"
                style="width: auto; height: 64px"
+            />
+         </template>
+
+         <template #actions-data="{ row }">
+            <UButton
+               :ui="{ rounded: 'rounded-full' }"
+               color="emerald"
+               icon="i-heroicons-pencil-square-16-solid"
+               size="2xs"
+               square
+               @click="$router.push(`/admin/articles/${row._id}`)"
             />
          </template>
       </UTable>

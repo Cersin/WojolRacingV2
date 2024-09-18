@@ -29,7 +29,7 @@ const columns = [
    },
    {
       key: "actions",
-      label: "Actions",
+      label: "Akcje",
    },
 ]
 
