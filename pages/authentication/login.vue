@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { z } from "zod"
 import type { FormSubmitEvent } from "#ui/types"
 import { useAuthComposable } from "~/composables/auth-composable"
@@ -50,7 +50,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             />
          </UFormGroup>
 
-         <UButton type="submit"> Submit </UButton>
+         <UButton type="submit"> Submit</UButton>
       </UForm>
    </div>
 </template>

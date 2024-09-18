@@ -38,18 +38,18 @@ const getRandomPlayer = computed(() => {
 
       <DottedCircle
          class="hidden lg:block"
-         right="5%"
-         top="5%"
-         size="150px"
          color="rgba(141, 141, 141, 0.25)"
+         right="5%"
+         size="150px"
+         top="5%"
       />
 
       <DottedCircle
-         class="hidden lg:block"
-         right="25%"
          bottom="5%"
-         size="150px"
+         class="hidden lg:block"
          color="rgba(141, 141, 141, 0.25)"
+         right="25%"
+         size="150px"
       />
    </div>
 </template>

@@ -15,11 +15,11 @@ const model = ref({})
 async function createArticle(data) {
    try {
       const formData = new FormData()
-      formData.append('title', data.title)
-      formData.append('mainPhoto', data.mainPhoto)
-      formData.append('category', data.category)
-      formData.append('content', data.content)
-      formData.append('author', data.author)
+      formData.append("title", data.title)
+      formData.append("mainPhoto", data.mainPhoto)
+      formData.append("category", data.category)
+      formData.append("content", data.content)
+      formData.append("author", data.author)
 
       await $fetch(`api/articles`, {
          method: "POST",

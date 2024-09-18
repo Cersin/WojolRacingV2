@@ -101,7 +101,7 @@ function loadMore() {
                         })
                      }}</span>
                      <client-only>
-                        <p v-html="e.content" class="line-clamp-5"></p>
+                        <p class="line-clamp-5" v-html="e.content"></p>
                      </client-only>
                   </div>
                </NuxtLink>

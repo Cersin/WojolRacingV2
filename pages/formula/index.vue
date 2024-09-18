@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import PartnersCarousel from "~/components/partners/PartnersCarousel.vue"
 import BaseSocials from "~/components/layout/BaseSocials.vue"
 import SeasonSelect from "~/components/formula1/SeasonSelect.vue"
@@ -73,12 +73,12 @@ function redirectToRegulations() {
          </div>
 
          <UCard
-            class="hidden lg:block col-span-2 row-span-2"
             :ui="{
                base: '',
                background: 'dark:bg-black',
                ring: 'dark:ring-gray-600',
             }"
+            class="hidden lg:block col-span-2 row-span-2"
          >
             <PartnersCarousel :items-to-show="3" />
          </UCard>
@@ -88,8 +88,8 @@ function redirectToRegulations() {
          >
             <TopPlayersFetch
                v-if="season && split"
-               :split="split"
                :season="season"
+               :split="split"
             />
          </div>
 
@@ -98,8 +98,8 @@ function redirectToRegulations() {
          >
             <TopConstructorsFetch
                v-if="season && split"
-               :split="split"
                :season="season"
+               :split="split"
             />
          </div>
 
@@ -110,12 +110,12 @@ function redirectToRegulations() {
          </div>
 
          <UCard
-            class="hidden lg:block col-span-2 row-start-3 col-start-4"
             :ui="{
                base: '',
                background: 'dark:bg-black',
                ring: 'dark:ring-gray-600',
             }"
+            class="hidden lg:block col-span-2 row-start-3 col-start-4"
          >
             <BaseSocials class="flex justify-evenly" icon-size="2rem" />
          </UCard>
@@ -124,7 +124,6 @@ function redirectToRegulations() {
       <UTabs
          v-model="selected"
          :items="tabs"
-         orientation="vertical"
          :ui="{
             list: {
                base: 'grid grid-cols-2 md:grid-cols-4 xl:grid-cols-7 w-full  gap-4 bg-green',
@@ -145,6 +144,7 @@ function redirectToRegulations() {
                },
             },
          }"
+         orientation="vertical"
       >
          <template #item="{ index, selected }">
             <UCard
@@ -196,8 +196,8 @@ function redirectToRegulations() {
 
                <div v-if="index === 5 && selected">
                   <BaseButton @click="redirectToRegulations"
-                     >Idź do regulaminu</BaseButton
-                  >
+                     >Idź do regulaminu
+                  </BaseButton>
                </div>
 
                <div v-if="index === 6 && selected">

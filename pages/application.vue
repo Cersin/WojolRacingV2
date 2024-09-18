@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import DottedCircle from "~/components/layout/DottedCircle.vue"
 </script>
 

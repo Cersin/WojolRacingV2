@@ -34,11 +34,11 @@ function openWhyCantSeeCardModal() {
    <div class="p-8 bg-primary flex flex-col gap-8">
       <div class="flex items-start gap-4">
          <BaseButton type="black" @click="openHowWeCalculateModal"
-            >Jak obliczamy Twój rating?</BaseButton
-         >
+            >Jak obliczamy Twój rating?
+         </BaseButton>
          <BaseButton type="black" @click="openWhyCantSeeCardModal"
-            >Dlaczego nie widzę swojej karty?</BaseButton
-         >
+            >Dlaczego nie widzę swojej karty?
+         </BaseButton>
       </div>
       <UInput v-model="searchModel" placeholder="Szukaj karty" />
 

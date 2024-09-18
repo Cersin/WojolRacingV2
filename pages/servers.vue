@@ -1,5 +1,4 @@
-<script setup lang="ts">
-import BaseButton from "~/components/buttons/BaseButton.vue"
+<script lang="ts" setup>
 import ServerCard from "~/components/servers/ServerCard.vue"
 </script>
 
@@ -19,9 +18,9 @@ import ServerCard from "~/components/servers/ServerCard.vue"
 
             <div class="flex items-center justify-end">
                <img
+                  alt="server_image"
                   class="object-scale-down h-full"
                   src="~/assets/servers/servers_person.png"
-                  alt="server_image"
                />
             </div>
          </div>
@@ -31,18 +30,18 @@ import ServerCard from "~/components/servers/ServerCard.vue"
          <div class="flex flex-col gap-4">
             <ServerCard
                :number="1"
-               link="https://s1.wojolracing.pl/live-timing "
                description="Serwer 1 Publiczny serwer Nordschleife"
+               link="https://s1.wojolracing.pl/live-timing "
             />
             <ServerCard
                :number="2"
-               link="https://s1.wojolracing.pl/live-timing "
                description="Serwer 1 Publiczny serwer Nordschleife"
+               link="https://s1.wojolracing.pl/live-timing "
             />
             <ServerCard
                :number="3"
-               link="https://s1.wojolracing.pl/live-timing "
                description="Serwer 1 Publiczny serwer Nordschleife"
+               link="https://s1.wojolracing.pl/live-timing "
             />
          </div>
       </div>

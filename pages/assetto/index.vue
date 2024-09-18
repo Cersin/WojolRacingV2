@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import PartnersCarousel from "~/components/partners/PartnersCarousel.vue"
 import BaseSocials from "~/components/layout/BaseSocials.vue"
 import EventSelect from "~/components/assetto/EventSelect.vue"
@@ -57,12 +57,12 @@ function redirectToRegulations() {
          </div>
 
          <UCard
-            class="hidden lg:block col-span-3 row-span-2"
             :ui="{
                base: '',
                background: 'dark:bg-black',
                ring: 'dark:ring-gray-600',
             }"
+            class="hidden lg:block col-span-3 row-span-2"
          >
             <PartnersCarousel :items-to-show="3" />
          </UCard>
@@ -81,12 +81,12 @@ function redirectToRegulations() {
          <!--         </div>-->
 
          <UCard
-            class="hidden lg:block col-span-3 row-start-3 col-start-3"
             :ui="{
                base: '',
                background: 'dark:bg-black',
                ring: 'dark:ring-gray-600',
             }"
+            class="hidden lg:block col-span-3 row-start-3 col-start-3"
          >
             <BaseSocials class="flex justify-evenly" icon-size="2rem" />
          </UCard>
@@ -95,7 +95,6 @@ function redirectToRegulations() {
       <UTabs
          v-model="selected"
          :items="tabs"
-         orientation="vertical"
          :ui="{
             list: {
                base: 'grid grid-cols-2 md:grid-cols-4 xl:grid-cols-7 w-full  gap-4 bg-green',
@@ -116,6 +115,7 @@ function redirectToRegulations() {
                },
             },
          }"
+         orientation="vertical"
       >
          <template #item="{ index, selected }">
             <UCard

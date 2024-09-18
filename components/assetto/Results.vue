@@ -79,9 +79,7 @@ const columns = [
    <div class="flex flex-col">
       <USelect
          v-model="selectedTrack"
-         class="self-center"
          :options="tracks"
-         size="xl"
          :ui="{
             wrapper: 'relative',
             base: ' relative block w-full disabled:cursor-not-allowed disabled:opacity-75  border-0',
@@ -107,28 +105,30 @@ const columns = [
                xl: '',
             },
          }"
+         class="self-center"
+         size="xl"
       />
 
       <UTable
          :columns="columns"
-         :rows="results?.results"
          :loading="status === 'pending' || status === 'idle'"
+         :rows="results?.results"
          :ui="baseTableUI"
       >
          <template #dnf-data="{ row }">
-              <Icon
-                 v-if="row.dnf"
-                 style="color: green"
-                 size="24"
-                 name="material-symbols:check-rounded"
-              />
+            <Icon
+               v-if="row.dnf"
+               name="material-symbols:check-rounded"
+               size="24"
+               style="color: green"
+            />
 
-              <Icon
-                 v-else
-                 size="24"
-                 style="color: red"
-                 name="material-symbols:close"
-              />
+            <Icon
+               v-else
+               name="material-symbols:close"
+               size="24"
+               style="color: red"
+            />
          </template>
       </UTable>
    </div>

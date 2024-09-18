@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import PlayerModal from "~/components/admin/formula1/modals/PlayerModal.vue"
 
 definePageMeta({
    middleware: "admin-middleware",

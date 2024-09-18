@@ -15,11 +15,11 @@ onMounted(() => {
    <USelectMenu
       v-model="eventModel"
       :options="events"
-      searchable
-      placeholder="Event"
-      color="black"
-      size="md"
       class="bg-primary text-black rounded min-w-24 z-40"
+      color="black"
+      placeholder="Event"
+      searchable
+      size="md"
    >
       <template #label>
          <span class="text-black">Event: {{ eventModel }}</span>

@@ -23,21 +23,21 @@ const { data: article } = await useFetch(
             author: data.author,
             content: data.content,
          }
-      }
-   }
+      },
+   },
 )
 
 async function createArticle(data) {
    try {
       const formData = new FormData()
-      formData.append('title', data.title)
+      formData.append("title", data.title)
 
-      if(data.mainPhoto) {
-         formData.append('mainPhoto', data.mainPhoto)
+      if (data.mainPhoto) {
+         formData.append("mainPhoto", data.mainPhoto)
       }
-      formData.append('category', data.category)
-      formData.append('content', data.content)
-      formData.append('author', data.author)
+      formData.append("category", data.category)
+      formData.append("content", data.content)
+      formData.append("author", data.author)
 
       await $fetch(`api/articles/${route.params.id}`, {
          method: "PATCH",

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { z } from "zod"
 import emailjs from "emailjs-com"
 
@@ -67,8 +67,7 @@ async function onSubmit() {
 
             <div class="text-4xl">Współpraca</div>
             <div class="text-base">
-               Jesteśmy otwarci na wszelkie współprace!
-               Zapraszamy do kontaktu!
+               Jesteśmy otwarci na wszelkie współprace! Zapraszamy do kontaktu!
             </div>
 
             <div class="text-4xl">Masz pytanie?</div>
@@ -94,9 +93,9 @@ async function onSubmit() {
                   <UTextarea v-model="state.message" />
                </UFormGroup>
 
-               <UButton :disabled="isSend" type="submit" :loading="sending">{{
-                  isSend ? "Wiadomość wysłana" : "Wyślij"
-               }}</UButton>
+               <UButton :disabled="isSend" :loading="sending" type="submit"
+                  >{{ isSend ? "Wiadomość wysłana" : "Wyślij" }}
+               </UButton>
             </form>
          </div>
       </div>
