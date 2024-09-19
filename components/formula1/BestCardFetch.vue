@@ -12,7 +12,8 @@ const { data, status } = await useLazyFetch(
 )
 
 const getFirstPlayer = computed(() => {
-   return data.value?.data[0]
+   const random = Math.floor(Math.random() * data.value.data.length)
+   return data.value?.data[random]
 })
 </script>
 

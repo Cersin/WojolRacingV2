@@ -11,7 +11,8 @@ const config = useRuntimeConfig()
 const { data } = await useFetch(`${config.public.api_url}api/race/playerCard`)
 
 const getRandomPlayer = computed(() => {
-   return data.value?.data[0]
+   const random = Math.floor(Math.random() * data.value.data.length)
+   return data.value?.data[random]
 })
 </script>
 

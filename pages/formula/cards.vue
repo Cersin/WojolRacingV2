@@ -3,6 +3,7 @@ import PlayerCard from "~/components/player_cards/PlayerCard.vue"
 import BaseButton from "~/components/buttons/BaseButton.vue"
 import HowWeCalculateDialog from "~/components/cards/HowWeCalculateDialog.vue"
 import WhyCantSeeCardDialog from "~/components/cards/WhyCantSeeCardDialog.vue"
+import { computed } from "vue"
 
 definePageMeta({
    name: "Karty kierowców",
@@ -18,7 +19,12 @@ const searchModel = ref("")
 const computedData = computed(() => {
    return data.value?.data?.filter((el) =>
       el.player.name.toLowerCase().includes(searchModel.value.toLowerCase()),
-   )
+   ).map((e) => {
+      return {
+         ...e,
+         overall: calculate(e)
+      }
+   }).sort((a, b) => b.overall - a.overall)
 })
 
 function openHowWeCalculateModal() {
@@ -27,6 +33,14 @@ function openHowWeCalculateModal() {
 
 function openWhyCantSeeCardModal() {
    modal.open(WhyCantSeeCardDialog)
+}
+
+
+function calculate(card) {
+   return (
+      (+card?.awareness + +card?.experience + +card?.racePace + +card?.pace) /
+      4
+   ).toFixed(0)
 }
 </script>
 
