@@ -8,6 +8,8 @@ import aston from "~/assets/teams/aston.png"
 import Haas from "~/assets/teams/Haas.png"
 import alfa from "~/assets/teams/orlen.png"
 import Williams from "~/assets/teams/Williams.png"
+import Visa_rb from "~/assets/teams/visa_rb.png"
+import Stake from "~/assets/teams/stake.png"
 import Wojol from "~/assets/teams/wojol.png"
 
 export default {
@@ -21,7 +23,7 @@ export default {
    },
    RB: {
       value: "RB",
-      img: at,
+      img: Visa_rb,
    },
    Ferrari: {
       value: "Ferrari",
@@ -59,8 +61,8 @@ export default {
       value: "Rezerwa",
       img: Wojol,
    },
-  Sauber: {
+  'Kick Sauber': {
       value: "Kick Sauber",
-      img: alfa,
+      img: Stake,
    },
 }
