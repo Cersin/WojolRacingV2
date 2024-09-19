@@ -14,7 +14,7 @@ const f1Links = [
       {
          label: "Artykuły",
          click: () => (isOpen.value = false),
-         to: "/admin/article",
+         to: "/admin/articles",
       },
    ],
 ]

@@ -29,7 +29,7 @@ const ACCEPTED_IMAGE_TYPES = [
 
 const schemaNew = z.object({
    title: z.string({
-      message: "Pole wymagane,
+      message: "Pole wymagane",
    }),
    category: z.string({
       message: "Pole wymagane"
