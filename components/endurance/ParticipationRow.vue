@@ -29,11 +29,11 @@ defineProps({
 
 <template>
    <div
-      class="flex flex-col justify-between h-72"
       :class="{
          'md:flex-row-reverse': even,
          'md:flex-row': !even,
       }"
+      class="flex flex-col justify-between h-72"
    >
       <div
          :class="{
@@ -48,11 +48,11 @@ defineProps({
             class="rounded-2xl object-cover w-full"
          />
          <div
-            class="absolute bottom-8"
             :class="{
                'left-4': !even,
                'right-4': even,
             }"
+            class="absolute bottom-8"
          >
             {{ car }}
          </div>
@@ -76,10 +76,10 @@ defineProps({
                {{ description }}
             </div>
             <div
-               class="text-xl"
                :class="{
                   'md:mr-[15%]': even,
                }"
+               class="text-xl"
             >
                {{ resultDescription }}
             </div>

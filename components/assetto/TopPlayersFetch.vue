@@ -27,8 +27,8 @@ const { data, status } = await useLazyFetch(
    <div class="h-full w-full flex">
       <UProgress
          v-if="status === 'pending' || status === 'idle'"
-         class="p-4 min-h-12 self-center"
          animation="carousel"
+         class="p-4 min-h-12 self-center"
       />
 
       <div
@@ -41,7 +41,7 @@ const { data, status } = await useLazyFetch(
             :key="index"
          >
             <div class="flex items-center justify-between mx-8">
-               <div >
+               <div>
                   {{ data.data[index].player.name }}
                </div>
 

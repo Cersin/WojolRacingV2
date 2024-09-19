@@ -3,12 +3,18 @@ import VerticalNavigation from "~/components/navigation/VerticalNavigation.vue"
 import { useAuthComposable } from "~/composables/auth-composable.js"
 
 const router = useRouter()
-const { authState }  = useAuthComposable()
+const { authState } = useAuthComposable()
 
 const isOpenSlider = ref(false)
 
 function checkIfCustomVisible(name) {
-   return name === "Endurance" || name === "Kontakt" || name === "Aktualności" || name === "Karty kierowców" || name === "O nas";
+   return (
+      name === "Endurance" ||
+      name === "Kontakt" ||
+      name === "Aktualności" ||
+      name === "Karty kierowców" ||
+      name === "O nas"
+   )
 }
 </script>
 
@@ -17,9 +23,9 @@ function checkIfCustomVisible(name) {
       class="flex flex-row min-h-16 h-16 items-center bg-black text-white navigation text-nowrap overflow-hidden"
    >
       <NuxtLink
-         to="/"
          active-class="text-black  bg-primary bottom-right-inverted-border "
          class="hidden lg:flex items-center gap-10 h-full px-8 hover:bg-primary hover:text-black hover-bottom-right-inverted-border relative"
+         to="/"
       >
          <img
             alt="WRL"
@@ -43,30 +49,29 @@ function checkIfCustomVisible(name) {
 
       <ul class="text-base h-full hidden lg:flex">
          <NuxtLink
-            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border "
+            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             to="/formula"
-            >Formula 1</NuxtLink
-         >
+            >Formula 1
+         </NuxtLink>
          <NuxtLink
-            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
+            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             to="/assetto"
-            >Assetto Corsa</NuxtLink
-         >
+            >Assetto Corsa
+         </NuxtLink>
          <NuxtLink
-            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
+            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             to="/application"
-            >Aplikacja</NuxtLink
-         >
+            >Aplikacja
+         </NuxtLink>
          <NuxtLink
-            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
+            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             to="/servers"
-            >Serwery</NuxtLink
-         >
-
+            >Serwery
+         </NuxtLink>
 
          <UPopover
             :class="{
@@ -104,21 +109,20 @@ function checkIfCustomVisible(name) {
             </template>
          </UPopover>
 
-
          <NuxtLink
             v-if="authState.role === 'admin'"
-            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border "
+            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             to="/admin"
-         >Panel admina</NuxtLink
-         >
+            >Panel admina
+         </NuxtLink>
       </ul>
 
-      <div  class="text-3xl flex-grow flex justify-end">
+      <div class="text-3xl flex-grow flex justify-end">
          <button
             v-if="!authState.logged"
-            type="button"
             class="text-white m-8 bg-secondary hover:bg-secondary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none hidden lg:block"
+            type="button"
             @click="$router.push('/authentication/login')"
          >
             Zaloguj
@@ -136,29 +140,32 @@ function checkIfCustomVisible(name) {
 
       <USlideover
          v-model="isOpenSlider"
-         class="lg:hidden"
          :ui="{
             width: 'w-24 max-w-56',
             height: 'h-48 max-h-48',
          }"
+         class="lg:hidden"
       >
          <VerticalNavigation @close="isOpenSlider = false" />
 
          <button
             v-if="!authState.logged"
-            type="button"
             class="text-white m-8 bg-secondary hover:bg-secondary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-5 py-2.5 focus:outline-none"
-            @click="() => {
-               isOpenSlider = false
-               $router.push('/authentication/login')
-            }"         >
+            type="button"
+            @click="
+               () => {
+                  isOpenSlider = false
+                  $router.push('/authentication/login')
+               }
+            "
+         >
             Zaloguj
          </button>
       </USlideover>
    </nav>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .navigation {
    font-family: "Chakra Petch", sans-serif;
 }

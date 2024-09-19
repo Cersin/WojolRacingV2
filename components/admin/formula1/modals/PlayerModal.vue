@@ -1,5 +1,5 @@
 <script setup>
-import { z } from 'zod'
+import { z } from "zod"
 import SplitSelect from "~/components/formula1/SplitSelect.vue"
 import teams from "~/data/teams"
 
@@ -11,17 +11,18 @@ const props = defineProps({
    player: {
       type: Object,
       default: null,
-   }
+   },
 })
 
-const emit = defineEmits(['success'])
+const emit = defineEmits(["success"])
 
 const schema = z.object({
-   name: z.string({
-      message: 'Pole wymagane',
-   }).min(1, 'Pole wymagane'),
+   name: z
+      .string({
+         message: "Pole wymagane",
+      })
+      .min(1, "Pole wymagane"),
 })
-
 
 const model = reactive({
    name: undefined,
@@ -35,33 +36,33 @@ const model = reactive({
 async function onSubmit(event) {
    try {
       const formData = new FormData()
-      formData.append('name', event.data.name)
-      if(event.data?.split) formData.append('split', event.data.split)
-      if(event.data?.team) formData.append('team', event.data.team)
-      if(event.data?.photo) formData.append('photo', event.data.photo)
-      if(props.player) formData.append('active', event.data.active)
-      if(props.player) {
+      formData.append("name", event.data.name)
+      if (event.data?.split) formData.append("split", event.data.split)
+      if (event.data?.team) formData.append("team", event.data.team)
+      if (event.data?.photo) formData.append("photo", event.data.photo)
+      if (props.player) formData.append("active", event.data.active)
+      if (props.player) {
          await $fetch(`api/players/${props.player._id}`, {
-            method: 'PATCH',
+            method: "PATCH",
             body: formData,
             credentials: "include",
             baseURL: config.public.api_url,
          })
       } else {
          await $fetch(`api/players/`, {
-            method: 'POST',
+            method: "POST",
             body: formData,
             credentials: "include",
             baseURL: config.public.api_url,
          })
       }
-      emit('success')
-      toast.add({ title: props.player ? 'Edytowano' :  'Dodano'})
+      emit("success")
+      toast.add({ title: props.player ? "Edytowano" : "Dodano" })
 
       await modal.close()
    } catch (err) {
       console.error(err)
-      toast.add({ title: 'Error', color: 'red'})
+      toast.add({ title: "Error", color: "red" })
    }
 }
 
@@ -70,7 +71,7 @@ function getFileObject(e) {
 }
 
 onMounted(() => {
-   if(props.player) {
+   if (props.player) {
       model.split = props.player.split
       model.name = props.player.name
       model.team = props.player.team
@@ -88,10 +89,17 @@ onMounted(() => {
          }"
       >
          <template #header>
-            <div class="text-xl">{{ player ? 'Edytuj zawodnika' : 'Dodaj zawodnika' }}</div>
+            <div class="text-xl">
+               {{ player ? "Edytuj zawodnika" : "Dodaj zawodnika" }}
+            </div>
          </template>
 
-         <UForm :schema="schema" :state="model" @submit="onSubmit" class="space-y-4">
+         <UForm
+            :schema="schema"
+            :state="model"
+            class="space-y-4"
+            @submit="onSubmit"
+         >
             <UFormGroup label="Imię Nazwisko" name="name">
                <UInput v-model="model.name" autofocus />
             </UFormGroup>
@@ -101,7 +109,13 @@ onMounted(() => {
             </UFormGroup>
 
             <UFormGroup label="Zespół" name="team">
-               <USelectMenu v-model="model.team" :options="Object.values(teams)" value-attribute="value" option-attribute="value" searchable   />
+               <USelectMenu
+                  v-model="model.team"
+                  :options="Object.values(teams)"
+                  option-attribute="value"
+                  searchable
+                  value-attribute="value"
+               />
             </UFormGroup>
 
             <UFormGroup v-if="player" label="Aktywny" name="active">
@@ -109,7 +123,11 @@ onMounted(() => {
             </UFormGroup>
 
             <UFormGroup label="Zdjęcie" name="photo">
-               <UInput v-model="model.photoString" type="file" accept="image/*" @change="getFileObject"
+               <UInput
+                  v-model="model.photoString"
+                  accept="image/*"
+                  type="file"
+                  @change="getFileObject"
                />
             </UFormGroup>
 
@@ -121,9 +139,7 @@ onMounted(() => {
                />
             </div>
 
-            <UButton type="submit">
-               Zapisz
-            </UButton>
+            <UButton type="submit"> Zapisz</UButton>
          </UForm>
       </UCard>
    </UModal>

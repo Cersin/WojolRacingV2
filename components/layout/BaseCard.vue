@@ -1,9 +1,9 @@
-<script setup lang="ts"></script>
+<script lang="ts" setup></script>
 
 <template>
-   <div v-bind="$attrs" class="border border-gray-500">
+   <div class="border border-gray-500" v-bind="$attrs">
       <slot />
    </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

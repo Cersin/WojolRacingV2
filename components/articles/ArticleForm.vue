@@ -1,73 +1,85 @@
 <script setup>
-import { z } from 'zod'
+import { z } from "zod"
 
-const Editor = defineAsyncComponent(() => import('~/components/inputs/QuillEditor.vue'))
+const Editor = defineAsyncComponent(
+   () => import("~/components/inputs/QuillEditor.vue"),
+)
 
 defineProps({
    edit: {
       type: Boolean,
       default: false,
-   }
+   },
 })
 
-   const model = defineModel({
-      type: Object,
-      default: () => {},
-   })
+const model = defineModel({
+   type: Object,
+   default: () => {},
+})
 
-const emit = defineEmits(['send'])
+const emit = defineEmits(["send"])
 
-const MAX_FILE_SIZE = 3072000;
-const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+const MAX_FILE_SIZE = 3072000
+const ACCEPTED_IMAGE_TYPES = [
+   "image/jpeg",
+   "image/jpg",
+   "image/png",
+   "image/webp",
+]
 
 const schemaNew = z.object({
    title: z.string({
-      message: 'Pole wymagane',
+      message: "Pole wymagane,
    }),
    category: z.string({
-      message: 'Pole wymagane',
+      message: "Pole wymagane"
    }),
    content: z.string({
-      message: 'Pole wymagane',
+      message: "Pole wymagane"
    }),
    author: z.string({
-      message: 'Pole wymagane',
+      message: "Pole wymagane"
    }),
-   mainPhoto: z.any()
-      .refine((file) =>
-          file?.size < MAX_FILE_SIZE, `Maksymalna wielkość pliku: 3MB.`
+   mainPhoto: z
+      .any()
+      .refine(
+         (file) => file?.size < MAX_FILE_SIZE,
+         `Maksymalna wielkość pliku: 3MB.`
       )
       .refine(
          (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
          "Only .jpg, .jpeg, .png and .webp formats are supported."
-      )
+      ),
 })
 
 const schemaEdit = z.object({
    title: z.string({
-      message: 'Pole wymagane',
+      message: "Pole wymagane"
    }),
    category: z.string({
-      message: 'Pole wymagane',
+      message: "Pole wymagane"
    }),
    content: z.string({
-      message: 'Pole wymagane',
+      message: "Pole wymagane"
    }),
    author: z.string({
-      message: 'Pole wymagane',
+      message: "Pole wymagane"
    }),
-   mainPhoto: z.any()
-      .refine((file) =>
-         file?.size < MAX_FILE_SIZE, `Maksymalna wielkość pliku: 3MB.`
+   mainPhoto: z
+      .any()
+      .refine(
+         (file) => file?.size < MAX_FILE_SIZE,
+         `Maksymalna wielkość pliku: 3MB.`
       )
       .refine(
          (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
          "Only .jpg, .jpeg, .png and .webp formats are supported."
-      ).optional()
+      )
+      .optional(),
 })
 
-async function onSubmit (event) {
-   emit('send', event.data)
+async function onSubmit(event) {
+   emit("send", event.data)
 }
 
 function getFileObject(e) {
@@ -76,7 +88,11 @@ function getFileObject(e) {
 </script>
 
 <template>
-   <UForm :schema="edit ? schemaEdit : schemaNew" :state="model" @submit="onSubmit">
+   <UForm
+      :schema="edit ? schemaEdit : schemaNew"
+      :state="model"
+      @submit="onSubmit"
+   >
       <UFormGroup label="Nazwa artykułu" name="title">
          <UInput v-model="model.title" />
       </UFormGroup>
@@ -90,21 +106,24 @@ function getFileObject(e) {
       </UFormGroup>
 
       <UFormGroup label="Główne zdjęcie" name="mainPhoto">
-         <UInput v-model="model.photo" type="file" accept="image/*" @change="getFileObject" />
+         <UInput
+            v-model="model.photo"
+            accept="image/*"
+            type="file"
+            @change="getFileObject"
+         />
       </UFormGroup>
 
       <UFormGroup label="Treść" name="content">
-      <client-only>
-         <Editor v-model="model.content" />
-      </client-only>
+         <client-only>
+            <Editor v-model="model.content" />
+         </client-only>
       </UFormGroup>
 
       <UButton class="mt-4" type="submit">
-         {{ edit ? 'Edytuj' : 'Dodaj' }}
+         {{ edit ? "Edytuj" : "Dodaj" }}
       </UButton>
    </UForm>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

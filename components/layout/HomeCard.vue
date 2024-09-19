@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 defineProps({
    description: {
       type: String,
@@ -23,19 +23,19 @@ const emit = defineEmits(["click"])
 
 <template>
    <div
-      v-bind="$attrs"
       class="relative rounded-2xl cursor-pointer drop-shadow-xl"
+      v-bind="$attrs"
       @click="emit('click')"
    >
       <div
          v-if="shadow"
-         class="shadow rounded-2xl overflow-hidden"
          :class="{
             'shadow-top-left': shadowDirection === 'top-left',
             'shadow-bottom-left': shadowDirection === 'bottom-left',
             'shadow-top-right': shadowDirection === 'top-right',
             'shadow-bottom-right': shadowDirection === 'bottom-right',
          }"
+         class="shadow rounded-2xl overflow-hidden"
       />
 
       <img
@@ -55,7 +55,7 @@ const emit = defineEmits(["click"])
    </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .shadow {
    position: absolute;
 

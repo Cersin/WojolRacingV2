@@ -29,15 +29,15 @@ const splitModel = defineModel("split", {
 <template>
    <USelectMenu
       v-model="splitModel"
-      :options="data?.data"
-      searchable
-      placeholder="Split"
-      option-attribute="split"
-      value-attribute="split"
       :loading="status === 'pending' || status === 'idle'"
-      color="black"
-      size="md"
+      :options="data?.data"
       class="bg-primary text-black rounded min-w-24 z-40"
+      color="black"
+      option-attribute="split"
+      placeholder="Split"
+      searchable
+      size="md"
+      value-attribute="split"
    >
       <template #label>
          <span class="text-black">Split: {{ splitModel }}</span>

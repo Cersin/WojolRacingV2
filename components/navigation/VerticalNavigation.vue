@@ -9,7 +9,7 @@ const links = [
       to: "/",
       additional: true,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
    {
@@ -17,7 +17,7 @@ const links = [
       to: "/formula",
       additional: false,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
    {
@@ -25,7 +25,7 @@ const links = [
       to: "/formula/cards",
       additional: true,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
    {
@@ -33,7 +33,7 @@ const links = [
       to: "/assetto",
       additional: false,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
    {
@@ -41,7 +41,7 @@ const links = [
       to: "/application",
       additional: false,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
    {
@@ -49,7 +49,7 @@ const links = [
       to: "/servers",
       additional: false,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
    {
@@ -57,7 +57,7 @@ const links = [
       to: "/news",
       additional: true,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
    {
@@ -65,7 +65,7 @@ const links = [
       to: "/endurance",
       additional: true,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
    {
@@ -73,7 +73,7 @@ const links = [
       to: "/contact",
       additional: true,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
    {
@@ -81,16 +81,16 @@ const links = [
       to: "/about",
       additional: true,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
    {
       label: "Panel admina",
       to: "/admin",
-      role: ['admin'],
+      role: ["admin"],
       additional: true,
       click: () => {
-         emit('close')
+         emit("close")
       },
    },
 ]
@@ -99,14 +99,17 @@ const props = defineProps({
    additional: {
       type: Boolean,
       default: false,
-   }
+   },
 })
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(["close"])
 
 const computedLinks = computed(() => {
    const role = authState.role
-   if(props.additional) return links.filter((link) => link.additional && !!link?.role ? link.role.includes(role) : true)
+   if (props.additional)
+      return links.filter((link) =>
+         link.additional && !!link?.role ? link.role.includes(role) : true,
+      )
    return links
 })
 </script>
@@ -114,13 +117,9 @@ const computedLinks = computed(() => {
 <template>
    <UVerticalNavigation :links="computedLinks">
       <template #default="{ link }">
-                        <span class="hover:text-primary relative">{{
-                              link.label
-                           }}</span>
+         <span class="hover:text-primary relative">{{ link.label }}</span>
       </template>
    </UVerticalNavigation>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

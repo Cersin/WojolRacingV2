@@ -1,21 +1,25 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 const f1Links = [
    [
       {
-      label: 'Zawodnicy',
-      click: () => isOpen.value = false,
-      to: '/admin/formula1/players'
-   },
-      {
-         label: 'Artykuły',
-         click: () => isOpen.value = false,
-         to: '/admin/articles'
+         label: "Zawodnicy",
+         click: () => (isOpen.value = false),
+         to: "/admin/formula1/players",
       },
-   ]
+      {
+         label: "Wyścigi",
+         click: () => (isOpen.value = false),
+         to: "/admin/formula1/races",
+      },
+      {
+         label: "Artykuły",
+         click: () => (isOpen.value = false),
+         to: "/admin/article",
+      },
+   ],
 ]
 
 const isOpen = ref(false)
-
 </script>
 
 <template>
@@ -29,6 +33,4 @@ const isOpen = ref(false)
    </USlideover>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

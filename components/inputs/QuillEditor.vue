@@ -1,7 +1,6 @@
-<script setup lang="ts">
-
+<script lang="ts" setup>
 import { QuillEditor } from "@vueup/vue-quill"
-import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import "@vueup/vue-quill/dist/vue-quill.snow.css"
 
 const model = defineModel({
    type: String,
@@ -11,10 +10,13 @@ const model = defineModel({
 
 <template>
    <div>
-      <QuillEditor v-model:content="model" content-type="html" toolbar="full" theme="snow"/>
+      <QuillEditor
+         v-model:content="model"
+         content-type="html"
+         theme="snow"
+         toolbar="full"
+      />
    </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

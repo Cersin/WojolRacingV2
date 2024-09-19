@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { PartnerModel } from "~/types/partners"
 import anotherway from "~/assets/partners/another_way.png"
 import cammus from "~/assets/partners/cammus.png"
@@ -116,20 +116,20 @@ defineProps({
 
 <template>
    <Carousel
+      :autoplay="3000"
       :items-to-show="itemsToShow"
       :wrap-around="true"
-      :autoplay="3000"
       circular
    >
       <Slide v-for="el in partners" :key="el">
-         <a class="cursor-pointer" :href="el.url">
+         <a :href="el.url" class="cursor-pointer">
             <img
                :src="el.asset"
-               alt="logo"
-               class="px-2 lg:px-6 py-2 object-fill "
                :style="
                   !el.white ? 'background-color: rgba(255, 255, 255, 0.2)' : ''
                "
+               alt="logo"
+               class="px-2 lg:px-6 py-2 object-fill"
                style="height: 80px; width: auto; object-fit: contain"
             />
          </a>

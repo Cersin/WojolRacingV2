@@ -76,8 +76,8 @@ const templateKeys = computed(() => {
 <template>
    <UTable
       :columns="computedColumns"
-      :rows="data?.data"
       :loading="status === 'pending' || status === 'idle'"
+      :rows="data?.data"
       :ui="baseTableUI"
    >
       <template #position-data="{ index }"> {{ index + 1 }}</template>

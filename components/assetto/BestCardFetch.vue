@@ -20,14 +20,14 @@ const getFirstPlayer = computed(() => {
    <div class="w-full flex items-center h-full">
       <UProgress
          v-if="status === 'pending' || status === 'idle'"
-         class="p-4 min-h-12"
          animation="carousel"
+         class="p-4 min-h-12"
       />
 
       <PlayerCard
          v-else-if="status === 'success'"
-         class="rounded-xl overflow-hidden"
          :card="getFirstPlayer"
+         class="rounded-xl overflow-hidden"
          with-redirection
       />
    </div>

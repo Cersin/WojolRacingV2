@@ -47,8 +47,8 @@ const columns = [
 <template>
    <UTable
       :columns="columns"
-      :rows="data?.data"
       :loading="status === 'pending' || status === 'idle'"
+      :rows="data?.data"
       :ui="baseTableUI"
    >
       <template #position-data="{ index }"> {{ index + 1 }}</template>

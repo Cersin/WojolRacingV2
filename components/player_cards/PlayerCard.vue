@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from "vue"
 
 const config = useRuntimeConfig()
@@ -64,14 +64,14 @@ const calculateOverall = computed(() => {
                   v-if="card?.player?.photo"
                   :src="`${config.public.api_url}players/${card.player.photo}`"
                   alt="PlayerImage"
-                  crossorigin="use-credentials"
                   class="object-cover"
+                  crossorigin="use-credentials"
                />
                <img
                   v-else
-                  src="~/assets/photos/person_white.png"
                   alt="PlayerImage"
                   class="object-cover p-4"
+                  src="~/assets/photos/person_white.png"
                />
             </div>
          </div>
@@ -83,7 +83,7 @@ const calculateOverall = computed(() => {
          style="font-size: 0.8rem"
          @click="$router.push('/formula/cards')"
       >
-         <span style="writing-mode: vertical-lr" class="rotate-180"
+         <span class="rotate-180" style="writing-mode: vertical-lr"
             >Karty kierowców</span
          >
       </div>

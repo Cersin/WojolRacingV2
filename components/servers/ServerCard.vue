@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 defineProps({
    number: {
       type: Number,
@@ -27,9 +27,9 @@ defineProps({
 
       <a
          :href="link"
+         class="bg-black m-2 px-8 md:px-16 py-2 rounded-xl"
          target="_blank"
          type="button"
-         class="bg-black m-2 px-8 md:px-16 py-2 rounded-xl"
       >
          JOIN
       </a>

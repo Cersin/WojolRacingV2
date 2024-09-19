@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 defineProps({
    iconSize: {
       type: String,
@@ -36,9 +36,9 @@ function navigateToSocial(link) {
          "
       />
       <Icon
+         :size="iconSize"
          class="cursor-pointer"
          name="skill-icons:instagram"
-         :size="iconSize"
          @click="navigateToSocial('https://www.instagram.com/wojolracing/')"
       />
       <Icon

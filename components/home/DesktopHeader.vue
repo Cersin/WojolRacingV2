@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import HomeDescription from "~/components/home/HomeDescription.vue"
 import HomeButtons from "~/components/home/HomeButtons.vue"
 import DottedCircle from "~/components/layout/DottedCircle.vue"
@@ -14,19 +14,19 @@ import DottedCircle from "~/components/layout/DottedCircle.vue"
       <HomeButtons />
 
       <DottedCircle
-         top="-25%"
+         color="rgba(141, 141, 141, 0.25)"
          left="-15%"
          size="400px"
-         color="rgba(141, 141, 141, 0.25)"
+         top="-25%"
       />
 
       <DottedCircle
-         top="-5%"
+         color="rgba(141, 141, 141, 0.25)"
          right="25%"
          size="150px"
-         color="rgba(141, 141, 141, 0.25)"
+         top="-5%"
       />
    </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

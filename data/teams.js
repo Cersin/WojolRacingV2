@@ -19,6 +19,10 @@ export default {
       value: "Red Bull",
       img: RB,
    },
+   RB: {
+      value: "RB",
+      img: at,
+   },
    Ferrari: {
       value: "Ferrari",
       img: fer,
@@ -54,5 +58,9 @@ export default {
    Rezerwa: {
       value: "Rezerwa",
       img: Wojol,
+   },
+  Sauber: {
+      value: "Kick Sauber",
+      img: alfa,
    },
 }

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import DottedCircle from "~/components/layout/DottedCircle.vue"
 </script>
 
@@ -9,12 +9,12 @@ import DottedCircle from "~/components/layout/DottedCircle.vue"
       </div>
 
       <div class="yellow_block" />
-      <DottedCircle right="15%" :top="0" />
-      <DottedCircle left="-5%" top="15%" size="125px" />
+      <DottedCircle :top="0" right="15%" />
+      <DottedCircle left="-5%" size="125px" top="15%" />
    </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .yellow_block {
    position: absolute;
    right: 0;

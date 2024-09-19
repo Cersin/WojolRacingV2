@@ -33,8 +33,8 @@ const { data, status } = await useLazyFetch(
    <div class="h-full w-full flex">
       <UProgress
          v-if="status === 'pending' || status === 'idle'"
-         class="p-4 min-h-12 self-center"
          animation="carousel"
+         class="p-4 min-h-12 self-center"
       />
 
       <div
@@ -52,15 +52,15 @@ const { data, status } = await useLazyFetch(
                </div>
                <img
                   v-if="!!teams[data.data[index].team]"
-                  class="w-8 h-8"
                   :src="teams[data.data[index].team].img"
                   alt="Team image"
+                  class="w-8 h-8"
                />
                <img
                   v-else
-                  class="w-8 h-8"
                   :src="teams.Rezerwa.img"
                   alt="Alt Image"
+                  class="w-8 h-8"
                />
 
                <div>

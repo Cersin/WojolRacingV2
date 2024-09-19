@@ -86,8 +86,8 @@ const templateKeys = computed(() => {
 <template>
    <UTable
       :columns="computedColumns"
-      :rows="data?.data"
       :loading="status === 'pending' || status === 'idle'"
+      :rows="data?.data"
       :ui="baseTableUI"
    >
       <template #position-data="{ index }"> {{ index + 1 }}</template>
@@ -95,11 +95,11 @@ const templateKeys = computed(() => {
       <template #logo-data="e">
          <img
             v-if="!!teams[e.row.team]"
-            class="w-8 h-8"
             :src="teams[e.row.team].img"
             alt="Team image"
+            class="w-8 h-8"
          />
-         <img v-else class="w-8 h-8" :src="teams.Rezerwa.img" alt="Alt Image" />
+         <img v-else :src="teams.Rezerwa.img" alt="Alt Image" class="w-8 h-8" />
       </template>
 
       <template

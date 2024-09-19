@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from "vue"
 
 const emit = defineEmits(["click"])
@@ -26,13 +26,13 @@ const getClass = computed(() => {
 
 <template>
    <button
-      class="z-40"
-      v-bind="$attrs"
-      type="button"
       :class="getClass"
+      class="z-40"
+      type="button"
+      v-bind="$attrs"
       @click="emit('click')"
    >
-      <slot> </slot>
+      <slot></slot>
    </button>
 </template>
 

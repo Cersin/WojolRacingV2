@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import PartnersCarousel from "~/components/partners/PartnersCarousel.vue"
 </script>
 
@@ -41,6 +41,7 @@ import PartnersCarousel from "~/components/partners/PartnersCarousel.vue"
    position: relative;
    border-radius: 0 30px 0 0;
 }
+
 .cut_partners:before {
    content: "";
    position: absolute;

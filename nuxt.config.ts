@@ -33,6 +33,7 @@ export default defineNuxtConfig({
       ],
       "@nuxt/eslint",
       "vue3-carousel-nuxt",
+      '@samk-dev/nuxt-vcalendar',
       "nuxt-facebook-chat",
       "@nuxt/ui",
       "@vueuse/nuxt",
