@@ -40,10 +40,27 @@ const selectedTrack = ref(null)
 
 const results = computed(() => {
    if (selectedTrack.value && races.value.length > 0) {
-      return races.value.find((race) => selectedTrack.value === race.track)
+      const findRaces =  races.value.find((race) => selectedTrack.value === race.track)
+      const highlight = {
+         ...findRaces,
+         results: findRaces?.results?.map(e => {
+            return {
+               ...e,
+               class: getClassByPosition(e?.position),
+            }
+         })
+      }
+      return highlight
    }
    return null
 })
+
+function getClassByPosition(position) {
+   if(position === 1) return 'bg-primary-500'
+   if(position === 2) return 'bg-gray-500'
+   if(position === 3) return 'bg-amber-900'
+   return ''
+}
 
 const columns = [
    {

@@ -6,7 +6,7 @@ definePageMeta({
 </script>
 
 <template>
-   <div>test</div>
+   <div>Witaj w panelu administratorskim</div>
 </template>
 
 <style scoped></style>
