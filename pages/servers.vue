@@ -30,18 +30,28 @@ import ServerCard from "~/components/servers/ServerCard.vue"
          <div class="flex flex-col gap-4">
             <ServerCard
                :number="1"
-               description="Serwer 1 Publiczny serwer Nordschleife"
-               link="https://s1.wojolracing.pl/live-timing "
+               description="Serwer Publiczny"
+               link="https://s1.wojolracing.pl/live-timing"
             />
             <ServerCard
                :number="2"
-               description="Serwer 1 Publiczny serwer Nordschleife"
-               link="https://s1.wojolracing.pl/live-timing "
+               description="Serwer ligowy na którym organizowane są wyścigi"
+               link="https://s3.wojolracing.pl/live-timing"
             />
             <ServerCard
                :number="3"
-               description="Serwer 1 Publiczny serwer Nordschleife"
-               link="https://s1.wojolracing.pl/live-timing "
+               description="Serwer Project Endurace na którym odbywają się wyścigu długodystansowe"
+               link="https://pe1.wojolracing.pl/live-timing"
+            />
+            <ServerCard
+               :number="4"
+               description="Serwer Project Endurace na którym odbywają się treningi i kwalifikacje "
+               link="https://pe2.wojolracing.pl/live-timing"
+            />
+            <ServerCard
+               :number="5"
+               description="Serwer Project Endurace na którym odbywają się treningi i kwalifikacje "
+               link="https://pe3.wojolracing.pl/live-timing"
             />
          </div>
       </div>
