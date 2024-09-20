@@ -85,6 +85,14 @@ const links = [
       },
    },
    {
+      label: "Patronite",
+      to: "https://patronite.pl/wojolracing",
+      additional: true,
+      click: () => {
+         emit("close")
+      },
+   },
+   {
       label: "Panel admina",
       to: "/admin",
       role: ["admin"],

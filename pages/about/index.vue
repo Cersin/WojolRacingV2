@@ -96,7 +96,7 @@ const teamList = [
       image: magiera,
    },
    {
-      name: "Stanisław Prządka",
+      name: "Jeremiasz Szlosek",
       type: teamCategories["Administracja F1"],
       image: def,
    },
@@ -121,7 +121,7 @@ const teamList = [
       image: jablonski,
    },
    {
-      name: "Syn Koleżanki Twojej starej",
+      name: "Jakub Pres",
       type: teamCategories.Komentatorzy,
       image: pres,
    },
