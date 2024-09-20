@@ -47,7 +47,7 @@ const links = [
    {
       label: "Serwery",
       to: "/servers",
-      additional: false,
+      additional: true,
       click: () => {
          emit("close")
       },
@@ -55,7 +55,7 @@ const links = [
    {
       label: "Aktualności",
       to: "/news",
-      additional: true,
+      additional: false,
       click: () => {
          emit("close")
       },

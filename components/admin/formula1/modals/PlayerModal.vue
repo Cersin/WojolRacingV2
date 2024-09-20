@@ -136,6 +136,7 @@ onMounted(() => {
                   :src="`${config.public.api_url}players/${player.photo}`"
                   alt="PlayerImage"
                   class="object-cover h-14 w-auto"
+                  crossorigin="use-credentials"
                />
             </div>
 

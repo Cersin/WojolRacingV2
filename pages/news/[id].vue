@@ -9,6 +9,19 @@ const datefns = useNuxtApp().$datefns
 const { data } = await useFetch(
    `${config.public.api_url}api/articles/${route.params.id}`,
 )
+
+useSeoMeta({
+   title: data?.value?.data?.title || 'Artykuł',
+   ogTitle: data?.value?.data?.title || 'Artykuł',
+   description: data?.value?.data?.description?.slice(0, 50),
+   ogDescription: data?.value?.data?.description?.slice(0, 50),
+   ogImage: `${config.public.api_url}articles/${data.value?.data?.mainPhoto}`,
+   ogImageAlt: 'Zdjęcie artykułu',
+   articlePublishedTime: data?.value?.data?.createdAt,
+   articleAuthor: data?.value?.data?.author,
+   articleTag: data?.value?.data?.category,
+   category: data?.value?.data?.category,
+})
 </script>
 
 <template>

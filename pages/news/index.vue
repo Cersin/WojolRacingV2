@@ -17,7 +17,7 @@ const data = ref([])
 const { status } = await useLazyFetch(`${config.public.api_url}api/articles`, {
    server: false,
    onResponse({ response }) {
-      data.value = data.value.concat(response?._data.data)
+      // data.value = data.value.concat(response?._data.data)
       response?._data?.data?.forEach((el) => data.value.push(el))
       pages.value = response?._data?.pagination?.pages
    },
@@ -96,7 +96,7 @@ function loadMore() {
                         {{ e.title }}
                      </h3>
                      <span class="text-xs dark:text-gray-600">{{
-                        datefns.format(new Date(e.createdAt), "dMMMM yyyy", {
+                        datefns.format(new Date(e.createdAt), "d MMMM yyyy", {
                            locale: pl,
                         })
                      }}</span>

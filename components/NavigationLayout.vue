@@ -11,7 +11,7 @@ function checkIfCustomVisible(name) {
    return (
       name === "Endurance" ||
       name === "Kontakt" ||
-      name === "Aktualności" ||
+      name === "Serwery" ||
       name === "Karty kierowców" ||
       name === "O nas"
    )
@@ -63,14 +63,14 @@ function checkIfCustomVisible(name) {
          <NuxtLink
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
             class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
-            to="/application"
-            >Aplikacja
+            to="/news"
+         >Aktualności
          </NuxtLink>
          <NuxtLink
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
             class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
-            to="/servers"
-            >Serwery
+            to="/application"
+            >Aplikacja
          </NuxtLink>
 
          <UPopover

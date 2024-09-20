@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import ServerCard from "~/components/servers/ServerCard.vue"
+
+definePageMeta({
+   name: "Serwery",
+})
+
 </script>
 
 <template>
