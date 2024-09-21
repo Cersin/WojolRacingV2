@@ -75,7 +75,7 @@ const { status, data, refresh } = useLazyFetch(
             <img
                :src="`${config.public.api_url}articles/${row.mainPhoto}`"
                alt="mainPhoto"
-               crossorigin="use-credentials"
+               crossorigin="anonymous"
                style="width: auto; height: 64px"
             />
          </template>

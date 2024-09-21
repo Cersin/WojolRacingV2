@@ -53,7 +53,7 @@ function loadMore() {
                :src="`${config.public.api_url}articles/${data[0].mainPhoto}`"
                alt="article_photo"
                class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500"
-               crossorigin="use-credentials"
+               crossorigin="anonymous"
             />
             <div class="p-6 space-y-2 lg:col-span-5">
                <h3
@@ -86,7 +86,7 @@ function loadMore() {
                      :src="`${config.public.api_url}articles/${e.mainPhoto}`"
                      alt="article_photo"
                      class="object-cover w-full rounded h-44 dark:bg-gray-500"
-                     crossorigin="use-credentials"
+                     crossorigin="anonymous"
                      role="presentation"
                   />
                   <div class="p-6 space-y-2">

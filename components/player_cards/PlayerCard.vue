@@ -65,7 +65,7 @@ const calculateOverall = computed(() => {
                   :src="`${config.public.api_url}players/${card.player.photo}`"
                   alt="PlayerImage"
                   class="object-cover"
-                  crossorigin="use-credentials"
+                  crossorigin="anonymous"
                />
                <img
                   v-else

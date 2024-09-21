@@ -118,7 +118,9 @@ const computedLinks = computed(() => {
       return links.filter((link) =>
          link.additional && !!link?.role ? link.role.includes(role) : true,
       )
-   return links
+   return links.filter((link) =>
+    !!link?.role ? link.role.includes(role) : true,
+   )
 })
 </script>
 
