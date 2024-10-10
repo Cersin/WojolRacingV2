@@ -8,11 +8,16 @@ import { computed } from "vue"
 import DottedCircle from "~/components/layout/DottedCircle.vue"
 
 const config = useRuntimeConfig()
-const { data } = await useFetch(`${config.public.api_url}api/race/playerCard`)
+const { data } = await useFetch(`${config.public.api_url}api/race/playerCard`, {
+   server: false,
+})
 
 const getRandomPlayer = computed(() => {
-   const random = Math.floor(Math.random() * data.value.data.length)
-   return data.value?.data[random]
+   if(data?.value?.data?.length) {
+      const random = Math.floor(Math.random() * data.value.data.length)
+      return data.value?.data[random]
+   }
+return null
 })
 </script>
 
@@ -32,7 +37,7 @@ const getRandomPlayer = computed(() => {
             <DesktopHeader class="p-16" />
          </div>
 
-         <HomeCards :best-card="getRandomPlayer" class="max-w-[800px] z-40" />
+         <HomeCards  :best-card="getRandomPlayer" class="max-w-[800px] z-40" />
       </div>
 
       <HomePartners class="z-50" />
