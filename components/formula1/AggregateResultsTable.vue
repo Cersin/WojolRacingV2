@@ -107,11 +107,13 @@ const templateKeys = computed(() => {
          :key="index"
          #[track]="e"
       >
-         <span>
+         <span v-if="e.row.races?.find((el) => e.column.key === el.track)?.points !== null ||  e.row.races?.find((el) => e.column.key === el.track)?.points === 0">
             {{
-               e.row.races?.find((el) => e.column.key === el.track)?.points ||
-               "DNS"
+               e.row.races?.find((el) => e.column.key === el.track)?.points || 0
             }}
+         </span>
+         <span v-else>
+            DNS
          </span>
       </template>
    </UTable>
