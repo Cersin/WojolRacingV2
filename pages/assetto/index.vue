@@ -144,12 +144,11 @@ function redirectToRegulations() {
                <div v-if="index === 4 && selected">
                   <div class="p-4">
                      <p>
-                        Organizujemy zawodowy w grze Assetto Corsa
-                        obejmujące:<br />
+                        Na platformie Assetto Corsa organizujemy rozgrywki wszelkiej maści:<br />
                      </p>
 
                      <ul class="list-disc">
-                        <li>Pełne sezony</li>
+                        <li>Pełne sezony ligowe</li>
                         <li>Eventy TimeAttack</li>
                         <li>Eventy wyścigowe</li>
                         <li>Wyścigi Endurance</li>

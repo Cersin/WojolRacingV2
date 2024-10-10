@@ -32,13 +32,13 @@ defineProps({
 
       <HomeCard
          :img-src="ac_wrl_2"
-         class="h-48 sm:h-56 col-span-4 lg:col-span-8 xl:col-span-5"
+         class="h-48 sm:h-56 col-span-4 lg:col-span-4"
          description="Assetto Corsa"
          @click="$router.push('/assetto')"
       />
 
       <div
-         class="h-56 lg:h-60 flex flex-col gap-4 col-span-8 sm:col-span-4 lg:col-span-8 xl:col-span-3"
+         class="h-56 lg:h-60 flex flex-col gap-4 col-span-8 sm:col-span-4 lg:col-span-4"
       >
          <button
             class="bg-black bg-opacity-70 h-1/4 w-full p-4 rounded-2xl text-white font-light hover:bg-secondary"

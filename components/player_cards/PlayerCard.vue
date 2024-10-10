@@ -79,7 +79,7 @@ const calculateOverall = computed(() => {
 
       <div
          v-if="withRedirection"
-         class="bg-secondary p-2 md:p-4 text-nowrap rounded-r-xl flex items-center cursor-pointer hover:brightness-125"
+         class="bg-secondary p-2 md:p-4 rounded-r-xl flex items-center cursor-pointer hover:brightness-125"
          style="font-size: 0.8rem"
          @click="$router.push('/formula/cards')"
       >

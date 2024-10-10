@@ -29,7 +29,6 @@ const getFirstPlayer = computed(() => {
          v-else-if="status === 'success'"
          :card="getFirstPlayer"
          class="rounded-xl overflow-hidden"
-         with-redirection
       />
    </div>
 </template>
