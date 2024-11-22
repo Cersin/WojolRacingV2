@@ -45,7 +45,7 @@ const state = reactive({
    teamNumber1: undefined,
    teamNumber2: undefined,
    teamNumber3: undefined,
-   drivers: [{}, {}]
+   drivers: [{}, {}, {}]
 })
 
 const token = ref()
@@ -177,7 +177,7 @@ const carsGTE = ["AMR EGT", "Darche EGT 2021", "Michigan EGT"]
                   <UInput v-model="state.ceoDiscordTag" />
                </UFormGroup>
 
-               <div>Minimum 2 drivers, maximum 5</div>
+               <div>Minimum 3 drivers, maximum 5</div>
                <template v-for="(driver, index) in state.drivers" :key="index">
                   <div>Driver: {{ index + 1 }}</div>
                   <UFormGroup :name="`drivers.${index}.fullName`">
@@ -199,7 +199,7 @@ const carsGTE = ["AMR EGT", "Darche EGT 2021", "Michigan EGT"]
                   </UFormGroup>
 
                   <UButton
-                     v-if="index > 1"
+                     v-if="index > 2"
                      label="Delete driver"
                      size="xs"
                      @click="state.drivers.splice(index, 1)"
