@@ -8,8 +8,8 @@ export default defineNuxtConfig({
       }
    },
    turnstile: {
-      // siteKey: '0x4AAAAAAA0L7VuI8JEGbSZJ',
-      siteKey: '1x00000000000000000000AA',
+      siteKey: '0x4AAAAAAA0L7VuI8JEGbSZJ',
+      // siteKey: '1x00000000000000000000AA',
       addValidateEndpoint: true,
    },
    colorMode: {
