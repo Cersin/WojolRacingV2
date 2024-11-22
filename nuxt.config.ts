@@ -7,6 +7,11 @@ export default defineNuxtConfig({
          // proxy: { to: "https://api.wojolracing.pl/**", },
       }
    },
+   turnstile: {
+      // siteKey: '0x4AAAAAAA0L7VuI8JEGbSZJ',
+      siteKey: '1x00000000000000000000AA',
+      addValidateEndpoint: true,
+   },
    colorMode: {
       preference: "dark",
    },
@@ -21,6 +26,9 @@ export default defineNuxtConfig({
    runtimeConfig: {
       PORT: 26097,
       NITRO_PORT: 26097,
+      turnstile: {
+         secretKey: process.env.TURNSTILE_SECRET,
+      },
       public: {
          api_url: "/srv/",
          EMAIL_USER_ID: process.env.EMAIL_USER_ID,
@@ -29,15 +37,15 @@ export default defineNuxtConfig({
       },
    },
    compatibilityDate: "2024-07-03",
-   modules: [[
-      "@nuxtjs/google-fonts",
-      {
-         families: {
-            "Chakra Petch": true,
-            "M PLUS 1": "100..700",
-         },
+   modules: ['nuxt-countdown', '@vueuse/nuxt', '@vueuse/motion/nuxt', [
+   "@nuxtjs/google-fonts",
+   {
+      families: {
+         "Chakra Petch": true,
+         "M PLUS 1": "100..700",
       },
-   ], "@nuxt/eslint", "vue3-carousel-nuxt", '@samk-dev/nuxt-vcalendar', "nuxt-facebook-chat", "@nuxt/ui", "@vueuse/nuxt"],
+   },
+], "@nuxt/eslint", "vue3-carousel-nuxt", '@samk-dev/nuxt-vcalendar', "nuxt-facebook-chat", "@nuxt/ui", "@vueuse/nuxt", "@nuxtjs/turnstile"],
    css: ["~/assets/css/main.css"],
    postcss: {
       plugins: {
