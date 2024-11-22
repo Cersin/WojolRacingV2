@@ -3,8 +3,8 @@ export default defineNuxtConfig({
    devtools: { enabled: false },
    routeRules: {
       '/srv/**': {
-         proxy: { to: "http://localhost:3000/**", },
-         // proxy: { to: "https://api.wojolracing.pl/**", },
+         // proxy: { to: "http://localhost:3000/**", },
+         proxy: { to: "https://api.wojolracing.pl/**", },
       }
    },
    turnstile: {
