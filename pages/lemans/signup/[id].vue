@@ -69,7 +69,7 @@ const { data, status } = await useFetch(
                   Driver name: {{ driver.fullName }}
                </div>
                <div>
-                  Driver steamid64: {{ driver.fullName }}
+                  Driver steamid64: {{ driver.steamId }}
                </div>
                <div>
                   Driver discord tag: {{ driver.discordTag }}
