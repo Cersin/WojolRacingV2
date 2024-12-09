@@ -16,7 +16,6 @@ import simfun from "~/assets/partners/simfun_biale_transparent.png"
 import go_racing from "~/assets/partners/go_racing.png"
 import f_one from "~/assets/partners/F-ONE.png"
 import kja from "~/assets/partners/kja.png"
-import pe_biale from "~/assets/partners/pe_biale.png"
 
 const partners: Array<PartnerModel> = [
    {
@@ -43,11 +42,6 @@ const partners: Array<PartnerModel> = [
       url: "https://tilt.pl/",
       white: true,
       asset: tilt,
-   },
-   {
-      url: "https://www.facebook.com/ProjectEndurancePL/",
-      white: true,
-      asset: pe_biale,
    },
    {
       url: "https://www.instagram.com/kjkdesignn/?igsh=MTltMTFkMGR0MXNubQ%3D%3D",

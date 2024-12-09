@@ -20,6 +20,7 @@ import simfun from "assets/partners/simfun_biale_transparent.png"
 import simline from "assets/partners/lemans/simline.png"
 import slavgent from "assets/partners/lemans/slavgent.png"
 import tilt from "assets/partners/tilt.png"
+import hotel_dobrzyce from "assets/partners/lemans/hotel_dobrzyce.png"
 
 const sponsors = [
    {
@@ -46,6 +47,10 @@ const sponsors = [
    {
       url: "https://cammusracing.com/",
       image: cammus,
+   },
+   {
+      url: "https://hoteldobczyce.pl/",
+      image: hotel_dobrzyce,
    },
    {
       url: "https://aw-anotherway.pl/",
