@@ -57,7 +57,7 @@ const teamList = [
    },
    {
       name: "Kacper Szafrański",
-      type: teamCategories["Administracja F1"],
+      type: teamCategories.Administrator,
       image: szafranski,
    },
    {
@@ -84,16 +84,6 @@ const teamList = [
       name: "Daniel Słoma",
       type: teamCategories["Administracja F1"],
       image: sloma,
-   },
-   {
-      name: "Marceli Gohr",
-      type: teamCategories["Administracja F1"],
-      image: gohr,
-   },
-   {
-      name: "Andrzej Magiera-Gorzka",
-      type: teamCategories["Administracja F1"],
-      image: magiera,
    },
    {
       name: "Jeremiasz Szlosek",

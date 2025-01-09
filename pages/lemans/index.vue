@@ -66,18 +66,18 @@ function navigateToSocial(link) {
                <div
                   class="text-2xl md:text-3xl lg:text-4xl text-primary flex flex-col items-end"
                >
-                  <div
-                     v-if="new Date() < new Date('Nov 22, 2024 18:00:00')"
-                     class="text-sm md:text-xl text-gray-300"
-                  >
-                     SIGN UP IN
-                  </div>
-                  <div
-                     v-if="new Date() > new Date('Nov 22, 2024 18:00:00')"
-                     class="text-sm md:text-xl text-gray-300"
-                  >
-                     SIGN UP NOW
-                  </div>
+<!--                  <div-->
+<!--                     v-if="new Date() < new Date('Nov 22, 2024 18:00:00')"-->
+<!--                     class="text-sm md:text-xl text-gray-300"-->
+<!--                  >-->
+<!--                     SIGN UP IN-->
+<!--                  </div>-->
+<!--                  <div-->
+<!--                     v-if="new Date() > new Date('Nov 22, 2024 18:00:00')"-->
+<!--                     class="text-sm md:text-xl text-gray-300"-->
+<!--                  >-->
+<!--                     SIGN UP NOW-->
+<!--                  </div>-->
                   <Countdown
                      v-if="new Date() < new Date('Nov 22, 2024 18:00:00')"
                      v-slot="{ totalHours, minutes, seconds }"
@@ -86,11 +86,11 @@ function navigateToSocial(link) {
                      {{ totalHours }}:{{ minutes < 10 ? "0" : ""
                      }}{{ minutes }}:{{ seconds }}
                   </Countdown>
-                  <BaseButton
-                     v-if="new Date() > new Date('Nov 22, 2024 18:00:00')"
-                     @click="$router.push('/lemans/signup')"
-                     >Sign up
-                  </BaseButton>
+<!--                  <BaseButton-->
+<!--                     v-if="new Date() > new Date('Nov 22, 2024 18:00:00')"-->
+<!--                     @click="$router.push('/lemans/signup')"-->
+<!--                     >Sign up-->
+<!--                  </BaseButton>-->
                </div>
             </div>
          </div>
