@@ -52,6 +52,7 @@ const combineSchema = z.object({
    track: z.string({
       message: "Pole wymagane",
    }),
+   endurance: z.boolean().optional(),
    season: z.string({
       message: "Pole wymagane",
    }),
@@ -128,6 +129,12 @@ function addRow() {
          <div class="flex">
             <UFormGroup label="Event" name="season">
                <EventSelect v-model:event="model.season" />
+            </UFormGroup>
+         </div>
+
+         <div class="mt-1 mb-1">
+            <UFormGroup  label="Endurance" name="endurance">
+               <UCheckbox v-model="model.endurance" />
             </UFormGroup>
          </div>
 

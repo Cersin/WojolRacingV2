@@ -39,40 +39,74 @@ const results = computed(() => {
    return null
 })
 
-const columns = [
-   {
-      key: "position",
-      label: "POS",
-   },
-   {
-      key: "playerDetails.name",
-      label: "Driver",
-   },
-   {
-      key: "playerDetails.team",
-      label: "Team",
-   },
-   {
-      key: "grid",
-      label: "Grid",
-   },
-   {
-      key: "bestLap",
-      label: "Best",
-   },
-   {
-      key: "gap",
-      label: "GAP",
-   },
-   {
-      key: "dnf",
-      label: "DNF",
-   },
-   {
-      key: "points",
-      label: "PTS",
-   },
-]
+const columns = computed(() => {
+   if(results?.value?.endurance) {
+      return [
+         {
+            key: "position",
+            label: "POS",
+         },
+         {
+            key: "playerDetails.name",
+            label: "Team",
+         },
+         {
+            key: "grid",
+            label: "Grid",
+         },
+         {
+            key: "bestLap",
+            label: "Best",
+         },
+         {
+            key: "gap",
+            label: "GAP",
+         },
+         {
+            key: "dnf",
+            label: "DNF",
+         },
+         {
+            key: "points",
+            label: "PTS",
+         },
+      ]
+   }
+   return [
+      {
+         key: "position",
+         label: "POS",
+      },
+      {
+         key: "playerDetails.name",
+         label: "Driver",
+      },
+      {
+         key: "playerDetails.team",
+         label: "Team",
+      },
+      {
+         key: "grid",
+         label: "Grid",
+      },
+      {
+         key: "bestLap",
+         label: "Best",
+      },
+      {
+         key: "gap",
+         label: "GAP",
+      },
+      {
+         key: "dnf",
+         label: "DNF",
+      },
+      {
+         key: "points",
+         label: "PTS",
+      },
+   ]
+})
 </script>
 
 <template>
