@@ -45,6 +45,14 @@ const links = [
       },
    },
    {
+      label: "Cammus",
+      to: "https://cammusracing.com/",
+      additional: false,
+      click: () => {
+         emit("close")
+      },
+   },
+   {
       label: "Serwery",
       to: "/servers",
       additional: true,

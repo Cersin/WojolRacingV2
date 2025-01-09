@@ -1,27 +1,28 @@
-<script lang="ts" setup>
+<script setup>
+import { pl } from "date-fns/locale"
+import EventSelect from "~/components/assetto/EventSelect.vue"
+
 definePageMeta({
    middleware: "admin-middleware",
    layout: "admin",
 })
 
 const config = useRuntimeConfig()
+const modal = useModal()
+const datefns = useNuxtApp().$datefns
 
 const columns = [
    {
-      key: "title",
-      label: "Nazwa",
+      key: "track",
+      label: "Tor",
    },
    {
-      key: "category",
-      label: "Kategoria",
+      key: "date",
+      label: "Data",
    },
    {
-      key: "mainPhoto",
-      label: "Zdjęcie glówne",
-   },
-   {
-      key: "author",
-      label: "Autor",
+      key: "season",
+      label: "Event",
    },
    {
       key: "actions",
@@ -29,16 +30,14 @@ const columns = [
    },
 ]
 
-const page = ref(1)
-const pageLimit = ref(10)
+const season = ref(null)
 
-const { status, data, refresh } = useLazyFetch(
-   `${config.public.api_url}api/articles`,
+const { status, data, refresh } = await useLazyFetch(
+   `${config.public.api_url}api/assetto-race`,
    {
       server: false,
       query: {
-         page: page,
-         limit: pageLimit,
+         season: season,
       },
    },
 )
@@ -55,28 +54,32 @@ const { status, data, refresh } = useLazyFetch(
          <h2
             class="font-semibold text-xl text-gray-900 dark:text-white leading-tight"
          >
-            Artykuły
+            Wyścigi
          </h2>
       </template>
 
       <!--   Buttons-->
       <UButton
-         label="Dodaj nowy artykuł"
-         @click="$router.push('/admin/articles/new')"
+         label="Dodaj nowy wyścig"
+         @click="$router.push('/admin/assetto/races/new')"
       />
+
+      <!-- Filters -->
+      <div class="flex items-center gap-3 py-3">
+         <EventSelect v-model:event="season" />
+      </div>
 
       <UTable
          :columns="columns"
          :loading="status === 'pending' || status === 'idle'"
-         :rows="data?.data"
+         :rows="data?.data?.races"
       >
-         <template #mainPhoto-data="{ row }">
-            <img
-               :src="`${config.public.api_url}articles/${row.mainPhoto}`"
-               alt="mainPhoto"
-               crossorigin="anonymous"
-               style="width: auto; height: 64px"
-            />
+         <template #date-data="{ row }">
+            {{
+               datefns.format(new Date(row.date), "d MMMM yyyy", {
+                  locale: pl,
+               })
+            }}
          </template>
 
          <template #actions-data="{ row }">
@@ -86,18 +89,10 @@ const { status, data, refresh } = useLazyFetch(
                icon="i-heroicons-pencil-square-16-solid"
                size="2xs"
                square
-               @click="$router.push(`/admin/articles/${row._id}`)"
+               @click="$router.push(`/admin/assetto/races/${row._id}`)"
             />
          </template>
       </UTable>
-
-      <template #footer>
-         <UPagination
-            v-model="page"
-            :page-count="data?.pagination?.pages"
-            :total="data?.size"
-         />
-      </template>
    </UCard>
 </template>
 

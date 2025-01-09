@@ -1,5 +1,7 @@
 <template>
    <div class="flex flex-col h-full">
+      <NuxtLoadingIndicator ></NuxtLoadingIndicator>
+
       <NavigationLayout />
       <NuxtPage class="flex-grow" />
 

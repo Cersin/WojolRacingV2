@@ -66,11 +66,18 @@ function checkIfCustomVisible(name) {
             to="/news"
          >Aktualności
          </NuxtLink>
+
          <NuxtLink
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
             class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             to="/application"
-            >Aplikacja
+         >Aplikacja
+         </NuxtLink>
+         <NuxtLink
+            active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
+            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
+            to="https://cammusracing.com/"
+         >Cammus
          </NuxtLink>
 
          <UPopover
@@ -110,7 +117,7 @@ function checkIfCustomVisible(name) {
          </UPopover>
 
          <NuxtLink
-            v-if="authState.role === 'admin'"
+            v-if="authState.role === 'admin' || authState.role === 'admin-assetto'"
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border "
             class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             to="/admin"
