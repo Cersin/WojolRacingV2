@@ -18,10 +18,6 @@ import kozlowski from "~/assets/team/kozlowski.png"
 import kurzak from "~/assets/team/kurzak.png"
 import janiczek from "~/assets/team/janiczek.png"
 import stalmirski from "~/assets/team/stalmirski.png"
-import radaj from "~/assets/team/radaj.png"
-import sasak from "~/assets/team/sasak.png"
-import gohr from "~/assets/team/gohr.png"
-import magiera from "~/assets/team/magiera.png"
 import sloma from "~/assets/team/sloma.png"
 import kuczyk from "~/assets/team/kuczyk.png"
 import jablonski from "~/assets/team/jablonski.png"
@@ -36,7 +32,6 @@ const teamCategories = {
    "Administracja Assetto": "Administracja Assetto",
    Komentatorzy: "Komentatorzy",
    Grafika: "Grafika",
-   "Social Media": "Social Media",
 }
 
 const teamList = [
@@ -62,6 +57,11 @@ const teamList = [
    },
    {
       name: "Szymon Praczyk",
+      type: teamCategories["Administracja F1"],
+      image: praczyk,
+   },
+   {
+      name: "Rafał Bandura",
       type: teamCategories["Administracja F1"],
       image: praczyk,
    },
@@ -159,16 +159,6 @@ const teamList = [
       name: "Mateusz Sobkowiak",
       type: teamCategories.Grafika,
       image: def,
-   },
-   {
-      name: "Robert Radaj",
-      type: teamCategories["Social Media"],
-      image: radaj,
-   },
-   {
-      name: "Kamil Sasak",
-      type: teamCategories["Social Media"],
-      image: sasak,
    },
 ]
 </script>
