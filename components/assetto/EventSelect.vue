@@ -1,5 +1,5 @@
 <script setup>
-const events = ["Endurance Tour: Le Mans", "AMERICANA 500", "GT300 Cup", "Drive Squad Super S Cup"]
+const events = ["Endurance Tour: Le Mans", "Lempart Racing Cup", "AMERICANA 500", "GT300 Cup", "Drive Squad Super S Cup"]
 
 const eventModel = defineModel("event", {
    type: [String, Number],
