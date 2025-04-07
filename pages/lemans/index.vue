@@ -1,178 +1,131 @@
 <script lang="ts" setup>
-import TextHighlight from "~/components/inspira/TextHighlight.vue"
-import BaseButton from "~/components/buttons/BaseButton.vue"
-import TextGenerateEffect from "~/components/inspira/TextGenerateEffect.vue"
-import LemansSponsors from "~/components/lemans/LemansSponsors.vue"
+import EnduRacePage from "~/components/endurance/EnduRacePage.vue"
 import rally_and_race from "assets/partners/lemans/rally_and_race.png"
+import overcrest from "assets/partners/lemans/overcrest.png"
+import chwietczuk from "assets/partners/lemans/chwietczuk.png"
+import lempart from "assets/partners/lemans/lempart.png"
+import gobet from "assets/partners/lemans/gobet.png"
+import matulka from "assets/partners/lemans/matulka.jpg"
+import cammus from "assets/partners/cammus.png"
+import hotel_dobrzyce from "assets/partners/lemans/hotel_dobrzyce.png"
+import another_way from "assets/partners/another_way.png"
+import simline from "assets/partners/lemans/simline.png"
+import irtrack from "assets/partners/irtrack.png"
+import go_racing from "assets/partners/go_racing.png"
+import tilt from "assets/partners/tilt.png"
+import bth_import_stal from "assets/partners/lemans/bth_import_stal.png"
+import simfun from "assets/partners/simfun_biale_transparent.png"
+import labotiga from "assets/partners/lemans/labotiga.png"
+import racetracks from "assets/partners/racetracks_biale.png"
+import racingshop from "assets/partners/lemans/racingshop.png"
+import slavgent from "assets/partners/lemans/slavgent.png"
+import sim_masters from "assets/partners/sim_masters.png"
+import drive_squad from "assets/partners/drive_squad.png"
+import overcrest_kids from "assets/partners/lemans/overcrest_kids.png"
+import EnduSponsors from "~/components/endurance/EnduSponsors.vue"
 
-function navigateToSocial(link) {
-   window.open(link)
-}
+const sponsors = [
+   {
+      url: "https://overcrest.pl/",
+      image: overcrest,
+   },
+   {
+      url: "https://www.facebook.com/Adrian.Chwietczuk/",
+      image: chwietczuk,
+      white: true,
+   },
+   {
+      url: "https://lempartracing.com/",
+      image: lempart,
+   },
+   {
+      url: "https://www.facebook.com/GOPlusCars/",
+      image: gobet,
+   },
+   {
+      url: "https://jakubmatulka.com/",
+      image: matulka,
+   },
+   {
+      url: "https://cammusracing.com/",
+      image: cammus,
+   },
+   {
+      url: "https://hoteldobczyce.pl/",
+      image: hotel_dobrzyce,
+   },
+   {
+      url: "https://aw-anotherway.pl/",
+      image: another_way,
+   },
+   {
+      url: "https://simline.eu/pl/",
+      image: simline,
+   },
+   {
+      url: "https://www.irtrack.pl/",
+      image: irtrack,
+   },
+   {
+      url: "https://go-racing.pl/",
+      image: go_racing,
+   },
+   {
+      url: "https://tilt.pl/",
+      image: tilt,
+   },
+   {
+      url: "https://bth.pl/en/",
+      image: bth_import_stal,
+   },
+   {
+      url: "https://www.simfun.pl/",
+      image: simfun,
+   },
+   {
+      url: "https://www.labotiga.pl/",
+      image: labotiga,
+   },
+   {
+      url: "https://racetracks.pl/",
+      image: racetracks,
+   },
+   {
+      url: "https://racingshop.pl/pl/",
+      image: racingshop,
+   },
+   {
+      url: "https://slavgent.pl/",
+      image: slavgent,
+   },
+   {
+      url: "https://simmasters.pl/",
+      image: sim_masters,
+   },
+   {
+      url: "https://drivesquad.pl/",
+      image: drive_squad,
+   },
+   {
+      url: "https://kids.overcrest.pl/",
+      image: overcrest_kids,
+   },
+]
 </script>
 
 <template>
-   <div class="bg-black flex justify-center">
-      <div class="py-8 p-4 md:p-8 lg:p-16 max-w-[1400px]">
-         <div class="flex justify-between chakra-petch">
-            <div class="flex flex-col items-center justify-center">
-               <div class="space-y-4">
-                  <div class="text-4xl md:text-5xl lg:text-6xl font-bold">
-                     ENDURANCE TOUR:
-                  </div>
-
-                  <div
-                     class="text-black text-2xl md:text-3xl lg:text-5xl flex justify-start"
-                  >
-                     <TextHighlight
-                        class="rounded-lg bg-gradient-to-bl from-primary-300 to-primary p-2"
-                        >Le Mans
-                     </TextHighlight>
-                  </div>
-               </div>
-            </div>
-
-            <div>
-               <div
-                  class="mb-2 text-2xl md:text-3xl lg:text-4xl text-primary flex flex-col items-end"
-               >
-                  <div
-                     v-if="new Date() < new Date('Jan 04, 2025 12:00:00')"
-                     class="text-sm md:text-xl text-gray-300"
-                  >
-                     RACE STARTS IN
-                  </div>
-                  <div
-                     v-if="new Date() > new Date('Jan 04, 2025 12:00:00')"
-                     class="text-sm md:text-xl text-gray-300"
-                  >
-                     RACE STARTS NOW
-                  </div>
-                  <Countdown
-                     v-if="new Date() < new Date('Jan 04, 2025 12:00:00')"
-                     v-slot="{ totalHours, minutes, seconds }"
-                     :date="new Date('Jan 04, 2025 12:00:00')"
-                  >
-                     {{ totalHours }}:{{ minutes < 10 ? "0" : ""
-                     }}{{ minutes }}:{{ seconds }}
-                  </Countdown>
-                  <BaseButton
-                     v-if="new Date() > new Date('Jan 04, 2025 12:00:00')"
-                     @click="
-                        navigateToSocial('https://www.twitch.tv/wojolracing')
-                     "
-                     >Watch
-                  </BaseButton>
-               </div>
-               <div
-                  class="text-2xl md:text-3xl lg:text-4xl text-primary flex flex-col items-end"
-               >
-<!--                  <div-->
-<!--                     v-if="new Date() < new Date('Nov 22, 2024 18:00:00')"-->
-<!--                     class="text-sm md:text-xl text-gray-300"-->
-<!--                  >-->
-<!--                     SIGN UP IN-->
-<!--                  </div>-->
-<!--                  <div-->
-<!--                     v-if="new Date() > new Date('Nov 22, 2024 18:00:00')"-->
-<!--                     class="text-sm md:text-xl text-gray-300"-->
-<!--                  >-->
-<!--                     SIGN UP NOW-->
-<!--                  </div>-->
-                  <Countdown
-                     v-if="new Date() < new Date('Nov 22, 2024 18:00:00')"
-                     v-slot="{ totalHours, minutes, seconds }"
-                     :date="new Date('Nov 22, 2024 18:00:00')"
-                  >
-                     {{ totalHours }}:{{ minutes < 10 ? "0" : ""
-                     }}{{ minutes }}:{{ seconds }}
-                  </Countdown>
-<!--                  <BaseButton-->
-<!--                     v-if="new Date() > new Date('Nov 22, 2024 18:00:00')"-->
-<!--                     @click="$router.push('/lemans/signup')"-->
-<!--                     >Sign up-->
-<!--                  </BaseButton>-->
-               </div>
-            </div>
-         </div>
-
-         <div class="flex justify-between flex-col md:flex-row mt-8 relative">
-            <div class="flex-1">
-               <TextGenerateEffect
-                  class="mr-16 lg:mr-32 text-gray-300"
-                  words="Historic event on the iconic Le Mans circuit! Witness the spirit of endurance come alive.
-Experience the thrill of racing, exciting challenges, and competitions, with incredible prizes for participants and spectators alike. Don’t miss your chance to be part of sim racing history!"
-               />
-            </div>
-
-            <div
-               class="relative bg-primary mt-4 md:mt-0 h-[300px] lg:h-[400px] xl:h-[500px] flex-1 rounded-3xl text-black flex flex-col md:items-end"
-            >
-               <div
-                  class="flex items-center p-2 w-[300px] lg:w-[300px] text-sm lg:text-lg"
-               >
-                  <Icon
-                     class="mr-2"
-                     name="ic:baseline-directions-car"
-                     size="1.5em"
-                  />
-                  42 cars
-               </div>
-
-               <div
-                  class="flex items-center p-2 w-[300px] lg:w-[300px] text-sm lg:text-lg"
-               >
-                  <Icon
-                     class="mr-2"
-                     name="ic:baseline-attach-money"
-                     size="1.5em"
-                  />
-                  <span class="font-bold">+10 000 PLN</span
-                  ><span>&nbsp;in rewards</span>
-               </div>
-
-               <a
-                  class="flex items-center cursor-pointer p-2 w-[300px] lg:w-[300px] text-sm lg:text-lg"
-                  href="https://docs.google.com/document/d/1wk3H6tLaRZpJ-FBFe46CRjOLH7V9GhntvMUKDtEP2Ns/edit?usp=sharing"
-               >
-                  <Icon class="mr-2" name="mdi:file-document" size="1.5em" />
-                  Regulations
-               </a>
-
-               <div class="absolute bottom-0 right-0 m-2">
-                  <img
-                     :src="rally_and_race"
-                     alt="firm image"
-                     class="p-2 rounded-xl bg-white"
-                     height="100"
-                     width="100"
-                  />
-               </div>
-            </div>
-
-            <div>
-               <img
-                  alt="ferrari_hypercar"
-                  class="w-[400px] lg:w-[600px] xl:w-[800px] mt-14 xl:mt-0 h-auto md:absolute ml-auto mr-auto left-0 right-0 top-1/4 text-center z-40"
-                  src="~/assets/le_mans/ferrari.png"
-               />
-               <div
-                  class="invisible md:visible md:absolute md:w-[370px] lg:w-[570px] xl:w-[770px] h-[60px] bottom-[150px] lg:bottom-[170px] xl:bottom-[120px] left-0 right-0 ml-auto mr-auto text-center bg-primary z-30 rounded-2xl"
-                  style="
-                     background: rgb(255, 235, 0);
-                     background: linear-gradient(
-                        0deg,
-                        rgba(255, 235, 0, 0.1) 0%,
-                        rgba(11, 11, 4, 0.1) 100%
-                     );
-                     box-shadow: 8px 8px 24px 6px rgba(255, 235, 0, 0.1);
-                  "
-               />
-            </div>
-         </div>
-
-         <LemansSponsors class="mt-8" />
-      </div>
-   </div>
+   <EnduRacePage
+      regulations-link="https://docs.google.com/document/d/1wk3H6tLaRZpJ-FBFe46CRjOLH7V9GhntvMUKDtEP2Ns/edit?usp=sharing"
+      :cars-number="42"
+      tour-name="Le Mans"
+      :register-date="new Date('Nov 22, 2024 18:00:00')"
+     :start-date="new Date('Jan 04, 2025 12:00:00')"
+      :media-patronage-src="rally_and_race"
+   >
+      <template #sponsors>
+         <EnduSponsors :sponsors="sponsors"  class="mt-8 "/>
+      </template>
+   </EnduRacePage>
 </template>
 
 <style scoped></style>

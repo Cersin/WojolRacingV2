@@ -63,7 +63,7 @@ const teamList = [
    {
       name: "Rafał Bandura",
       type: teamCategories["Administracja F1"],
-      image: praczyk,
+      image: def,
    },
    {
       name: "Jakub Stanek",

@@ -6,7 +6,7 @@ import HomeDescription from "~/components/home/HomeDescription.vue"
 import HomeButtons from "~/components/home/HomeButtons.vue"
 import { computed } from "vue"
 import DottedCircle from "~/components/layout/DottedCircle.vue"
-import LemansHeader from "~/components/lemans/LemansHeader.vue"
+import EnduRaceHeader from "~/components/endurance/EnduRaceHeader.vue"
 
 const config = useRuntimeConfig()
 const { data } = await useFetch(`${config.public.api_url}api/race/playerCard`, {
@@ -26,7 +26,7 @@ return null
    <div class="relative flex flex-col justify-between bg-primary overflow-auto">
       <MobileHeader class="lg:hidden z-50" />
 
-<!--       <LemansHeader class="lg:hidden" />-->
+       <EnduRaceHeader class="lg:hidden" tour-name="Sebring" />
       <div class="flex flex-col lg:flex-row flex-1 items-start lg:items-center">
          <div
             class="flex lg:hidden gap-8 p-8 items-center justify-between content-stretch"
@@ -38,9 +38,9 @@ return null
 
          <div class="flex-1 items-center hidden lg:flex lg:flex-col lg:items-start lg:justify-center">
             <DesktopHeader class="px-16" />
-<!--            <div class="w-full">-->
-<!--                  <LemansHeader class="px-12" />-->
-<!--            </div>-->
+            <div class="w-full">
+               <EnduRaceHeader class="px-12" tour-name="Sebring" />
+            </div>
          </div>
 
          <HomeCards  :best-card="getRandomPlayer" class="max-w-[800px] z-40" />

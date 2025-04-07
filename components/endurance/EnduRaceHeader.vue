@@ -1,5 +1,12 @@
-<script lang="ts" setup>
+<script lang="ts"  setup>
 import lemans_header from "assets/le_mans/lemans_header.jpeg"
+
+defineProps({
+   tourName: {
+      type: String,
+      required: true,
+   }
+})
 
 function navigateToSocial(link) {
    window.open(link)
@@ -39,7 +46,7 @@ function navigateToSocial(link) {
                      1px 1px 0;
                "
             >
-               Le Mans
+               {{ tourName }}
             </div>
 
             <Countdown
