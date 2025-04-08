@@ -2,6 +2,7 @@
 import TextGenerateEffect from "~/components/inspira/TextGenerateEffect.vue"
 import BaseButton from "~/components/buttons/BaseButton.vue"
 import TextHighlight from "~/components/inspira/TextHighlight.vue"
+import { motion } from "motion-v"
 
 defineProps({
    startDate: {
@@ -31,10 +32,18 @@ defineProps({
    mediaPatronageSrc: {
       type: String,
       default: null,
+   },
+   carSrc : {
+      type: String,
+      default: null,
+   },
+   eventDescription: {
+      type: String,
+      required: true,
    }
 })
 
-function navigateToSocial(link) {
+function navigateToSocial(link: string) {
    window.open(link)
 }
 </script>
@@ -129,8 +138,7 @@ function navigateToSocial(link) {
             <div class="flex-1">
                <TextGenerateEffect
                   class="mr-16 lg:mr-32 text-gray-300"
-                  words="Historic event on the iconic Le Mans circuit! Witness the spirit of endurance come alive.
-Experience the thrill of racing, exciting challenges, and competitions, with incredible prizes for participants and spectators alike. Don’t miss your chance to be part of sim racing history!"
+                  :words="eventDescription"
                />
             </div>
 
@@ -181,10 +189,14 @@ Experience the thrill of racing, exciting challenges, and competitions, with inc
             </div>
 
             <div>
-               <img
+               <motion.img
+                  :initial="{  x: '-100%'  }"
+                  :whileInView="{ x: '0%'}"
+                  :in-view-option="{ once: true }"
+                  :transition="{ duration: 1.2 }"
                   alt="ferrari_hypercar"
                   class="w-[400px] lg:w-[600px] xl:w-[800px] mt-14 xl:mt-0 h-auto md:absolute ml-auto mr-auto left-0 right-0 top-1/4 text-center z-40"
-                  src="~/assets/le_mans/ferrari.png"
+                  :src="carSrc"
                />
                <div
                   class="invisible md:visible md:absolute md:w-[370px] lg:w-[570px] xl:w-[770px] h-[60px] bottom-[150px] lg:bottom-[170px] xl:bottom-[120px] left-0 right-0 ml-auto mr-auto text-center bg-primary z-30 rounded-2xl"

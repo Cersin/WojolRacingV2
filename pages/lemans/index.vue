@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import EnduRacePage from "~/components/endurance/EnduRacePage.vue"
 import rally_and_race from "assets/partners/lemans/rally_and_race.png"
+import ferrari from "assets/le_mans/ferrari.png"
 import overcrest from "assets/partners/lemans/overcrest.png"
 import chwietczuk from "assets/partners/lemans/chwietczuk.png"
 import lempart from "assets/partners/lemans/lempart.png"
@@ -121,6 +122,9 @@ const sponsors = [
       :register-date="new Date('Nov 22, 2024 18:00:00')"
      :start-date="new Date('Jan 04, 2025 12:00:00')"
       :media-patronage-src="rally_and_race"
+      :car-src="ferrari"
+      event-description="Historic event on the iconic Le Mans circuit! Witness the spirit of endurance come alive.
+Experience the thrill of racing, exciting challenges, and competitions, with incredible prizes for participants and spectators alike. Don’t miss your chance to be part of sim racing history!"
    >
       <template #sponsors>
          <EnduSponsors :sponsors="sponsors"  class="mt-8 "/>

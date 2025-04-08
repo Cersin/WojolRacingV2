@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { motion } from "motion-v"
+
 defineProps({
    description: {
       type: String,
@@ -22,7 +24,9 @@ const emit = defineEmits(["click"])
 </script>
 
 <template>
-   <div
+   <motion.div
+      :whileHover="{ scale: 1.1 }"
+      :whilePress="{ scale: 0.95 }"
       class="relative rounded-2xl cursor-pointer drop-shadow-xl"
       v-bind="$attrs"
       @click="emit('click')"
@@ -52,7 +56,7 @@ const emit = defineEmits(["click"])
       >
          {{ description }}
       </div>
-   </div>
+   </motion.div>
 </template>
 
 <style lang="scss" scoped>

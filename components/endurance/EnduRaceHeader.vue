@@ -1,5 +1,6 @@
 <script lang="ts"  setup>
-import lemans_header from "assets/le_mans/lemans_header.jpeg"
+import sebring_header from "assets/sebring/sebring_header.webp"
+import { motion } from "motion-v"
 
 defineProps({
    tourName: {
@@ -18,13 +19,21 @@ function navigateToSocial(link) {
 </script>
 
 <template>
-   <div class="flex">
+
+   <motion.div
+      :whileHover="{ scale: 1.1 }"
+      :whilePress="{ scale: 0.95 }"
+      :initial="{ opacity: 0, scale: 1.2, x: '-100%'  }"
+      :whileInView="{ opacity: 1, scale: 1, x: '0%'}"g
+      :in-view-option="{ once: true }"
+      :transition="{ duration: 1.2 }"
+      class="flex">
       <div
          class="mx-4 mt-4 h-[250px] relative rounded-2xl flex-1 max-w-[800px]"
       >
          <img
-            :src="lemans_header"
-            alt="lemans_header"
+            :src="sebring_header"
+            alt="sebring_header"
             class="object-cover rounded-2xl"
             style="height: 100%; width: 100%; filter: brightness(70%)"
          />
@@ -86,7 +95,7 @@ function navigateToSocial(link) {
             />
          </div>
       </div>
-   </div>
+   </motion.div>
 </template>
 
 <style lang="scss" scoped>

@@ -23,6 +23,7 @@
     "@vueuse/nuxt": "^10.11.1",
     "date-fns": "^4.1.0",
     "emailjs-com": "^3.2.0",
+    "motion-v": "^1.0.0-beta.1",
     "nuxt": "3.12.4",
     "nuxt-countdown": "^1.2.0",
     "v-calendar": "^3.1.2",
