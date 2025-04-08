@@ -34,7 +34,7 @@ import DottedCircle from "~/components/layout/DottedCircle.vue"
             <div class="bg-primary-800 text-black rounded-2xl p-8">
                <div class="font-extrabold text-3xl">01</div>
                <div class="text-base lg:text-xl w-4/5">
-                  Pobierz aplikację (wkrótce dostępna)
+                  Pobierz aplikacje (wkrótce dostępna)
                </div>
             </div>
 

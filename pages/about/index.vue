@@ -106,9 +106,9 @@ const teamList = [
       image: helbin,
    },
    {
-      name: "Dominik Jabłoński",
+      name: "Szymon Uhle",
       type: teamCategories["Administracja Assetto"],
-      image: jablonski,
+      image: def,
    },
    {
       name: "Jakub Pres",
