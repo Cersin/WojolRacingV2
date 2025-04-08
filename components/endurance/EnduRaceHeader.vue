@@ -5,7 +5,11 @@ defineProps({
    tourName: {
       type: String,
       required: true,
-   }
+   },
+   startDate: {
+      type: Date,
+      required: true,
+   },
 })
 
 function navigateToSocial(link) {
@@ -50,9 +54,9 @@ function navigateToSocial(link) {
             </div>
 
             <Countdown
-               v-if="new Date() < new Date('Jan 04, 2025 12:00:00')"
+               v-if="new Date() < startDate"
                v-slot="{ totalHours, minutes, seconds }"
-               :date="new Date('Jan 04, 2025 12:00:00')"
+               :date="startDate"
                class="text-xl"
             >
                The race starts in: {{ totalHours }}:{{ minutes < 10 ? "0" : ""
@@ -60,7 +64,7 @@ function navigateToSocial(link) {
             </Countdown>
 
             <div
-               v-if="new Date() > new Date('Jan 04, 2025 12:00:00')"
+               v-if="new Date() > startDate"
                class="cursor-pointer z-50 text-xl"
                @click="navigateToSocial('https://www.twitch.tv/wojolracing')"
             >
@@ -78,7 +82,7 @@ function navigateToSocial(link) {
                class="z-50"
                label="CHECK AND JOIN"
                trailing-icon="i-heroicons-arrow-right-circle-16-solid"
-               @click="$router.push('/lemans')"
+               @click="$router.push('/sebring')"
             />
          </div>
       </div>

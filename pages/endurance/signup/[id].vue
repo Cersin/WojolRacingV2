@@ -3,7 +3,7 @@ const route = useRoute()
 const config = useRuntimeConfig()
 
 const { data, status } = await useFetch(
-   `${config.public.api_url}api/lemans/${route.params.id}`,
+   `${config.public.api_url}api/endurance/${route.params.id}`,
 )
 </script>
 

@@ -3,7 +3,7 @@ import LinkPreview from "~/components/inspira/LinkPreview.vue"
 
 interface Sponsor {
    image: string,
-   name: string,
+   url: string,
    white?: boolean,
 }
 

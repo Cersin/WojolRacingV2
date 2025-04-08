@@ -25,7 +25,6 @@ const schema = z.object({
    drivers: z.array(driversSchema),
    team: z.string().trim(),
    carType: z.string(),
-   carGTE: z.string().optional(),
    ceo: z.string(),
    ceoDiscordTag: z.string().trim(),
    teamNumber1: z.number().min(2).max(999),
@@ -39,7 +38,6 @@ const state = reactive({
    regulations: undefined,
    team: undefined,
    carType: undefined,
-   carGTE: undefined,
    ceo: undefined,
    ceoDiscordTag: undefined,
    teamNumber1: undefined,
@@ -57,14 +55,13 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       loading.value = true
       const result = await checkCaptcha()
       if (result) {
-         const { data } = await $fetch(`api/lemans`, {
+         const { data } = await $fetch(`api/endurance`, {
             method: "POST",
             body: event.data,
             baseURL: config.public.api_url
          })
-         console.log(data)
          toast.add({ title: "Form sent" })
-         await router.push(`/lemans/signup/${data._id}`)
+         await router.push(`/endurance/signup/${data._id}`)
       }
    } catch (e) {
       console.error(e)
@@ -93,8 +90,7 @@ async function checkCaptcha() {
    }
 }
 
-const carType = ["GTE", "Hypercar"]
-const carsGTE = ["AMR EGT", "Darche EGT 2021", "Michigan EGT"]
+const carType = ["GT300", "GT500"]
 </script>
 
 <template>
@@ -107,7 +103,7 @@ const carsGTE = ["AMR EGT", "Darche EGT 2021", "Michigan EGT"]
       </div>
       <div class="flex justify-center items-center p-4">
          <div class="bg-black p-4 rounded-lg">
-            <div class="font-bold text-3xl mb-4">Le Mans Race Form</div>
+            <div class="font-bold text-3xl mb-4">Sebring Race Form</div>
 
             <div class="text-xl">
                First of all, before you complete the form:
@@ -157,16 +153,7 @@ const carsGTE = ["AMR EGT", "Darche EGT 2021", "Michigan EGT"]
                   <USelectMenu
                      v-model="state.carType"
                      :options="carType"
-                     @change="() => (state.carGTE = undefined)"
                   />
-               </UFormGroup>
-
-               <UFormGroup
-                  v-if="state.carType != undefined && state.carType === 'GTE'"
-                  label="Car"
-                  name="car"
-               >
-                  <USelectMenu v-model="state.carGTE" :options="carsGTE" />
                </UFormGroup>
 
                <UFormGroup label="CEO Full name" name="ceo">
@@ -177,7 +164,7 @@ const carsGTE = ["AMR EGT", "Darche EGT 2021", "Michigan EGT"]
                   <UInput v-model="state.ceoDiscordTag" />
                </UFormGroup>
 
-               <div>Minimum 3 drivers, maximum 5</div>
+               <div>Minimum 3 drivers, maximum 4</div>
                <template v-for="(driver, index) in state.drivers" :key="index">
                   <div>Driver: {{ index + 1 }}</div>
                   <UFormGroup :name="`drivers.${index}.fullName`">
@@ -208,7 +195,7 @@ const carsGTE = ["AMR EGT", "Darche EGT 2021", "Michigan EGT"]
 
                <div>
                   <UButton
-                     v-if="state.drivers.length < 5"
+                     v-if="state.drivers.length < 4"
                      label="Add driver"
                      size="xs"
                      @click="state.drivers.push({})"
