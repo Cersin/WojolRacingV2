@@ -50,9 +50,9 @@ const sponsors = [
 <template>
    <EnduRacePage
       tour-name="Sebring"
-      :register-date="new Date('Apr 13, 2025 12:00:00')"
+      :register-date="new Date('Apr 12, 2025 23:00:00')"
       :start-date="new Date('May 17, 2025 11:30:00')"
-      :cars-number="20"
+      :cars-number="36"
       :car-src="gt"
       event-description="From bumpy runways to legendary battles, Sebring is where endurance racing was born.
 Now it’s your turn to take on the challenge — experience high-stakes sim racing, intense competition, and unforgettable moments."

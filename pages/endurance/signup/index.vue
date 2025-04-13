@@ -109,7 +109,7 @@ const carType = ["GT300", "GT500"]
                First of all, before you complete the form:
                <a
                   class="flex items-center cursor-pointer p-2 w-[300px] lg:w-[300px] text-sm lg:text-lg"
-                  href="https://docs.google.com/document/d/1wk3H6tLaRZpJ-FBFe46CRjOLH7V9GhntvMUKDtEP2Ns/edit?usp=sharing"
+                  href="https://docs.google.com/document/d/1oIj2gv5NqBFhejlK90Dj6sXUO76wPCm2yvJINvK5ZgY/edit?tab=t.0"
                >
                   <Icon class="mr-2" name="mdi:file-document" size="1.5em" />
                   Read Regulations (click)
