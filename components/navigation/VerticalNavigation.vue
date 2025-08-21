@@ -69,8 +69,8 @@ const links = [
       },
    },
    {
-      label: "Endurance",
-      to: "/endurance",
+      label: "WRL AC",
+      to: "/endurance/wrl",
       additional: true,
       click: () => {
          emit("close")
