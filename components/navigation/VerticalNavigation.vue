@@ -37,14 +37,6 @@ const links = [
       },
    },
    {
-      label: "Aplikacja",
-      to: "/application",
-      additional: false,
-      click: () => {
-         emit("close")
-      },
-   },
-   {
       label: "Cammus",
       to: "https://cammusracing.com/",
       additional: false,

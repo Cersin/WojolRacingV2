@@ -1,38 +1,20 @@
 <script lang="ts" setup>
 import type { PartnerModel } from "~/types/partners"
-import anotherway from "~/assets/partners/another_way.png"
 import cammus from "~/assets/partners/cammus.png"
 import tilt from "~/assets/partners/tilt.png"
 import plakatartlab from "~/assets/partners/plakatartlab.png"
 import drive_squad from "~/assets/partners/drive_squad.png"
 import racetracks from "~/assets/partners/racetracks_biale.png"
-import frontszymon from "~/assets/partners/front_szymon.png"
 import irtrack from "~/assets/partners/irtrack.png"
 import difficult from "~/assets/partners/difficult_small.png"
 import simracing from "~/assets/partners/simracing_centre.png"
-import p1 from "~/assets/partners/p1_logo_white.png"
 import sim_masters from "~/assets/partners/sim_masters.png"
-import simfun from "~/assets/partners/simfun_biale_transparent.png"
-import go_racing from "~/assets/partners/go_racing.png"
-import f_one from "~/assets/partners/F-ONE.png"
 import kja from "~/assets/partners/kja.png"
+import ac_musiclab from "~/assets/partners/ac_music_lab.png"
+import racing_shop from "~/assets/partners/racing_shop_logo.png"
+import slavgent from "~/assets/partners/SLAVGENT-biale.png"
 
 const partners: Array<PartnerModel> = [
-   {
-      url: "https://aw-anotherway.pl/",
-      white: true,
-      asset: anotherway,
-   },
-   {
-      url: "https://www.f-one.com.pl/",
-      white: true,
-      asset: f_one,
-   },
-   {
-      url: "https://go-racing.pl/",
-      white: true,
-      asset: go_racing,
-   },
    {
       url: "https://cammusracing.com/",
       white: true,
@@ -64,11 +46,6 @@ const partners: Array<PartnerModel> = [
       asset: racetracks,
    },
    {
-      url: "https://frontszymon.pl/",
-      white: true,
-      asset: frontszymon,
-   },
-   {
       url: "https://www.irtrack.pl/",
       white: true,
       asset: irtrack,
@@ -84,19 +61,24 @@ const partners: Array<PartnerModel> = [
       asset: simracing,
    },
    {
-      url: "https://p1racingmodels.pl/",
-      white: true,
-      asset: p1,
-   },
-   {
       url: "https://www.simmasters.pl/",
       white: true,
       asset: sim_masters,
    },
    {
-      url: "https://simfun.pl/",
+      url: "https://soundcloud.com/ac-music-lab",
       white: true,
-      asset: simfun,
+      asset: ac_musiclab,
+   },
+   {
+      url: "https://racingshop.pl/pl/",
+      white: true,
+      asset: racing_shop,
+   },
+   {
+      url: "https://slavgent.pl/",
+      white: true,
+      asset: slavgent,
    },
 ]
 

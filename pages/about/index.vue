@@ -20,7 +20,8 @@ import janiczek from "~/assets/team/janiczek.png"
 import stalmirski from "~/assets/team/stalmirski.png"
 import sloma from "~/assets/team/sloma.png"
 import kuczyk from "~/assets/team/kuczyk.png"
-import jablonski from "~/assets/team/jablonski.png"
+import bruno from "~/assets/team/bruno_grzeskowiak.webp"
+import cyprian from "~/assets/team/cyprian_drag.webp"
 
 definePageMeta({
    name: "O nas",
@@ -32,6 +33,7 @@ const teamCategories = {
    "Administracja Assetto": "Administracja Assetto",
    Komentatorzy: "Komentatorzy",
    Grafika: "Grafika",
+   TeamEndu: "Team Endu Manager",
 }
 
 const teamList = [
@@ -159,6 +161,16 @@ const teamList = [
       name: "Mateusz Sobkowiak",
       type: teamCategories.Grafika,
       image: def,
+   },
+   {
+      name: "Cyprian Drąg",
+      type: teamCategories.TeamEndu,
+      image: cyprian,
+   },
+   {
+      name: "Bruno Grześkowiak ",
+      type: teamCategories.TeamEndu,
+      image: bruno,
    },
 ]
 </script>

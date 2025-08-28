@@ -70,12 +70,6 @@ function checkIfCustomVisible(name) {
          <NuxtLink
             active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
             class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
-            to="/application"
-         >Aplikacja
-         </NuxtLink>
-         <NuxtLink
-            active-class="text-black bg-primary bottom-right-inverted-border bottom-left-inverted-border"
-            class="flex items-center px-8 h-full hover:bg-primary hover:text-black relative hover-bottom-right-inverted-border hover-bottom-left-inverted-border"
             to="https://cammusracing.com/"
          >Cammus
          </NuxtLink>
