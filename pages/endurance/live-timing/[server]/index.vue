@@ -104,10 +104,16 @@
 import { ref, computed } from 'vue'
 import type { DriverRow, Sector } from "~/types/live-timing"
 const config = useRuntimeConfig()
+const route = useRoute()
+
+const urls = ['http://188.227.170.54:9300', 'https://51.77.43.82:50226', 'https://116.202.87.185:50580', 'http://188.227.170.48:9772']
 
 const { data, refresh, status } = await useFetch(
    `${config.public.api_url}api/live-timing`,
    {
+      params: {
+        server: urls[+route.params.server],
+      },
       transform: (res) => {
          const data = res.data
          const connected = data.ConnectedDrivers || []
@@ -275,7 +281,7 @@ const combinedRows = computed(() => {
       })
 })
 
-onMounted(()=> setInterval(refresh, 15000))
+onMounted(()=> setInterval(refresh, 5000))
 
 
 // onMounted(fetchData)
