@@ -1,5 +1,5 @@
 <script lang="ts"  setup>
-import sebring_header from "assets/sebring/sebring_header.webp"
+import atlanta_header from "assets/atlanta/atlanta.jpg"
 import { motion } from "motion-v"
 
 defineProps({
@@ -32,8 +32,8 @@ function navigateToSocial(link) {
          class="mx-4 mt-4 h-[250px] relative rounded-2xl flex-1 max-w-[800px]"
       >
          <img
-            :src="sebring_header"
-            alt="sebring_header"
+            :src="atlanta_header"
+            alt="atlanta_header"
             class="object-cover rounded-2xl"
             style="height: 100%; width: 100%; filter: brightness(70%)"
          />
@@ -91,7 +91,7 @@ function navigateToSocial(link) {
                class="z-50"
                label="CHECK AND JOIN"
                trailing-icon="i-heroicons-arrow-right-circle-16-solid"
-               @click="$router.push('/sebring')"
+               @click="$router.push('/road_atlanta')"
             />
          </div>
       </div>

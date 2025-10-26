@@ -90,7 +90,7 @@ async function checkCaptcha() {
    }
 }
 
-const carType = ["GT300", "GT500"]
+const carType = ["Touring", "GT1"]
 </script>
 
 <template>
@@ -103,13 +103,13 @@ const carType = ["GT300", "GT500"]
       </div>
       <div class="flex justify-center items-center p-4">
          <div class="bg-black p-4 rounded-lg">
-            <div class="font-bold text-3xl mb-4">Sebring Race Form</div>
+            <div class="font-bold text-3xl mb-4">Road Atlanta Race Form</div>
 
             <div class="text-xl">
                First of all, before you complete the form:
                <a
                   class="flex items-center cursor-pointer p-2 w-[300px] lg:w-[300px] text-sm lg:text-lg"
-                  href="https://docs.google.com/document/d/1oIj2gv5NqBFhejlK90Dj6sXUO76wPCm2yvJINvK5ZgY/edit?tab=t.0"
+                  href="https://docs.google.com/document/d/1Gb0bCt5CUDNyhAeKSNI1V6pHrHVDqF8wu61hgSpMFDk/edit?usp=sharing"
                >
                   <Icon class="mr-2" name="mdi:file-document" size="1.5em" />
                   Read Regulations (click)
