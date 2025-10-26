@@ -13,6 +13,9 @@ import kja from "~/assets/partners/kja.png"
 import ac_musiclab from "~/assets/partners/ac_music_lab.png"
 import racing_shop from "~/assets/partners/racing_shop_logo.png"
 import slavgent from "~/assets/partners/SLAVGENT-biale.png"
+import simline from "~/assets/partners/simline.png"
+import simcenter from "~/assets/partners/simcenter.png"
+import speedframes from "~/assets/partners/speedframes.png"
 
 const partners: Array<PartnerModel> = [
    {
@@ -80,6 +83,21 @@ const partners: Array<PartnerModel> = [
       white: true,
       asset: slavgent,
    },
+   {
+      url: "https://speedframes.pl/",
+      white: true,
+      asset: speedframes,
+   },
+   {
+      url: "https://simline.eu/pl/",
+      white: true,
+      asset: simline,
+   },
+   {
+      url: "https://sim-center.pl/",
+      white: true,
+      asset: simcenter,
+   },
 ]
 
 defineProps({
@@ -92,7 +110,7 @@ defineProps({
 
 <template>
    <Carousel
-      :autoplay="3000"
+      :autoplay="2000"
       :items-to-show="itemsToShow"
       :wrap-around="true"
       circular

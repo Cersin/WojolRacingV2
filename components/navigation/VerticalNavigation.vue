@@ -45,22 +45,6 @@ const links = [
       },
    },
    {
-      label: "Serwery",
-      to: "/servers",
-      additional: true,
-      click: () => {
-         emit("close")
-      },
-   },
-   {
-      label: "Aktualności",
-      to: "/news",
-      additional: false,
-      click: () => {
-         emit("close")
-      },
-   },
-   {
       label: "WRL AC",
       to: "/endurance/wrl",
       additional: true,

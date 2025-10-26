@@ -9,6 +9,7 @@ import racetracks from "assets/partners/racetracks_biale.png"
 import p1 from "assets/partners/p1_logo_white.png"
 import sim_masters from "assets/partners/sim_masters.png"
 import drive_squad from "assets/partners/drive_squad.png"
+import speedframes from "assets/partners/speedframes.png"
 import gt from "assets/atlanta/atlanta_car.png"
 
 const sponsors = [
@@ -43,6 +44,10 @@ const sponsors = [
    {
       url: "https://drivesquad.pl/",
       image: drive_squad,
+   },
+   {
+      url: "https://speedframes.pl/",
+      image: speedframes,
    },
 ]
 </script>

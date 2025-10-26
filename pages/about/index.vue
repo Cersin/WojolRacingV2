@@ -6,16 +6,11 @@ import kacperski from "~/assets/team/kacperski.png"
 import szafranski from "~/assets/team/szafranski.png"
 import praczyk from "~/assets/team/praczyk.png"
 import stanek from "~/assets/team/stanek.png"
-import onik from "~/assets/team/onik.png"
-import kawalec from "~/assets/team/kawalec.png"
-import helbin from "~/assets/team/helbin.png"
 import pres from "~/assets/team/pres.png"
 import kowalczyk from "~/assets/team/kowalczyk.png"
 import strozecki from "~/assets/team/strozecki.png"
 import kamac from "~/assets/team/kamac.png"
-import pakula from "~/assets/team/pakula.png"
 import kozlowski from "~/assets/team/kozlowski.png"
-import kurzak from "~/assets/team/kurzak.png"
 import janiczek from "~/assets/team/janiczek.png"
 import stalmirski from "~/assets/team/stalmirski.png"
 import sloma from "~/assets/team/sloma.png"
@@ -73,11 +68,6 @@ const teamList = [
       image: stanek,
    },
    {
-      name: "Mateusz Onik",
-      type: teamCategories["Administracja F1"],
-      image: onik,
-   },
-   {
       name: "Szymon Kuczyk",
       type: teamCategories["Administracja F1"],
       image: kuczyk,
@@ -89,23 +79,13 @@ const teamList = [
    },
    {
       name: "Jeremiasz Szlosek",
-      type: teamCategories["Administracja F1"],
-      image: def,
-   },
-   {
-      name: "Klaudiusz Kawalec",
       type: teamCategories["Administracja Assetto"],
-      image: kawalec,
+      image: def,
    },
    {
       name: "Max Prus",
       type: teamCategories["Administracja Assetto"],
       image: def,
-   },
-   {
-      name: "Krzysztof Helbin",
-      type: teamCategories["Administracja Assetto"],
-      image: helbin,
    },
    {
       name: "Szymon Uhle",
@@ -133,19 +113,14 @@ const teamList = [
       image: kamac,
    },
    {
-      name: "Kuba Pakuła",
-      type: teamCategories.Komentatorzy,
-      image: pakula,
-   },
-   {
       name: "Kuba Kozłowski",
       type: teamCategories.Komentatorzy,
       image: kozlowski,
    },
    {
-      name: "Adam Kurzak",
+      name: "Mateusz Zieliński",
       type: teamCategories.Komentatorzy,
-      image: kurzak,
+      image: def,
    },
    {
       name: "Kuba Janiczek",

@@ -38,19 +38,8 @@ defineProps({
       />
 
       <div
-         class="h-56 lg:h-60 flex flex-col gap-4 col-span-8 sm:col-span-4 lg:col-span-4"
+         class="flex flex-col gap-4 col-span-8 sm:col-span-4 lg:col-span-4"
       >
-         <button
-            class="bg-black bg-opacity-70 h-1/4 w-full p-4 rounded-2xl text-white font-light hover:bg-secondary"
-            type="button"
-            @click="$router.push('/news')"
-         >
-            <div class="justify-center text-center flex">
-               Aktualności
-               <Icon name="ic:baseline-arrow-forward" size="1.5em" />
-            </div>
-         </button>
-
          <PlayerCard
             v-if="bestCard"
             :card="bestCard"
