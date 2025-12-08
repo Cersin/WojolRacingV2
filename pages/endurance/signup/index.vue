@@ -25,6 +25,7 @@ const schema = z.object({
    drivers: z.array(driversSchema),
    team: z.string().trim(),
    carType: z.string(),
+   carGTE: z.string().optional(),
    ceo: z.string(),
    ceoDiscordTag: z.string().trim(),
    teamNumber1: z.number().min(2).max(999),
@@ -38,6 +39,7 @@ const state = reactive({
    regulations: undefined,
    team: undefined,
    carType: undefined,
+   carGTE: undefined,
    ceo: undefined,
    ceoDiscordTag: undefined,
    teamNumber1: undefined,
@@ -91,6 +93,7 @@ async function checkCaptcha() {
 }
 
 const carType = ["Touring", "GT1"]
+const carsGTE = ["Ford", "Renault", "Honda"]
 </script>
 
 <template>
@@ -153,7 +156,16 @@ const carType = ["Touring", "GT1"]
                   <USelectMenu
                      v-model="state.carType"
                      :options="carType"
+                     @change="() => (state.carGTE = undefined)"
                   />
+               </UFormGroup>
+
+               <UFormGroup
+                  v-if="state.carType != undefined && state.carType === 'Touring'"
+                  label="Car"
+                  name="car"
+               >
+                  <USelectMenu v-model="state.carGTE" :options="carsGTE" />
                </UFormGroup>
 
                <UFormGroup label="CEO Full name" name="ceo">
