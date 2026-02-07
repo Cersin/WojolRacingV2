@@ -1,5 +1,4 @@
 <script lang="ts"  setup>
-import atlanta_header from "assets/atlanta/atlanta.jpg"
 import { motion } from "motion-v"
 
 defineProps({
@@ -11,6 +10,15 @@ defineProps({
       type: Date,
       required: true,
    },
+   headerSrc: {
+      type: String,
+      required: true,
+   },
+   routePush: {
+      type: String,
+      required: true,
+   }
+
 })
 
 function navigateToSocial(link) {
@@ -19,7 +27,6 @@ function navigateToSocial(link) {
 </script>
 
 <template>
-
    <motion.div
       :whileHover="{ scale: 1.1 }"
       :whilePress="{ scale: 0.95 }"
@@ -29,11 +36,11 @@ function navigateToSocial(link) {
       :transition="{ duration: 1.2 }"
       class="flex">
       <div
-         class="mx-4 mt-4 h-[250px] relative rounded-2xl flex-1 max-w-[800px]"
+         class="mx-4 mt-4 h-[250px] relative rounded-2xl flex-1"
       >
          <img
-            :src="atlanta_header"
-            alt="atlanta_header"
+            :src="headerSrc"
+            alt="header"
             class="object-cover rounded-2xl"
             style="height: 100%; width: 100%; filter: brightness(70%)"
          />
@@ -91,7 +98,7 @@ function navigateToSocial(link) {
                class="z-50"
                label="CHECK AND JOIN"
                trailing-icon="i-heroicons-arrow-right-circle-16-solid"
-               @click="$router.push('/road_atlanta')"
+               @click="$router.push(routePush)"
             />
          </div>
       </div>

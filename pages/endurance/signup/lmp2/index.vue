@@ -38,14 +38,14 @@ type Schema = z.output<typeof schema>
 const state = reactive({
    regulations: undefined,
    team: undefined,
-   carType: undefined,
+   carType: 'LMP2',
    carGTE: undefined,
    ceo: undefined,
    ceoDiscordTag: undefined,
    teamNumber1: undefined,
    teamNumber2: undefined,
    teamNumber3: undefined,
-   drivers: [{}, {}]
+   drivers: [{}]
 })
 
 const token = ref()
@@ -57,13 +57,13 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       loading.value = true
       const result = await checkCaptcha()
       if (result) {
-         const { data } = await $fetch(`api/endurance`, {
+         const { data } = await $fetch(`api/endurance/lmp2`, {
             method: "POST",
             body: event.data,
             baseURL: config.public.api_url
          })
          toast.add({ title: "Form sent" })
-         await router.push(`/endurance/signup/${data._id}`)
+         await router.push(`/endurance/signup/lmp2/${data._id}`)
       }
    } catch (e) {
       console.error(e)
@@ -92,7 +92,7 @@ async function checkCaptcha() {
    }
 }
 
-const carType = ["GT3", "HYPERCAR"]
+const carType = ["LMP2"]
 // const carsGTE = ["Ford", "Renault", "Honda"]
 </script>
 
@@ -106,7 +106,7 @@ const carType = ["GT3", "HYPERCAR"]
       </div>
       <div class="flex justify-center items-center p-4">
          <div class="bg-black p-4 rounded-lg">
-            <div class="font-bold text-3xl mb-4">Daytona 24H Race Form</div>
+            <div class="font-bold text-3xl mb-4">Daytona LMP2 Race Form</div>
 
             <div class="text-xl">
                First of all, before you complete the form:
@@ -180,7 +180,7 @@ const carType = ["GT3", "HYPERCAR"]
                   <UInput v-model="state.ceoDiscordTag" />
                </UFormGroup>
 
-               <div>Minimum 2 drivers, maximum 5</div>
+               <div>Minimum 1 driver, maximum 2</div>
                <template v-for="(driver, index) in state.drivers" :key="index">
                   <div>Driver: {{ index + 1 }}</div>
                   <UFormGroup :name="`drivers.${index}.fullName`">
@@ -202,7 +202,7 @@ const carType = ["GT3", "HYPERCAR"]
                   </UFormGroup>
 
                   <UButton
-                     v-if="index > 1"
+                     v-if="index > 0"
                      label="Delete driver"
                      size="xs"
                      @click="state.drivers.splice(index, 1)"
@@ -211,7 +211,7 @@ const carType = ["GT3", "HYPERCAR"]
 
                <div>
                   <UButton
-                     v-if="state.drivers.length < 5"
+                     v-if="state.drivers.length < 2"
                      label="Add driver"
                      size="xs"
                      @click="state.drivers.push({})"

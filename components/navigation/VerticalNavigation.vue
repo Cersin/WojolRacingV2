@@ -37,14 +37,6 @@ const links = [
       },
    },
    {
-      label: "Cammus",
-      to: "https://cammusracing.com/",
-      additional: false,
-      click: () => {
-         emit("close")
-      },
-   },
-   {
       label: "WRL AC",
       to: "/endurance/wrl",
       additional: true,

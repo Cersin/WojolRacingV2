@@ -40,6 +40,10 @@ defineProps({
    eventDescription: {
       type: String,
       required: true,
+   },
+   signUpLink: {
+      type: String,
+      default: null,
    }
 })
 
@@ -127,7 +131,7 @@ function navigateToSocial(link: string) {
                   </Countdown>
                                     <BaseButton
                                        v-if="new Date() > registerDate"
-                                       @click="$router.push('/endurance/signup')"
+                                       @click="$router.push(signUpLink ? signUpLink : '/endurance/signup')"
                                        >Sign up
                                     </BaseButton>
                </div>
@@ -143,7 +147,6 @@ function navigateToSocial(link: string) {
             </div>
 
             <div
-               class="relative bg-primary mt-4 md:mt-0 h-[300px] lg:h-[400px] xl:h-[500px] flex-1 rounded-3xl text-black flex flex-col md:items-end"
             >
                <div
                   class="flex items-center p-2 w-[300px] lg:w-[300px] text-sm lg:text-lg"
@@ -188,7 +191,7 @@ function navigateToSocial(link: string) {
                </div>
             </div>
 
-            <div>
+            <div v-if="carSrc">
                <motion.img
                   :initial="{  x: '-100%'  }"
                   :whileInView="{ x: '0%'}"
