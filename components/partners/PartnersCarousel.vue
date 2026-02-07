@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { PartnerModel } from "~/types/partners"
-import cammus from "~/assets/partners/cammus.png"
 import tilt from "~/assets/partners/tilt.png"
 import plakatartlab from "~/assets/partners/plakatartlab.png"
 import drive_squad from "~/assets/partners/drive_squad.png"
@@ -18,11 +17,6 @@ import simcenter from "~/assets/partners/simcenter.png"
 import speedframes from "~/assets/partners/speedframes.png"
 
 const partners: Array<PartnerModel> = [
-   {
-      url: "https://cammusracing.com/",
-      white: true,
-      asset: cammus,
-   },
    {
       url: "https://tilt.pl/",
       white: true,
