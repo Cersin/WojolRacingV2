@@ -10,7 +10,7 @@ import bathurst from "~/assets/endurance/bathurst.jpg"
 import pe_s1 from "~/assets/endurance/pe_s1.jpg"
 
 definePageMeta({
-   name: "Endurance",
+   name: "endurance",
 })
 
 const participations = [

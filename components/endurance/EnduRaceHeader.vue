@@ -21,8 +21,20 @@ defineProps({
 
 })
 
-function navigateToSocial(link) {
+function navigateToSocial(link: string) {
    window.open(link)
+}
+
+function formatCountdown(totalHours: number, minutes: number, _seconds: number): string {
+   const days = Math.floor(totalHours / 24)
+   const hours = totalHours % 24
+
+   const result = []
+   if (days > 0) result.push(`${days} day${days !== 1 ? 's' : ''}`)
+   if (hours > 0) result.push(`${hours} hour${hours !== 1 ? 's' : ''}`)
+   if (minutes > 0 || result.length === 0) result.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`)
+
+   return result.join(' ')
 }
 </script>
 
@@ -75,8 +87,7 @@ function navigateToSocial(link) {
                :date="startDate"
                class="text-xl"
             >
-               The race starts in: {{ totalHours }}:{{ minutes < 10 ? "0" : ""
-               }}{{ minutes }}:{{ seconds }}
+               The race starts in: {{ formatCountdown(totalHours, minutes, seconds) }}
             </Countdown>
 
             <div

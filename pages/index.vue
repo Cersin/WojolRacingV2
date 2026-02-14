@@ -24,10 +24,6 @@ return null
 
 <template>
    <div class="relative flex flex-col justify-between bg-primary overflow-auto items-center">
-<!--      <MobileHeader class="lg:hidden z-50" />-->
-<!--      <EnduRaceHeader v-if="new Date() < new Date('2026-03-02T00:00:00')" class="lg:hidden" route-push="/daytona_24h" header-src="daytona/daytona_lmp2.jpg" tour-name="Daytona LMP2" :start-date="new Date('Dec 07, 2025 11:30:00')" />-->
-<!--      <EnduRaceHeader v-if="new Date() < new Date('2026-04-13T00:00:00')" class="lg:hidden" route-push="/daytona_lmp2" header-src="daytona/daytona_hyper.jpg" tour-name="DAYTONA 24H" :start-date="new Date('Dec 07, 2025 11:30:00')" />-->
-
       <div class="flex flex-row flex-1  items-center justify-center">
          <div class="flex-1   lg:flex lex-col items-center justify-center">
             <DesktopHeader class="px-16" />

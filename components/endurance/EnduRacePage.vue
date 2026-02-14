@@ -50,6 +50,18 @@ defineProps({
 function navigateToSocial(link: string) {
    window.open(link)
 }
+
+function formatCountdown(totalHours: number, minutes: number, _seconds: number): string {
+   const days = Math.floor(totalHours / 24)
+   const hours = totalHours % 24
+
+   const result = []
+   if (days > 0) result.push(`${days} day${days !== 1 ? 's' : ''}`)
+   if (hours > 0) result.push(`${hours} hour${hours !== 1 ? 's' : ''}`)
+   if (minutes > 0 || result.length === 0) result.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`)
+
+   return result.join(' ')
+}
 </script>
 
 <template>
@@ -94,8 +106,7 @@ function navigateToSocial(link: string) {
                      v-slot="{ totalHours, minutes, seconds }"
                      :date="startDate"
                   >
-                     {{ totalHours }}:{{ minutes < 10 ? "0" : ""
-                     }}{{ minutes }}:{{ seconds }}
+                     {{ formatCountdown(totalHours, minutes, seconds) }}
                   </Countdown>
                   <BaseButton
                      v-if="new Date() > startDate"
@@ -126,8 +137,7 @@ function navigateToSocial(link: string) {
                      v-slot="{ totalHours, minutes, seconds }"
                      :date="registerDate"
                   >
-                     {{ totalHours }}:{{ minutes < 10 ? "0" : ""
-                     }}{{ minutes }}:{{ seconds }}
+                     {{ formatCountdown(totalHours, minutes, seconds) }}
                   </Countdown>
                                     <BaseButton
                                        v-if="new Date() > registerDate"
