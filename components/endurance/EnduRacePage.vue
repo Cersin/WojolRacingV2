@@ -87,7 +87,7 @@ function formatCountdown(totalHours: number, minutes: number, _seconds: number):
 
             <div>
                <div
-                  class="mb-2 text-2xl md:text-3xl lg:text-4xl text-primary flex flex-col items-end"
+                  class="mb-2 text-2xl md:text-3xl lg:text-4xl text-primary flex flex-col items-end text-end"
                >
                   <div
                      v-if="new Date() < startDate"
@@ -118,7 +118,7 @@ function formatCountdown(totalHours: number, minutes: number, _seconds: number):
                </div>
                <div
                   v-if="new Date() < startDate"
-                  class="text-2xl md:text-3xl lg:text-4xl text-primary flex flex-col items-end"
+                  class="text-2xl md:text-3xl lg:text-4xl text-primary flex flex-col items-end text-end"
                >
                                     <div
                                        v-if="new Date() < registerDate"
@@ -159,7 +159,7 @@ function formatCountdown(totalHours: number, minutes: number, _seconds: number):
             <div
             >
                <div
-                  class="flex items-center p-2 w-[300px] lg:w-[300px] text-sm lg:text-lg"
+                  class="flex items-center p-2 text-sm lg:text-lg"
                >
                   <Icon
                      class="mr-2"
@@ -171,7 +171,7 @@ function formatCountdown(totalHours: number, minutes: number, _seconds: number):
 
                <div
                   v-if="rewardPrice"
-                  class="flex items-center p-2 w-[300px] lg:w-[300px] text-sm lg:text-lg"
+                  class="flex items-center p-2 text-sm lg:text-lg"
                >
                   <Icon
                      class="mr-2"

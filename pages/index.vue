@@ -24,12 +24,12 @@ return null
 
 <template>
    <div class="relative flex flex-col justify-between bg-primary overflow-auto items-center">
-      <div class="flex flex-row flex-1  items-center justify-center">
-         <div class="flex-1   lg:flex lex-col items-center justify-center">
-            <DesktopHeader class="px-16" />
-            <div class="w-full">
-               <EnduRaceHeader v-if="new Date() < new Date('2026-04-13T00:00:00')"  class="px-12" route-push="/daytona_24h" header-src="daytona/daytona_hyper.jpg"  tour-name="DAYTONA 24H" :start-date="new Date('2026-04-11T13:00:00')" />
-               <EnduRaceHeader v-if="new Date() < new Date('2026-03-02T00:00:00')" class="px-12" route-push="/daytona_lmp2" header-src="daytona/daytona_lmp2.jpg"   tour-name="Daytona LMP2" :start-date="new Date('2026-03-01T14:00:00')"  />
+      <div class="flex flex-row flex-1  items-center justify-center p-4">
+         <div class="flex-1  lg:flex-row flex flex-col items-center justify-center">
+            <DesktopHeader class="lg:px-16" />
+            <div class="w-full my-4">
+               <EnduRaceHeader v-if="new Date() < new Date('2026-04-13T00:00:00')"  class="lg:px-12" route-push="/daytona_24h" header-src="daytona/daytona_hyper.jpg"  tour-name="DAYTONA 24H" :start-date="new Date('2026-04-11T13:00:00')" />
+               <EnduRaceHeader v-if="new Date() < new Date('2026-03-02T00:00:00')" class="lg:px-12" route-push="/daytona_lmp2" header-src="daytona/daytona_lmp2.jpg"   tour-name="Daytona LMP2" :start-date="new Date('2026-03-01T14:00:00')"  />
             </div>
          </div>
 
